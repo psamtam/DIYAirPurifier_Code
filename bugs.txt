@@ -1,4 +1,1 @@
-1. in the menu date and time, when b1 pressed, it has no response in the lcd
-2. Both presets cannot be configured. 
-3. After entering standby mode, the lcd will never leave standby mode. But the button 1 and button 2 still controls fan and led although encoder has no effect on it. 
-4. The rotary encoder is sometimes laggy.
+1. Now date time is set-able. But now rotary encoder does nothing to the menu. It doesnt navigate to next pages. 

@@ -276,10 +276,8 @@ bool bmpOK = false;
 bool rtcOK = false;
 bool eepromOK = false;
 
-
 const uint32_t EEPROM_MAGIC = 0x41505246UL; // "APRF"
 const uint16_t EEPROM_VERSION = 1;
-
 Config config;
 uint8_t fanSpeed = DEFAULT_FAN_SPEED;
 uint8_t ledBrightness = DEFAULT_LED_BRIGHTNESS;
@@ -505,7 +503,7 @@ void setupFanPWM() {
 
 void setupLedPWM() {
   pinMode(PIN_LED, OUTPUT);
-  TCCR3A = 0; TCCR3B = 0; TCCR3C = 0;
+  TCCR3A = 0; TCCR3B = 0; TCCR3C = 0; TCNT3 = 0;
   ICR3 = PWM_TOP; OCR3A = 0;
   TCCR3A = _BV(COM3A1) | _BV(WGM31);
   TCCR3B = _BV(WGM33) | _BV(WGM32) | _BV(CS30);
@@ -841,7 +839,6 @@ uint8_t nextPresetAbove(const uint8_t *presets, uint8_t current) {
 // 8. MENU CONFIGURATION EDITING
 // ============================================================================
 
-
 int getSettingValue(SettingId id) {
   switch (id) {
     case SET_BACKLIGHT: return config.backlightTimeoutSeconds;
@@ -948,6 +945,13 @@ void changeDateField(int delta) {
 }
 
 void drawDateEditor() {
+  if (!rtcOK || !dateEditing) {
+    lcdLine(0, F("DATE & TIME"));
+    lcdLine(1, F("RTC unavailable"));
+    lcdLine(2, F("Check DS3231"));
+    lcdLine(3, F("B2 Back"));
+    return;
+  }
   char b[21];
   tinyFormat_P(b, sizeof(b), PSTR("Set date/time %u/6"), (unsigned int)(dateEditField + 1)); lcdLine(0, b);
   tinyFormat_P(b, sizeof(b), PSTR("%04d-%02d-%02d"), editYear, editMonth, editDay); lcdLine(1, b);
@@ -1009,7 +1013,7 @@ void drawPowerSettings() {
 void drawPresetEditor(bool fan, uint8_t idx) {
   char b[21];
   lcdLine(0, fan ? F("FAN PRESETS") : F("LED PRESETS"));
-  tinyFormat_P(b, sizeof(b), PSTR("Preset %u of 6"), (unsigned int)(idx + 1)); lcdLine(1, b);
+  tinyFormat_P(b, sizeof(b), PSTR("Preset %u of %u"), (unsigned int)(idx + 1), (unsigned int)PRESET_COUNT); lcdLine(1, b);
   tinyFormat_P(b, sizeof(b), PSTR("%u%%"), (unsigned int)(fan ? config.fanPresets[idx] : config.ledPresets[idx])); lcdLine(2, b);
   lcdLine(3, menuEditing ? F("Rotary +/- B1 save") : F("B1 Edit B2 Back"));
 }
@@ -1034,6 +1038,7 @@ uint8_t submenuIndex = 0;
 
 void renderMenuPage() {
   if (menuPage == 0) drawMenu();
+  else if (menuPage == 8) drawDateEditor();
   else if (menuPage == 1) drawDisplaySettings(submenuIndex);
   else if (menuPage == 2) drawSensorSettings(submenuIndex);
   else if (menuPage == 3) drawPowerSettings();
@@ -1096,6 +1101,7 @@ void enterSelectedMenuItem() {
 }
 
 void handleMenuButton1() {
+  if (menuPage == 8 && !dateEditing) return;
   if (dateEditing) {
     if (dateEditField < 5) dateEditField++;
     else {
@@ -1109,8 +1115,8 @@ void handleMenuButton1() {
   if (menuPage == 0) { enterSelectedMenuItem(); return; }
   if (menuPage == 6 || menuPage == 7) return;
   if (!menuEditing) {
+    // Keep editingPresetIndex: the rotary encoder selects which preset is edited.
     beginConfigEdit();
-    if (menuPage == 4 || menuPage == 5) { editingPresetIndex = submenuIndex; }
   } else {
     if (menuPage == 4 || menuPage == 5) {
       uint8_t *arr = menuPage == 4 ? config.fanPresets : config.ledPresets;
@@ -1170,6 +1176,16 @@ void processButtons() {
   updateButton(button3, p3, r3);
   uint32_t now = millis();
 
+  // Standby accepts only Button 3. Button 1, Button 2 and the encoder
+  // must not change outputs while the purifier is in standby.
+  if (powerState == STANDBY) {
+    if (p3) {
+      wakeFromStandby();
+      button3WakeOnlyUntilRelease = true;
+    }
+    return;
+  }
+
   // First interaction after backlight timeout only wakes the backlight.
   if (powerState == OPERATING && !lcdBacklightOn) {
     if (p1 || p2 || p3) {
@@ -1209,9 +1225,7 @@ void processEncoder() {
   if (uiState == FAN_ADJUSTMENT || uiState == LED_ADJUSTMENT) {
     adjustActiveOutput(delta);
   } else if (uiState == MENU) {
-    // Main menu navigation must also be routed to handleMenuEncoder().
-    // That function already handles menuPage == 0 and wraps all 8 items.
-    if (menuPage == 0 || menuPage == 8) handleMenuEncoder(delta);
+    if (menuPage == 8) handleMenuEncoder(delta);
     else if (menuPage == 1 || menuPage == 2 || menuPage == 3 || menuPage == 4 || menuPage == 5) {
       if (!menuEditing && (menuPage == 1 || menuPage == 2)) {
         uint8_t maxItems = menuPage == 1 ? 3 : 4;
