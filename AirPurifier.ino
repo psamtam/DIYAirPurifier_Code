@@ -276,6 +276,7 @@ bool bmpOK = false;
 bool rtcOK = false;
 bool eepromOK = false;
 
+
 const uint32_t EEPROM_MAGIC = 0x41505246UL; // "APRF"
 const uint16_t EEPROM_VERSION = 1;
 
@@ -335,7 +336,6 @@ const int8_t encoderTable[16] PROGMEM = {
 };
 
 // Debounced button state
-
 ButtonState button1 = {PIN_BUTTON1, false, false, 0, 0, false};
 ButtonState button2 = {PIN_BUTTON2, false, false, 0, 0, false};
 ButtonState button3 = {PIN_BUTTON3, false, false, 0, 0, false};
@@ -505,7 +505,7 @@ void setupFanPWM() {
 
 void setupLedPWM() {
   pinMode(PIN_LED, OUTPUT);
-  TCCR3A = 0; TCCR3B = 0; TCCR3C = 0; TCNT3 = 0;
+  TCCR3A = 0; TCCR3B = 0; TCCR3C = 0;
   ICR3 = PWM_TOP; OCR3A = 0;
   TCCR3A = _BV(COM3A1) | _BV(WGM31);
   TCCR3B = _BV(WGM33) | _BV(WGM32) | _BV(CS30);
@@ -1209,7 +1209,9 @@ void processEncoder() {
   if (uiState == FAN_ADJUSTMENT || uiState == LED_ADJUSTMENT) {
     adjustActiveOutput(delta);
   } else if (uiState == MENU) {
-    if (menuPage == 8) handleMenuEncoder(delta);
+    // Main menu navigation must also be routed to handleMenuEncoder().
+    // That function already handles menuPage == 0 and wraps all 8 items.
+    if (menuPage == 0 || menuPage == 8) handleMenuEncoder(delta);
     else if (menuPage == 1 || menuPage == 2 || menuPage == 3 || menuPage == 4 || menuPage == 5) {
       if (!menuEditing && (menuPage == 1 || menuPage == 2)) {
         uint8_t maxItems = menuPage == 1 ? 3 : 4;
