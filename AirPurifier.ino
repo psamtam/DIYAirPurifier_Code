@@ -567,17 +567,27 @@ uint16_t checksumBytes(const uint8_t *data, size_t length) {
 }
 
 bool eepromWriteBytes(uint16_t address, const uint8_t *data, uint16_t length) {
-  // AT24C32 page size is commonly 32 bytes. Split writes at page boundaries.
+  // AT24C32 page size is 32 bytes, but the AVR Wire TX buffer is only
+  // 32 bytes TOTAL. The two EEPROM address bytes leave at most 30 data bytes.
+  // Respect both limits and never cross a physical EEPROM page boundary.
   while (length) {
     uint8_t pageRemaining = 32 - (address % 32);
-    uint8_t chunk = (length < pageRemaining) ? length : pageRemaining;
+    uint8_t chunk = (length < pageRemaining) ? (uint8_t)length : pageRemaining;
+    if (chunk > 30) chunk = 30;
+
     Wire.beginTransmission(EEPROM_I2C_ADDRESS);
-    Wire.write((uint8_t)(address >> 8));
-    Wire.write((uint8_t)(address & 0xFF));
-    for (uint8_t i = 0; i < chunk; ++i) Wire.write(data[i]);
+    if (Wire.write((uint8_t)(address >> 8)) != 1) return false;
+    if (Wire.write((uint8_t)(address & 0xFF)) != 1) return false;
+    for (uint8_t i = 0; i < chunk; ++i) {
+      if (Wire.write(data[i]) != 1) return false;
+    }
     if (Wire.endTransmission() != 0) return false;
-    delay(5); // EEPROM internal write-cycle time; not part of the main loop.
-    address += chunk; data += chunk; length -= chunk;
+
+    // Allow the AT24C32 internal page-write cycle to complete.
+    delay(6);
+    address += chunk;
+    data += chunk;
+    length -= chunk;
   }
   return true;
 }
@@ -652,7 +662,17 @@ bool saveConfig() {
   stored.version = EEPROM_VERSION;
   stored.config = config;
   stored.checksum = checksumBytes((const uint8_t *)&stored.config, sizeof(Config));
-  return eepromWriteBytes(0, (const uint8_t *)&stored, sizeof(stored));
+
+  if (!eepromWriteBytes(0, (const uint8_t *)&stored, sizeof(stored))) return false;
+
+  // Read the record back so a failed/truncated I2C write cannot be mistaken
+  // for a successful save and later silently replaced with defaults.
+  StoredConfig verify;
+  if (!eepromReadBytes(0, (uint8_t *)&verify, sizeof(verify))) return false;
+  if (verify.magic != stored.magic || verify.version != stored.version) return false;
+  if (verify.checksum != stored.checksum) return false;
+  if (memcmp(&verify.config, &stored.config, sizeof(Config)) != 0) return false;
+  return true;
 }
 
 // ============================================================================
@@ -789,7 +809,9 @@ void enterStandby(bool explicitRequest) {
   if (explicitRequest) {
     config.defaultFanSpeed = fanSpeed;
     config.defaultLedBrightness = ledBrightness;
-    saveConfig();
+    bool defaultsSaved = saveConfig();
+    if (defaultsSaved) Serial.println(F("Startup fan/LED defaults saved to EEPROM."));
+    else Serial.println(F("ERROR: failed to save startup defaults to EEPROM."));
   }
   fanSpeed = 0;
   ledBrightness = 0;
@@ -1225,7 +1247,7 @@ void processEncoder() {
   if (uiState == FAN_ADJUSTMENT || uiState == LED_ADJUSTMENT) {
     adjustActiveOutput(delta);
   } else if (uiState == MENU) {
-    if (menuPage == 8) handleMenuEncoder(delta);
+    if (menuPage == 0 || menuPage == 8) handleMenuEncoder(delta);
     else if (menuPage == 1 || menuPage == 2 || menuPage == 3 || menuPage == 4 || menuPage == 5) {
       if (!menuEditing && (menuPage == 1 || menuPage == 2)) {
         uint8_t maxItems = menuPage == 1 ? 3 : 4;

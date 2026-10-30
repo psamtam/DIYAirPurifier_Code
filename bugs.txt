@@ -1,1 +1,1 @@
-1. Now date time is set-able. But now rotary encoder does nothing to the menu. It doesnt navigate to next pages. 
+No major bugs. Next is to refine the UX. 
