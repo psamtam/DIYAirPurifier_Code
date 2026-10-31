@@ -765,12 +765,36 @@ bool ahtMeasurementPending = false;
 
 void readEnvironmentalSensors() {
   uint32_t now = millis();
-  if (ahtOK && !ahtMeasurementPending) {
-    if (aht.startMeasurement()) {
-      ahtMeasurementStartedMs = now;
-      ahtMeasurementPending = true;
-    } else ahtReadingValid = false;
-  } else if (!ahtOK) ahtReadingValid = false;
+  if (ahtOK) {
+    if (powerState == STANDBY) {
+      // In Power-down standby the main loop sleeps between watchdog ticks.
+      // Complete the AHT20 transaction while awake instead of leaving a
+      // conversion pending across sleep cycles. This avoids stale/ERR readings
+      // if the watchdog timing or millis bookkeeping differs from expectation.
+      if (ahtMeasurementPending) {
+        ahtMeasurementPending = false;
+        float pendingT, pendingH;
+        if (aht.finishMeasurement(pendingT, pendingH) && !isnan(pendingT) && !isnan(pendingH)) {
+          temperatureC = pendingT; humidityPercent = pendingH;
+          ahtReadingValid = true; lastAhtSuccessMs = now;
+        }
+      }
+      if (aht.startMeasurement()) {
+        delay(80); // Only once per configured standby sensor refresh interval.
+        float t, h;
+        if (aht.finishMeasurement(t, h) && !isnan(t) && !isnan(h)) {
+          temperatureC = t; humidityPercent = h;
+          ahtReadingValid = true; lastAhtSuccessMs = millis();
+        } else ahtReadingValid = false;
+      } else ahtReadingValid = false;
+    } else if (!ahtMeasurementPending) {
+      // Operating mode remains non-blocking so encoder polling stays responsive.
+      if (aht.startMeasurement()) {
+        ahtMeasurementStartedMs = now;
+        ahtMeasurementPending = true;
+      } else ahtReadingValid = false;
+    }
+  } else ahtReadingValid = false;
 
   if (bmpOK) {
     float t, p;

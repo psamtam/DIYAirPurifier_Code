@@ -1,1 +1,8 @@
-Low power works, but temp and humidity in standby screen shows err.
+Everything works. 
+
+Now I want to update the following: 
+1. Use 8 seconds watchdog
+2. only allow standby sensor settings to be multiply of 8, with MAX_STANDBY_SENSOR_INTERVAL_SECONDS 320
+3. UI bug: Under Settings -> Display -> Time format:
+when i am editing that setting, the value is always shown as 12H / 24H
+I want it to show the selected value, instead of staticly showing `12H / 24H`
