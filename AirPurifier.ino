@@ -8,7 +8,7 @@
 
   AHT20, BMP280 and DS3231 use compact register-level drivers below.
   The AT24C32 is accessed directly over I2C at EEPROM_I2C_ADDRESS.
-  Standby uses ATmega32U4 Power-down sleep with 1-second watchdog wake-ups
+  Standby uses ATmega32U4 Power-down sleep with 8-second watchdog wake-ups
   and Button 3 external-interrupt wake-up.
 */
 
@@ -229,7 +229,7 @@ const uint8_t  DEFAULT_STANDBY_LCD_INTERVAL_N = 5;
 const bool     DEFAULT_PMS7003_ENABLED = true;
 const uint8_t  DEFAULT_PM_AVERAGE_WINDOW = 5;
 const uint16_t DEFAULT_OPERATING_SENSOR_INTERVAL_SECONDS = 2;
-const uint16_t DEFAULT_STANDBY_SENSOR_INTERVAL_SECONDS = 30;
+const uint16_t DEFAULT_STANDBY_SENSOR_INTERVAL_SECONDS = 32;
 const uint16_t DEFAULT_AUTO_STANDBY_TIMEOUT_MINUTES = 5;
 const uint8_t  DEFAULT_FAN_SPEED = 50;
 const uint8_t  DEFAULT_LED_BRIGHTNESS = 50;
@@ -245,8 +245,8 @@ const uint8_t MIN_PM_AVERAGE_WINDOW = 1;
 const uint8_t MAX_PM_AVERAGE_WINDOW = 10;
 const uint16_t MIN_OPERATING_SENSOR_INTERVAL_SECONDS = 1;
 const uint16_t MAX_OPERATING_SENSOR_INTERVAL_SECONDS = 60;
-const uint16_t MIN_STANDBY_SENSOR_INTERVAL_SECONDS = 5;
-const uint16_t MAX_STANDBY_SENSOR_INTERVAL_SECONDS = 300;
+const uint16_t MIN_STANDBY_SENSOR_INTERVAL_SECONDS = 8;
+const uint16_t MAX_STANDBY_SENSOR_INTERVAL_SECONDS = 320;
 const uint16_t MIN_AUTO_STANDBY_TIMEOUT_MINUTES = 1;
 const uint16_t MAX_AUTO_STANDBY_TIMEOUT_MINUTES = 60;
 
@@ -324,11 +324,12 @@ uint32_t lastStandbySensorMs = 0;
 uint32_t lastStandbyLcdMs = 0;
 
 // Power-down standby support. Timer0 stops in Power-down, so advance the
-// Arduino millis counter by one second on each watchdog wake.
+// Arduino millis counter by eight seconds on each watchdog wake.
 extern volatile unsigned long timer0_millis;
 volatile uint8_t standbyWatchdogFired = 0;
+volatile uint8_t standbyButtonWakeFired = 0;
 ISR(WDT_vect) { standbyWatchdogFired = 1; }
-void standbyButtonWakeISR() { /* INT6 only wakes the CPU; button handling stays in loop(). */ }
+void standbyButtonWakeISR() { standbyButtonWakeFired = 1; }
 uint32_t lastMainRotationMs = 0;
 uint32_t lastBacklightActivityMs = 0;
 uint32_t lastUiActivityMs = 0;
@@ -671,7 +672,7 @@ bool configValid(const Config &c) {
   if (c.pmsEnabled > 1) return false;
   if (c.pmAverageWindow < MIN_PM_AVERAGE_WINDOW || c.pmAverageWindow > MAX_PM_AVERAGE_WINDOW) return false;
   if (c.operatingSensorIntervalSeconds < MIN_OPERATING_SENSOR_INTERVAL_SECONDS || c.operatingSensorIntervalSeconds > MAX_OPERATING_SENSOR_INTERVAL_SECONDS) return false;
-  if (c.standbySensorIntervalSeconds < MIN_STANDBY_SENSOR_INTERVAL_SECONDS || c.standbySensorIntervalSeconds > MAX_STANDBY_SENSOR_INTERVAL_SECONDS) return false;
+  if (c.standbySensorIntervalSeconds < MIN_STANDBY_SENSOR_INTERVAL_SECONDS || c.standbySensorIntervalSeconds > MAX_STANDBY_SENSOR_INTERVAL_SECONDS || (c.standbySensorIntervalSeconds % 8) != 0) return false;
   if (c.autoStandbyTimeoutMinutes < MIN_AUTO_STANDBY_TIMEOUT_MINUTES || c.autoStandbyTimeoutMinutes > MAX_AUTO_STANDBY_TIMEOUT_MINUTES) return false;
   if (c.defaultFanSpeed > 100 || c.defaultLedBrightness > 100) return false;
   return presetsValid(c.fanPresets) && presetsValid(c.ledPresets);
@@ -682,7 +683,15 @@ bool loadConfig() {
   if (!eepromReadBytes(0, (uint8_t *)&stored, sizeof(stored))) return false;
   if (stored.magic != EEPROM_MAGIC || stored.version != EEPROM_VERSION) return false;
   uint16_t expected = checksumBytes((const uint8_t *)&stored.config, sizeof(Config));
-  if (stored.checksum != expected || !configValid(stored.config)) return false;
+  if (stored.checksum != expected) return false;
+  // Migrate older standby intervals to the nearest supported 8-second step.
+  if (stored.config.standbySensorIntervalSeconds < MIN_STANDBY_SENSOR_INTERVAL_SECONDS)
+    stored.config.standbySensorIntervalSeconds = MIN_STANDBY_SENSOR_INTERVAL_SECONDS;
+  else if (stored.config.standbySensorIntervalSeconds > MAX_STANDBY_SENSOR_INTERVAL_SECONDS)
+    stored.config.standbySensorIntervalSeconds = MAX_STANDBY_SENSOR_INTERVAL_SECONDS;
+  else
+    stored.config.standbySensorIntervalSeconds = ((stored.config.standbySensorIntervalSeconds + 4) / 8) * 8;
+  if (!configValid(stored.config)) return false;
   config = stored.config;
   return true;
 }
@@ -956,12 +965,12 @@ void setSettingValue(SettingId id, int value) {
     }
     case SET_PM_WINDOW: config.pmAverageWindow = constrain(value, MIN_PM_AVERAGE_WINDOW, MAX_PM_AVERAGE_WINDOW); clearPmAverage(); break;
     case SET_OPERATING_SENSOR: config.operatingSensorIntervalSeconds = constrain(value, MIN_OPERATING_SENSOR_INTERVAL_SECONDS, MAX_OPERATING_SENSOR_INTERVAL_SECONDS); lastOperatingSensorMs = millis(); break;
-    case SET_STANDBY_SENSOR: config.standbySensorIntervalSeconds = constrain(value, MIN_STANDBY_SENSOR_INTERVAL_SECONDS, MAX_STANDBY_SENSOR_INTERVAL_SECONDS); lastStandbySensorMs = millis(); lastStandbyLcdMs = millis(); break;
+    case SET_STANDBY_SENSOR: config.standbySensorIntervalSeconds = constrain((value / 8) * 8, MIN_STANDBY_SENSOR_INTERVAL_SECONDS, MAX_STANDBY_SENSOR_INTERVAL_SECONDS); lastStandbySensorMs = millis(); lastStandbyLcdMs = millis(); break;
     case SET_AUTO_STANDBY: config.autoStandbyTimeoutMinutes = constrain(value, MIN_AUTO_STANDBY_TIMEOUT_MINUTES, MAX_AUTO_STANDBY_TIMEOUT_MINUTES); outputsOffSinceMs = (fanSpeed == 0 && ledBrightness == 0) ? millis() : 0; break;
   }
 }
 
-int settingStep(SettingId id) { return id == SET_PMS_ENABLE ? 1 : 1; }
+int settingStep(SettingId id) { return id == SET_STANDBY_SENSOR ? 8 : 1; }
 int settingMin(SettingId id) {
   switch (id) {
     case SET_BACKLIGHT: return MIN_BACKLIGHT_TIMEOUT_SECONDS;
@@ -1097,7 +1106,7 @@ void drawDisplaySettings(uint8_t idx) {
     lcd.setCursor(4, 2); lcd.print(b);
   } else {
     lcdLine(1, F("Time format"));
-    lcdLine(2, menuEditing ? F(">>> 12H / 24H") : (use24HourClock ? F("  > 24-hour") : F("  > 12-hour")));
+    lcdLine(2, menuEditing ? (use24HourClock ? F(">>> 24H") : F(">>> 12H")) : (use24HourClock ? F("  > 24-hour") : F("  > 12-hour")));
   }
   lcdLine(3, menuEditing ? F("Scroll +/-  Y: Save") : F("Y: Edit      A: Back"));
 }
@@ -1193,7 +1202,7 @@ void handleMenuEncoder(int delta) {
     SettingId ids[4] = {SET_PMS_ENABLE, SET_PM_WINDOW, SET_OPERATING_SENSOR, SET_STANDBY_SENSOR};
     SettingId id = ids[submenuIndex];
     if (id == SET_PMS_ENABLE) setSettingValue(id, !config.pmsEnabled);
-    else setSettingValue(id, getSettingValue(id) + delta);
+    else setSettingValue(id, getSettingValue(id) + delta * settingStep(id));
     return;
   }
   if (menuPage == 3 && menuEditing) { setSettingValue(SET_AUTO_STANDBY, config.autoStandbyTimeoutMinutes + delta); return; }
@@ -1500,19 +1509,9 @@ void renderDisplay() {
 
 void renderStandbyDisplay() {
   if (!lcdOK) return;
-  char b[21], v[12], t[8], h[8];
-  if (rtcOK) {
-    DateTime n = rtc.now();
-    formatClockLine(b, sizeof(b), n.year(), n.month(), n.day(), n.hour(), n.minute());
-  } else strcpy(b, "RTC ERR");
-  lcdLine(0, b);
-  formatFloat(v, sizeof(v), temperatureC, 1);
-  strcpy(t, ahtReadingValid && !elapsed(millis(), lastAhtSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR");
-  formatFloat(v, sizeof(v), humidityPercent, 1);
-  strcpy(h, ahtReadingValid && !elapsed(millis(), lastAhtSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR");
-  lcdLine(1, F(" Temp:  | Humidity:"));
-  tinyFormat_P(b, sizeof(b), PSTR(" %6s C | %6s%%"), t, h);
-  lcdLine(2, b);
+  // Reuse the environmental renderer so standby and home layouts stay identical.
+  // Replace only the pressure row with the standby message.
+  renderMainEnvironmental();
   lcdLine(3, F("Air Purifier Standby"));
   // Deliberately do not call lcd.backlight() here.
 }
@@ -1588,8 +1587,8 @@ void setup() {
   renderDisplay();
 }
 
-// Sleep for one watchdog interval while in standby. The watchdog wakes the
-// MCU every second so configured sensor/LCD intervals continue to use millis().
+// Sleep for one 8-second watchdog interval while in standby. The watchdog
+// wakes the MCU periodically so configured sensor/LCD intervals continue.
 // Button 3 (D7 / INT6 on the target ATmega32U4 board) can wake it immediately.
 void standbyPowerDownOnce() {
   if (powerState != STANDBY) return;
@@ -1600,13 +1599,14 @@ void standbyPowerDownOnce() {
   uint8_t adcWasEnabled = ADCSRA & _BV(ADEN);
   ADCSRA &= (uint8_t)~_BV(ADEN);
   standbyWatchdogFired = 0;
+  standbyButtonWakeFired = 0;
   attachInterrupt(digitalPinToInterrupt(PIN_BUTTON3), standbyButtonWakeISR, LOW);
 
   wdt_reset();
   MCUSR &= (uint8_t)~_BV(WDRF);
   WDTCSR = _BV(WDCE) | _BV(WDE);
-  // ATmega32U4 watchdog interrupt, nominal 1-second period.
-  WDTCSR = _BV(WDIE) | _BV(WDP2) | _BV(WDP1);
+  // ATmega32U4 watchdog interrupt, nominal 8-second period.
+  WDTCSR = _BV(WDIE) | _BV(WDP3) | _BV(WDP0);
 
   set_sleep_mode(SLEEP_MODE_PWR_DOWN);
   cli();
@@ -1624,11 +1624,23 @@ void standbyPowerDownOnce() {
   MCUSR &= (uint8_t)~_BV(WDRF);
   WDTCSR = _BV(WDCE) | _BV(WDE);
   WDTCSR = 0; // Disable watchdog until the next standby sleep interval.
-  if (standbyWatchdogFired) timer0_millis += 1000UL;
+  if (standbyWatchdogFired) timer0_millis += 8000UL;
   sei();
 
   detachInterrupt(digitalPinToInterrupt(PIN_BUTTON3));
   if (adcWasEnabled) ADCSRA |= _BV(ADEN);
+
+  // Handle an external-button wake here rather than relying on the next
+  // polling pass. This avoids losing the wake press during the sleep/loop
+  // hand-off, especially when the INT6 low-level interrupt fires as the
+  // button is released. A watchdog-only wake leaves standby unchanged.
+  if (standbyButtonWakeFired || digitalRead(PIN_BUTTON3) == LOW) {
+    delay(BUTTON_DEBOUNCE_MS);
+    wakeFromStandby();
+    initialiseButton(button3); // Treat the wake press as already consumed.
+    button3WakeOnlyUntilRelease = true;
+    renderDisplay();
+  }
 }
 
 void loop() {
