@@ -1,14 +1,16 @@
-Here I use 0-index for row number. 
+Sketch uses 28588 bytes (99%) of program storage space. Maximum is 28672 bytes.
+Global variables use 1091 bytes (42%) of dynamic memory, leaving 1469 bytes for local variables. Maximum is 2560 bytes.
 
-1. Main page time is not end-aligned yet. I want the time to align to the very end of the line
-2. Environment main page, row 2 is not align to row 1. fix this (i.e. add 1 padding to the beginning)
-3. Fan Speed page, row 1's speed value is not right aligned yet. 3 space to go; row 2 and 3 are not right-aligned yet. also 3 space to go. Also, the value in row 1 is not right aligned. e.g. when value = 5%, there are 4 space to the right. When value = 10%, 3 space are on the right. When value = 100%, 2 spaces are on the right. I need them to be right align (or equivalent) so there is no spaces on the right side of the value%.
-4. LED brightness page, i need fixes same as the above. Additionally, Y button should direct to fan speed page, instead of changing brightness to next preset... Fix that. 
-5. Main menu (settings menu) the SETTINGS title: there is one `-` missing on the left. 
-6. Main menu: I want the subsetting title (e.g. Date & Time) to be one space away from the `>` sign. 
-7. Main menu: I want the page row (i.e. row 2) right aligned. 
-8. DATE / TIME settings: There is one extra space between Y: Next and A: Cancel. Remove one space from there. 
-9. DATE / TIME settings: when it is in the Set Second page, the `Y: Next` should be `Y: Save` instead.
-10. FACTORY RESET title: Remove one `-` from the left, and add one `-` on the right. 
-11. FACTORY RESET message: Use `Are you sure?` on row 1, and and empty row 2. Row 3 remove 2 spaces between the `Y: Reset` and `A: Cancel`
+Almost perfect, including the programme size, but there are still some bugs:
+
+1. In the LED Brightness page, change row 3 to `A: Cycle` instead of `Y: Cycle`
+2. in the main menu / settings page, row 2 was cached, and not updated. I mean the characters before the Page x of X should be empty, but now it show staled characters. 
+3. In the standby mode, always show the same layout as the main environmental page, with row 3 replaced by Air Purifier Standby
+
+Give me the updated file that resolved the above bugs. 
+
+Also, investigate:
+1. the reason of the rotatory encoder behaves a bit weird. It sometimes lag, like when i turn it by one click, it has no response. then like 3 more clicks, then 1 response, then 1 click and immediately response. The idea are not the exact number, but it's to show the inconsistency. 
+
+2. If it is possible to reduce the programme size, and implement a delay fan off and delay led off feature, by long pressing the Y and A in the home page (not the main menu) respectively. Then I can set auto off after x minutes (with 5 minutes increment), or set a time of turning off
 

@@ -1004,15 +1004,16 @@ void drawDateEditor() {
   tinyFormat_P(b, sizeof(b), PSTR("%04d-%02d-%02d %02d:%02d:%02d"),
                editYear, editMonth, editDay, editHour, editMinute, editSecond);
   lcdLine(2, b);
-  lcdLine(3, F("Y: Next     A: Cancel"));
+  if (dateEditField == 5) lcdLine(3, F("Y: Save    A: Cancel"));
+  else lcdLine(3, F("Y: Next    A: Cancel"));
 }
 
 void drawMenu() {
   if (dateEditing) { drawDateEditor(); return; }
   char b[21];
-  lcdLine(0, F("---- SETTINGS -----"));
+  lcdLine(0, F("----- SETTINGS -----"));
   lcd.setCursor(0, 1);
-  lcd.print('>');
+  lcd.print("> ");
   const __FlashStringHelper *item = F("Factory Reset");
   switch (menuIndex) {
     case 0: item = F("Date & Time"); break;
@@ -1028,9 +1029,9 @@ void drawMenu() {
   lcd.print(item);
   uint8_t itemLength = strlen_P((PGM_P)item);
   if (itemLength > 19) itemLength = 19;
-  while (++itemLength < 20) lcd.print(' ');
+  while (itemLength + 2 < 20) { lcd.print(' '); ++itemLength; }
   tinyFormat_P(b, sizeof(b), PSTR("Page %u of %u"), (unsigned int)(menuIndex + 1), (unsigned int)MENU_ITEM_COUNT_ACTUAL);
-  lcdLine(2, b);
+  lcd.setCursor(20 - strlen(b), 2); lcd.print(b);
   lcdLine(3, F("Y: Select    A: Back"));
 }
 
@@ -1094,10 +1095,10 @@ void drawAboutPage() {
 }
 
 void drawFactoryResetPage() {
-  lcdLine(0, F("--- FACTORY RESET --"));
-  lcdLine(1, F("Restore all settings?"));
-  lcdLine(2, F("RTC will be unchanged"));
-  lcdLine(3, F("Y: Reset     A: Cancel"));
+  lcdLine(0, F("-- FACTORY RESET ---"));
+  lcdLine(1, F("Are you sure?"));
+  lcdLine(2, F(""));
+  lcdLine(3, F("Y: Reset   A: Cancel"));
 }
 
 // Menu subpage state: 0 main, 1 display, 2 sensors, 3 power, 4 fan presets, 5 LED presets, 6 status, 7 about, 8 date.
@@ -1233,7 +1234,7 @@ void handleButton1Short() {
   noteUserActivity();
   if (uiState == MENU) { handleMenuButton1(); return; }
   if (uiState == MAIN_DISPLAY) uiState = FAN_ADJUSTMENT;
-  else if (uiState == LED_ADJUSTMENT) { ledBrightness = nextPresetAbove(config.ledPresets, ledBrightness); applyLedOutput(); }
+  else if (uiState == LED_ADJUSTMENT) { uiState = FAN_ADJUSTMENT; }
   else if (uiState == FAN_ADJUSTMENT) { fanSpeed = nextPresetAbove(config.fanPresets, fanSpeed); applyFanOutput(); }
   lastUiActivityMs = millis();
 }
@@ -1369,16 +1370,21 @@ void checkTimers(uint32_t now) {
 // ============================================================================
 
 void formatClockLine(char *out, size_t outSize, uint16_t year, uint8_t month, uint8_t day, uint8_t hour, uint8_t minute) {
+  char timePart[10];
   if (use24HourClock) {
-    tinyFormat_P(out, outSize, PSTR("%04u-%02u-%02u %02u:%02u"),
-      (unsigned int)year, (unsigned int)month, (unsigned int)day,
-      (unsigned int)hour, (unsigned int)minute);
+    tinyFormat_P(timePart, sizeof(timePart), PSTR("%02u:%02u"), (unsigned int)hour, (unsigned int)minute);
   } else {
     uint8_t h = hour % 12;
     if (!h) h = 12;
-    tinyFormat_P(out, outSize, PSTR("%04u-%02u-%02u %u:%02u %s"),
-      (unsigned int)year, (unsigned int)month, (unsigned int)day,
-      (unsigned int)h, (unsigned int)minute, hour >= 12 ? "PM" : "AM");
+    tinyFormat_P(timePart, sizeof(timePart), PSTR("%u:%02u %s"), (unsigned int)h, (unsigned int)minute, hour >= 12 ? "PM" : "AM");
+  }
+  tinyFormat_P(out, outSize, PSTR("%04u-%02u-%02u"), (unsigned int)year, (unsigned int)month, (unsigned int)day);
+  size_t dateLen = strlen(out), timeLen = strlen(timePart);
+  if (dateLen + timeLen < 20 && dateLen + timeLen < outSize) {
+    size_t spaces = 20 - dateLen - timeLen;
+    if (dateLen + spaces + timeLen >= outSize) spaces = outSize - dateLen - timeLen - 1;
+    memset(out + dateLen, ' ', spaces);
+    memcpy(out + dateLen + spaces, timePart, timeLen + 1);
   }
 }
 
@@ -1392,7 +1398,7 @@ void renderMainEnvironmental() {
   formatFloat(v, sizeof(v), humidityPercent, 1);
   snprintf(h, sizeof(h), "%s", ahtReadingValid && !elapsed(millis(), lastAhtSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR");
   lcdLine(1, F(" Temp:  | Humidity:"));
-  tinyFormat_P(b, sizeof(b), PSTR("%6s C | %6s%%"), t, h); lcdLine(2, b);
+  tinyFormat_P(b, sizeof(b), PSTR(" %6s C | %6s%%"), t, h); lcdLine(2, b);
   formatFloat(v, sizeof(v), pressureHpa, 1);
   tinyFormat_P(b, sizeof(b), PSTR("Pressure: %s hPa"), bmpReadingValid && !elapsed(millis(), lastBmpSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR"); lcdLine(3, b);
 }
@@ -1415,17 +1421,21 @@ void renderMainParticles() {
 }
 
 void renderAdjustment() {
-  char b[21];
+  char b[8];
   if (uiState == FAN_ADJUSTMENT) {
     lcdLine(0, "---- FAN SPEED -----");
-    tinyFormat_P(b, sizeof(b), PSTR("> Speed:      %u%%"), (unsigned int)fanSpeed); lcdLine(1, b);
-    lcdLine(2, "       Scroll +/-");
-    lcdLine(3, "         Y: Cycle");
+    lcdLine(1, "> Speed:");
+    tinyFormat_P(b, sizeof(b), PSTR("%u%%"), (unsigned int)fanSpeed);
+    lcd.setCursor(20 - strlen(b), 1); lcd.print(b);
+    lcdLine(2, ""); lcd.setCursor(20 - strlen("Scroll +/-"), 2); lcd.print("Scroll +/-");
+    lcdLine(3, ""); lcd.setCursor(20 - strlen("Y: Cycle"), 3); lcd.print("Y: Cycle");
   } else {
     lcdLine(0, "-- LED BRIGHTNESS --");
-    tinyFormat_P(b, sizeof(b), PSTR("> Brightness: %u%%"), (unsigned int)ledBrightness); lcdLine(1, b);
-    lcdLine(2, "       Scroll +/-");
-    lcdLine(3, "         Y: Cycle");
+    lcdLine(1, "> Brightness:");
+    tinyFormat_P(b, sizeof(b), PSTR("%u%%"), (unsigned int)ledBrightness);
+    lcd.setCursor(20 - strlen(b), 1); lcd.print(b);
+    lcdLine(2, ""); lcd.setCursor(20 - strlen("Scroll +/-"), 2); lcd.print("Scroll +/-");
+    lcdLine(3, ""); lcd.setCursor(20 - strlen("Y: Cycle"), 3); lcd.print("Y: Cycle");
   }
 }
 
