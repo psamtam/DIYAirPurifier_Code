@@ -278,6 +278,9 @@ bool eepromOK = false;
 
 const uint32_t EEPROM_MAGIC = 0x41505246UL; // "APRF"
 const uint16_t EEPROM_VERSION = 1;
+const uint16_t EEPROM_TIME_FORMAT_ADDRESS = 128;
+const uint8_t EEPROM_TIME_FORMAT_MARKER = 0xA7;
+bool use24HourClock = true;
 Config config;
 uint8_t fanSpeed = DEFAULT_FAN_SPEED;
 uint8_t ledBrightness = DEFAULT_LED_BRIGHTNESS;
@@ -358,7 +361,7 @@ uint8_t dateMenuIndex = 0;
 bool dateEditing = false;
 
 // Menu pages: Date & Time, Display, Sensors, Power, Fan Presets, LED Presets, Status, About
-const uint8_t MENU_ITEM_COUNT_ACTUAL = 8;
+const uint8_t MENU_ITEM_COUNT_ACTUAL = 9;
 
 // PMS parser
 uint8_t pmsFrame[32];
@@ -607,6 +610,25 @@ bool eepromReadBytes(uint16_t address, uint8_t *data, uint16_t length) {
   return true;
 }
 
+bool loadTimeFormat() {
+  uint8_t marker = 0, value = 1;
+  if (!eepromReadBytes(EEPROM_TIME_FORMAT_ADDRESS, &marker, 1) ||
+      !eepromReadBytes(EEPROM_TIME_FORMAT_ADDRESS + 1, &value, 1) ||
+      marker != EEPROM_TIME_FORMAT_MARKER || value > 1) {
+    use24HourClock = true;
+    return false;
+  }
+  use24HourClock = value == 1;
+  return true;
+}
+
+bool saveTimeFormat() {
+  uint8_t marker = EEPROM_TIME_FORMAT_MARKER;
+  uint8_t value = use24HourClock ? 1 : 0;
+  return eepromWriteBytes(EEPROM_TIME_FORMAT_ADDRESS, &marker, 1) &&
+         eepromWriteBytes(EEPROM_TIME_FORMAT_ADDRESS + 1, &value, 1);
+}
+
 void setDefaultConfig() {
   config.backlightTimeoutSeconds = DEFAULT_BACKLIGHT_TIMEOUT_SECONDS;
   config.mainScreenRotationSeconds = DEFAULT_MAIN_SCREEN_ROTATION_SECONDS;
@@ -810,8 +832,6 @@ void enterStandby(bool explicitRequest) {
     config.defaultFanSpeed = fanSpeed;
     config.defaultLedBrightness = ledBrightness;
     bool defaultsSaved = saveConfig();
-    if (defaultsSaved) Serial.println(F("Startup fan/LED defaults saved to EEPROM."));
-    else Serial.println(F("ERROR: failed to save startup defaults to EEPROM."));
   }
   fanSpeed = 0;
   ledBrightness = 0;
@@ -968,76 +988,95 @@ void changeDateField(int delta) {
 
 void drawDateEditor() {
   if (!rtcOK || !dateEditing) {
-    lcdLine(0, F("DATE & TIME"));
+    lcdLine(0, F("--- DATE / TIME ----"));
     lcdLine(1, F("RTC unavailable"));
     lcdLine(2, F("Check DS3231"));
-    lcdLine(3, F("B2 Back"));
+    lcdLine(3, F("A: Back"));
     return;
   }
   char b[21];
-  tinyFormat_P(b, sizeof(b), PSTR("Set date/time %u/6"), (unsigned int)(dateEditField + 1)); lcdLine(0, b);
-  tinyFormat_P(b, sizeof(b), PSTR("%04d-%02d-%02d"), editYear, editMonth, editDay); lcdLine(1, b);
-  tinyFormat_P(b, sizeof(b), PSTR("%02d:%02d:%02d"), editHour, editMinute, editSecond); lcdLine(2, b);
-  lcdLine(3, F("B1 Next  B2 Cancel"));
+  const __FlashStringHelper *fieldNames[6] = {
+    F("Set Year"), F("Set Month"), F("Set Day"),
+    F("Set Hour"), F("Set Minute"), F("Set Second")
+  };
+  lcdLine(0, F("--- DATE / TIME ----"));
+  lcdLine(1, fieldNames[dateEditField]);
+  tinyFormat_P(b, sizeof(b), PSTR("%04d-%02d-%02d %02d:%02d:%02d"),
+               editYear, editMonth, editDay, editHour, editMinute, editSecond);
+  lcdLine(2, b);
+  lcdLine(3, F("Y: Next     A: Cancel"));
 }
 
 void drawMenu() {
   if (dateEditing) { drawDateEditor(); return; }
   char b[21];
-  lcdLine(0, F("MAIN MENU"));
+  lcdLine(0, F("---- SETTINGS -----"));
   lcd.setCursor(0, 1);
   lcd.print('>');
-  const __FlashStringHelper *item = F("About");
+  const __FlashStringHelper *item = F("Factory Reset");
   switch (menuIndex) {
     case 0: item = F("Date & Time"); break;
-    case 1: item = F("Display Settings"); break;
-    case 2: item = F("Sensor Settings"); break;
-    case 3: item = F("Power Settings"); break;
+    case 1: item = F("Display"); break;
+    case 2: item = F("Sensors"); break;
+    case 3: item = F("Power"); break;
     case 4: item = F("Fan Presets"); break;
     case 5: item = F("LED Presets"); break;
     case 6: item = F("Status"); break;
+    case 7: item = F("About"); break;
+    case 8: item = F("Factory Reset"); break;
   }
   lcd.print(item);
   uint8_t itemLength = strlen_P((PGM_P)item);
   if (itemLength > 19) itemLength = 19;
   while (++itemLength < 20) lcd.print(' ');
-  tinyFormat_P(b, sizeof(b), PSTR("Item %u of 8"), (unsigned int)(menuIndex + 1)); lcdLine(2, b);
-  lcdLine(3, menuEditing ? F("Rotary edit B1 save") : F("B1 Select B2 Back"));
+  tinyFormat_P(b, sizeof(b), PSTR("Page %u of %u"), (unsigned int)(menuIndex + 1), (unsigned int)MENU_ITEM_COUNT_ACTUAL);
+  lcdLine(2, b);
+  lcdLine(3, F("Y: Select    A: Back"));
 }
 
 void drawDisplaySettings(uint8_t idx) {
-  SettingId ids[3] = {SET_BACKLIGHT, SET_ROTATION, SET_STANDBY_LCD_N};
-  SettingId id = ids[idx];
   char b[21];
-  lcdLine(0, F("DISPLAY SETTINGS"));
-  lcdLine(1, settingName(id));
-  int v = getSettingValue(id);
-  tinyFormat_P(b, sizeof(b), PSTR("%d %s"), v, id == SET_STANDBY_LCD_N ? "x" : "seconds"); lcdLine(2, b);
-  lcdLine(3, menuEditing ? F("Rotary +/- B1 save") : F("B1 Edit B2 Back"));
+  lcdLine(0, F("----- DISPLAY ------"));
+  if (idx < 3) {
+    SettingId ids[3] = {SET_BACKLIGHT, SET_ROTATION, SET_STANDBY_LCD_N};
+    SettingId id = ids[idx];
+    lcdLine(1, settingName(id));
+    int v = getSettingValue(id);
+    tinyFormat_P(b, sizeof(b), PSTR("%d %s"), v, id == SET_STANDBY_LCD_N ? "x" : "seconds");
+    lcdLine(2, menuEditing ? ">>> " : "  > ");
+    lcd.setCursor(4, 2); lcd.print(b);
+  } else {
+    lcdLine(1, F("Time format"));
+    lcdLine(2, menuEditing ? F(">>> 12H / 24H") : (use24HourClock ? F("  > 24-hour") : F("  > 12-hour")));
+  }
+  lcdLine(3, menuEditing ? F("Scroll +/-  Y: Save") : F("Y: Edit      A: Back"));
 }
 
 void drawSensorSettings(uint8_t idx) {
   SettingId ids[4] = {SET_PMS_ENABLE, SET_PM_WINDOW, SET_OPERATING_SENSOR, SET_STANDBY_SENSOR};
   SettingId id = ids[idx]; char b[21];
-  lcdLine(0, F("SENSOR SETTINGS")); lcdLine(1, settingName(id));
+  lcdLine(0, F("----- SENSORS ------")); lcdLine(1, settingName(id));
   if (id == SET_PMS_ENABLE) tinyFormat_P(b, sizeof(b), PSTR("%s"), config.pmsEnabled ? "ON" : "OFF");
   else if (id == SET_PM_WINDOW) tinyFormat_P(b, sizeof(b), PSTR("%u readings"), (unsigned int)config.pmAverageWindow);
   else tinyFormat_P(b, sizeof(b), PSTR("%d seconds"), getSettingValue(id));
-  lcdLine(2, b); lcdLine(3, menuEditing ? F("Rotary +/- B1 save") : F("B1 Edit B2 Back"));
+  lcdLine(2, menuEditing ? ">>> " : "  > "); lcd.setCursor(4, 2); lcd.print(b);
+  lcdLine(3, menuEditing ? F("Scroll +/-  Y: Save") : F("Y: Edit      A: Back"));
 }
 
 void drawPowerSettings() {
-  char b[21]; lcdLine(0, F("POWER SETTINGS")); lcdLine(1, F("Auto standby timeout"));
-  tinyFormat_P(b, sizeof(b), PSTR("%u minutes"), (unsigned int)config.autoStandbyTimeoutMinutes); lcdLine(2, b);
-  lcdLine(3, menuEditing ? F("Rotary +/- B1 save") : F("B1 Edit B2 Back"));
+  char b[21]; lcdLine(0, F("------ POWER -------")); lcdLine(1, F("Auto standby timeout"));
+  tinyFormat_P(b, sizeof(b), PSTR("%u minutes"), (unsigned int)config.autoStandbyTimeoutMinutes);
+  lcdLine(2, menuEditing ? ">>> " : "  > "); lcd.setCursor(4, 2); lcd.print(b);
+  lcdLine(3, menuEditing ? F("Scroll +/-  Y: Save") : F("Y: Edit      A: Back"));
 }
 
 void drawPresetEditor(bool fan, uint8_t idx) {
   char b[21];
-  lcdLine(0, fan ? F("FAN PRESETS") : F("LED PRESETS"));
+  lcdLine(0, fan ? F("--- FAN PRESETS ----") : F("--- LED PRESETS ----"));
   tinyFormat_P(b, sizeof(b), PSTR("Preset %u of %u"), (unsigned int)(idx + 1), (unsigned int)PRESET_COUNT); lcdLine(1, b);
-  tinyFormat_P(b, sizeof(b), PSTR("%u%%"), (unsigned int)(fan ? config.fanPresets[idx] : config.ledPresets[idx])); lcdLine(2, b);
-  lcdLine(3, menuEditing ? F("Rotary +/- B1 save") : F("B1 Edit B2 Back"));
+  tinyFormat_P(b, sizeof(b), PSTR("%u%%"), (unsigned int)(fan ? config.fanPresets[idx] : config.ledPresets[idx]));
+  lcdLine(2, menuEditing ? ">>> " : "  > "); lcd.setCursor(4, 2); lcd.print(b);
+  lcdLine(3, menuEditing ? F("Scroll +/-  Y: Save") : F("Y: Edit      A: Back"));
 }
 
 void drawStatusPage() {
@@ -1051,7 +1090,14 @@ void drawAboutPage() {
   lcdLine(0, F("DIY Air Purifier"));
   lcdLine(1, F("Firmware version"));
   lcdLine(2, F("1.0.0"));
-  lcdLine(3, F("B2 Back"));
+  lcdLine(3, F("A: Back"));
+}
+
+void drawFactoryResetPage() {
+  lcdLine(0, F("--- FACTORY RESET --"));
+  lcdLine(1, F("Restore all settings?"));
+  lcdLine(2, F("RTC will be unchanged"));
+  lcdLine(3, F("Y: Reset     A: Cancel"));
 }
 
 // Menu subpage state: 0 main, 1 display, 2 sensors, 3 power, 4 fan presets, 5 LED presets, 6 status, 7 about, 8 date.
@@ -1061,6 +1107,7 @@ uint8_t submenuIndex = 0;
 void renderMenuPage() {
   if (menuPage == 0) drawMenu();
   else if (menuPage == 8) drawDateEditor();
+  else if (menuPage == 9) drawFactoryResetPage();
   else if (menuPage == 1) drawDisplaySettings(submenuIndex);
   else if (menuPage == 2) drawSensorSettings(submenuIndex);
   else if (menuPage == 3) drawPowerSettings();
@@ -1087,6 +1134,7 @@ void handleMenuEncoder(int delta) {
   if (!delta) return;
   if (dateEditing) { changeDateField(delta); return; }
   if (menuPage == 0) { menuIndex = (menuIndex + delta + MENU_ITEM_COUNT_ACTUAL) % MENU_ITEM_COUNT_ACTUAL; return; }
+  if (menuPage == 1 && menuEditing && submenuIndex == 3) { use24HourClock = !use24HourClock; return; }
   if (menuPage == 1 && menuEditing) {
     SettingId ids[3] = {SET_BACKLIGHT, SET_ROTATION, SET_STANDBY_LCD_N};
     SettingId id = ids[submenuIndex]; setSettingValue(id, getSettingValue(id) + delta); return;
@@ -1118,6 +1166,7 @@ void enterSelectedMenuItem() {
     case 5: menuPage = 5; editingFanPreset = false; break;
     case 6: menuPage = 6; break;
     case 7: menuPage = 7; break;
+    case 8: menuPage = 9; break;
   }
   noteUserActivity();
 }
@@ -1136,6 +1185,19 @@ void handleMenuButton1() {
   }
   if (menuPage == 0) { enterSelectedMenuItem(); return; }
   if (menuPage == 6 || menuPage == 7) return;
+  if (menuPage == 9) {
+    setDefaultConfig();
+    use24HourClock = true;
+    saveConfig();
+    saveTimeFormat();
+    fanSpeed = config.defaultFanSpeed;
+    ledBrightness = config.defaultLedBrightness;
+    applyOutputs();
+    setPmsPower(config.pmsEnabled != 0);
+    clearPmAverage();
+    menuPage = 0; menuIndex = 0; menuEditing = false;
+    return;
+  }
   if (!menuEditing) {
     // Keep editingPresetIndex: the rotary encoder selects which preset is edited.
     beginConfigEdit();
@@ -1149,6 +1211,7 @@ void handleMenuButton1() {
       arr[editingPresetIndex] = constrain(arr[editingPresetIndex], low, high);
     }
     confirmConfigEdit();
+    if (menuPage == 1 && submenuIndex == 3) saveTimeFormat();
     outputsOffSinceMs = (fanSpeed == 0 && ledBrightness == 0) ? millis() : 0;
   }
 }
@@ -1170,7 +1233,7 @@ void handleButton1Short() {
   noteUserActivity();
   if (uiState == MENU) { handleMenuButton1(); return; }
   if (uiState == MAIN_DISPLAY) uiState = FAN_ADJUSTMENT;
-  else if (uiState == LED_ADJUSTMENT) uiState = FAN_ADJUSTMENT;
+  else if (uiState == LED_ADJUSTMENT) { ledBrightness = nextPresetAbove(config.ledPresets, ledBrightness); applyLedOutput(); }
   else if (uiState == FAN_ADJUSTMENT) { fanSpeed = nextPresetAbove(config.fanPresets, fanSpeed); applyFanOutput(); }
   lastUiActivityMs = millis();
 }
@@ -1250,7 +1313,7 @@ void processEncoder() {
     if (menuPage == 0 || menuPage == 8) handleMenuEncoder(delta);
     else if (menuPage == 1 || menuPage == 2 || menuPage == 3 || menuPage == 4 || menuPage == 5) {
       if (!menuEditing && (menuPage == 1 || menuPage == 2)) {
-        uint8_t maxItems = menuPage == 1 ? 3 : 4;
+        uint8_t maxItems = menuPage == 1 ? 4 : 4;
         submenuIndex = (submenuIndex + delta + maxItems) % maxItems;
       } else if (!menuEditing && (menuPage == 4 || menuPage == 5)) {
         editingPresetIndex = (editingPresetIndex + delta + PRESET_COUNT) % PRESET_COUNT;
@@ -1305,49 +1368,64 @@ void checkTimers(uint32_t now) {
 // 10. LCD RENDERING
 // ============================================================================
 
+void formatClockLine(char *out, size_t outSize, uint16_t year, uint8_t month, uint8_t day, uint8_t hour, uint8_t minute) {
+  if (use24HourClock) {
+    tinyFormat_P(out, outSize, PSTR("%04u-%02u-%02u %02u:%02u"),
+      (unsigned int)year, (unsigned int)month, (unsigned int)day,
+      (unsigned int)hour, (unsigned int)minute);
+  } else {
+    uint8_t h = hour % 12;
+    if (!h) h = 12;
+    tinyFormat_P(out, outSize, PSTR("%04u-%02u-%02u %u:%02u %s"),
+      (unsigned int)year, (unsigned int)month, (unsigned int)day,
+      (unsigned int)h, (unsigned int)minute, hour >= 12 ? "PM" : "AM");
+  }
+}
+
 void renderMainEnvironmental() {
-  char b[21], v[12];
-  if (rtcOK) {
-    DateTime n = rtc.now();
-    tinyFormat_P(b, sizeof(b), PSTR("%02u/%02u/%04u %02u:%02u"), (unsigned int)n.day(), (unsigned int)n.month(), (unsigned int)n.year(), (unsigned int)n.hour(), (unsigned int)n.minute());
-  } else strcpy(b, "RTC ERR");
+  char b[21], v[12], t[8], h[8];
+  if (rtcOK) { DateTime n = rtc.now(); formatClockLine(b, sizeof(b), n.year(), n.month(), n.day(), n.hour(), n.minute()); }
+  else strcpy(b, "RTC ERR");
   lcdLine(0, b);
   formatFloat(v, sizeof(v), temperatureC, 1);
-  tinyFormat_P(b, sizeof(b), PSTR("Temp: %s C"), ahtReadingValid && !elapsed(millis(), lastAhtSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR"); lcdLine(1, b);
+  snprintf(t, sizeof(t), "%s", ahtReadingValid && !elapsed(millis(), lastAhtSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR");
   formatFloat(v, sizeof(v), humidityPercent, 1);
-  tinyFormat_P(b, sizeof(b), PSTR("Humidity: %s%%"), ahtReadingValid && !elapsed(millis(), lastAhtSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR"); lcdLine(2, b);
+  snprintf(h, sizeof(h), "%s", ahtReadingValid && !elapsed(millis(), lastAhtSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR");
+  lcdLine(1, F(" Temp:  | Humidity:"));
+  tinyFormat_P(b, sizeof(b), PSTR("%6s C | %6s%%"), t, h); lcdLine(2, b);
   formatFloat(v, sizeof(v), pressureHpa, 1);
   tinyFormat_P(b, sizeof(b), PSTR("Pressure: %s hPa"), bmpReadingValid && !elapsed(millis(), lastBmpSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR"); lcdLine(3, b);
 }
 
 void renderMainParticles() {
   char b[21];
-  if (rtcOK) {
-    DateTime n = rtc.now();
-    tinyFormat_P(b, sizeof(b), PSTR("%02u/%02u/%04u %02u:%02u"), (unsigned int)n.day(), (unsigned int)n.month(), (unsigned int)n.year(), (unsigned int)n.hour(), (unsigned int)n.minute());
-  } else strcpy(b, "RTC ERR");
+  if (rtcOK) { DateTime n = rtc.now(); formatClockLine(b, sizeof(b), n.year(), n.month(), n.day(), n.hour(), n.minute()); }
+  else strcpy(b, "RTC ERR");
   lcdLine(0, b);
   const char *state = !config.pmsEnabled ? "OFF" : (pmsInGracePeriod() ? "--" : (pmsError ? "ERR" : "--"));
   if (pmValuesAvailable()) {
-    tinyFormat_P(b, sizeof(b), PSTR("PM1.0: %5u ug/m3"), pm1); lcdLine(1, b);
-    tinyFormat_P(b, sizeof(b), PSTR("PM2.5: %5u ug/m3"), pm25); lcdLine(2, b);
-    tinyFormat_P(b, sizeof(b), PSTR("PM10 : %5u ug/m3"), pm10); lcdLine(3, b);
+    tinyFormat_P(b, sizeof(b), PSTR(" PM1.0: %5u ug/m3"), pm1); lcdLine(1, b);
+    tinyFormat_P(b, sizeof(b), PSTR(" PM2.5: %5u ug/m3"), pm25); lcdLine(2, b);
+    tinyFormat_P(b, sizeof(b), PSTR(" PM10 : %5u ug/m3"), pm10); lcdLine(3, b);
   } else {
-    tinyFormat_P(b, sizeof(b), PSTR("PM1.0: %s"), state); lcdLine(1, b);
-    tinyFormat_P(b, sizeof(b), PSTR("PM2.5: %s"), state); lcdLine(2, b);
-    tinyFormat_P(b, sizeof(b), PSTR("PM10 : %s"), state); lcdLine(3, b);
+    tinyFormat_P(b, sizeof(b), PSTR(" PM1.0: %s"), state); lcdLine(1, b);
+    tinyFormat_P(b, sizeof(b), PSTR(" PM2.5: %s"), state); lcdLine(2, b);
+    tinyFormat_P(b, sizeof(b), PSTR(" PM10 : %s"), state); lcdLine(3, b);
   }
 }
 
 void renderAdjustment() {
   char b[21];
   if (uiState == FAN_ADJUSTMENT) {
-    lcdLine(0, F("FAN SPEED")); tinyFormat_P(b, sizeof(b), PSTR("Speed: %u%%"), (unsigned int)fanSpeed); lcdLine(1, b);
-    tinyFormat_P(b, sizeof(b), PSTR("Relay: %s"), fanRelayOn ? "ON" : "OFF"); lcdLine(2, b);
-    lcdLine(3, F("Rotate adjust B1 preset"));
+    lcdLine(0, "---- FAN SPEED -----");
+    tinyFormat_P(b, sizeof(b), PSTR("> Speed:      %u%%"), (unsigned int)fanSpeed); lcdLine(1, b);
+    lcdLine(2, "       Scroll +/-");
+    lcdLine(3, "         Y: Cycle");
   } else {
-    lcdLine(0, F("LED BRIGHTNESS")); tinyFormat_P(b, sizeof(b), PSTR("Brightness: %u%%"), (unsigned int)ledBrightness); lcdLine(1, b);
-    lcdLine(2, F("0-100 percent")); lcdLine(3, F("Rotate adjust B2 preset"));
+    lcdLine(0, "-- LED BRIGHTNESS --");
+    tinyFormat_P(b, sizeof(b), PSTR("> Brightness: %u%%"), (unsigned int)ledBrightness); lcdLine(1, b);
+    lcdLine(2, "       Scroll +/-");
+    lcdLine(3, "         Y: Cycle");
   }
 }
 
@@ -1366,7 +1444,7 @@ void renderStandbyDisplay() {
   char b[21], v[12];
   if (rtcOK) {
     DateTime n = rtc.now();
-    tinyFormat_P(b, sizeof(b), PSTR("%02u/%02u/%04u %02u:%02u"), (unsigned int)n.day(), (unsigned int)n.month(), (unsigned int)n.year(), (unsigned int)n.hour(), (unsigned int)n.minute());
+    formatClockLine(b, sizeof(b), n.year(), n.month(), n.day(), n.hour(), n.minute());
   } else strcpy(b, "RTC ERR");
   lcdLine(0, b);
   formatFloat(v, sizeof(v), temperatureC, 1);
@@ -1383,7 +1461,6 @@ void renderStandbyDisplay() {
 // ============================================================================
 
 void setup() {
-  Serial.begin(115200);
   Serial1.begin(9600);
 
   pinMode(PIN_BUTTON1, INPUT_PULLUP);
@@ -1419,13 +1496,13 @@ void setup() {
     // A missing/invalid EEPROM configuration uses named defaults.
     saveConfig();
   }
+  if (!loadTimeFormat()) saveTimeFormat();
   // Confirm the EEPROM responds using a one-byte read.
   uint8_t probe = 0;
   eepromOK = eepromReadBytes(0, &probe, 1);
 
   // Deliberately do NOT set the RTC to compilation time if it has lost power.
   // User sets date/time manually in the menu.
-  if (rtcOK && rtc.lostPower()) Serial.println(F("RTC lost power; set date/time in menu."));
 
   fanSpeed = config.defaultFanSpeed;
   ledBrightness = config.defaultLedBrightness;
