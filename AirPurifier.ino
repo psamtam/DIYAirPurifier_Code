@@ -8,8 +8,8 @@
 
   AHT20, BMP280 and DS3231 use compact register-level drivers below.
   The AT24C32 is accessed directly over I2C at EEPROM_I2C_ADDRESS.
-  Logical standby is implemented. MCU deep-sleep is intentionally not enabled yet;
-  validate the D7/INT6 wake-up and peripheral behaviour on the actual board first.
+  Standby uses ATmega32U4 Power-down sleep with 1-second watchdog wake-ups
+  and Button 3 external-interrupt wake-up.
 */
 
 #include <Wire.h>
@@ -19,6 +19,9 @@
 #include <string.h>
 #include <stdarg.h>
 #include <avr/pgmspace.h>
+#include <avr/sleep.h>
+#include <avr/interrupt.h>
+#include <avr/wdt.h>
 
 #include "Config.h"
 #include "StoredConfig.h"
@@ -319,6 +322,13 @@ uint8_t mainDisplayPage = 0;
 uint32_t lastOperatingSensorMs = 0;
 uint32_t lastStandbySensorMs = 0;
 uint32_t lastStandbyLcdMs = 0;
+
+// Power-down standby support. Timer0 stops in Power-down, so advance the
+// Arduino millis counter by one second on each watchdog wake.
+extern volatile unsigned long timer0_millis;
+volatile uint8_t standbyWatchdogFired = 0;
+ISR(WDT_vect) { standbyWatchdogFired = 1; }
+void standbyButtonWakeISR() { /* INT6 only wakes the CPU; button handling stays in loop(). */ }
 uint32_t lastMainRotationMs = 0;
 uint32_t lastBacklightActivityMs = 0;
 uint32_t lastUiActivityMs = 0;
@@ -837,6 +847,8 @@ void enterMainDisplay() {
   lastUiActivityMs = millis();
 }
 
+void renderStandbyDisplay();
+
 void enterStandby(bool explicitRequest) {
   if (explicitRequest) {
     config.defaultFanSpeed = fanSpeed;
@@ -857,7 +869,9 @@ void enterStandby(bool explicitRequest) {
   outputsOffSinceMs = 0;
   lastStandbySensorMs = millis();
   lastStandbyLcdMs = millis();
-  lcdLine(0, F("Air Purifier Standby"));
+  // Draw the complete standby layout immediately. Do not write only row 0:
+  // that leaves the previous operating-screen contents visible on rows 1-3.
+  renderStandbyDisplay();
 }
 
 void wakeFromStandby() {
@@ -1484,6 +1498,7 @@ void renderStandbyDisplay() {
 // ============================================================================
 
 void setup() {
+  wdt_disable();
   Serial1.begin(9600);
 
   pinMode(PIN_BUTTON1, INPUT_PULLUP);
@@ -1549,6 +1564,49 @@ void setup() {
   renderDisplay();
 }
 
+// Sleep for one watchdog interval while in standby. The watchdog wakes the
+// MCU every second so configured sensor/LCD intervals continue to use millis().
+// Button 3 (D7 / INT6 on the target ATmega32U4 board) can wake it immediately.
+void standbyPowerDownOnce() {
+  if (powerState != STANDBY) return;
+  // Do not re-enter sleep while the wake button is still held; this gives the
+  // normal debounce logic time to recognise the press and restore operation.
+  if (digitalRead(PIN_BUTTON3) == LOW) return;
+
+  uint8_t adcWasEnabled = ADCSRA & _BV(ADEN);
+  ADCSRA &= (uint8_t)~_BV(ADEN);
+  standbyWatchdogFired = 0;
+  attachInterrupt(digitalPinToInterrupt(PIN_BUTTON3), standbyButtonWakeISR, LOW);
+
+  wdt_reset();
+  MCUSR &= (uint8_t)~_BV(WDRF);
+  WDTCSR = _BV(WDCE) | _BV(WDE);
+  // ATmega32U4 watchdog interrupt, nominal 1-second period.
+  WDTCSR = _BV(WDIE) | _BV(WDP2) | _BV(WDP1);
+
+  set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+  cli();
+  sleep_enable();
+#if defined(BODS) && defined(BODSE)
+  sleep_bod_disable();
+#endif
+  sei();
+  sleep_cpu();
+
+  // Execution resumes here after either watchdog or Button 3 interrupt.
+  sleep_disable();
+  cli();
+  wdt_reset();
+  MCUSR &= (uint8_t)~_BV(WDRF);
+  WDTCSR = _BV(WDCE) | _BV(WDE);
+  WDTCSR = 0; // Disable watchdog until the next standby sleep interval.
+  if (standbyWatchdogFired) timer0_millis += 1000UL;
+  sei();
+
+  detachInterrupt(digitalPinToInterrupt(PIN_BUTTON3));
+  if (adcWasEnabled) ADCSRA |= _BV(ADEN);
+}
+
 void loop() {
   pollEncoder();
   pollAhtMeasurement(millis());
@@ -1565,4 +1623,8 @@ void loop() {
     lastUiRefresh = millis();
     if (powerState == OPERATING) renderDisplay();
   }
+
+  // Only standby enters Power-down. Watchdog wake-ups keep configured standby
+  // sensor and LCD refresh intervals progressing; Button 3 wakes immediately.
+  standbyPowerDownOnce();
 }
