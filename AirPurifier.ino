@@ -117,9 +117,8 @@ public:
     if (!(status & 0x08)) { writeCommand(0xBE, 0x08, 0x00); delay(10); }
     return true;
   }
-  bool read(float &temperature, float &humidity) {
-    if (!writeCommand(0xAC, 0x33, 0x00)) return false;
-    delay(80);
+  bool startMeasurement() { return writeCommand(0xAC, 0x33, 0x00); }
+  bool finishMeasurement(float &temperature, float &humidity) {
     uint8_t d[6];
     if (Wire.requestFrom((uint8_t)0x38, (uint8_t)6) != 6) return false;
     for (uint8_t i=0; i<6; ++i) d[i] = Wire.read();
@@ -751,24 +750,35 @@ void pollPMS7003() {
   }
 }
 
+uint32_t ahtMeasurementStartedMs = 0;
+bool ahtMeasurementPending = false;
+
 void readEnvironmentalSensors() {
   uint32_t now = millis();
-  if (ahtOK) {
-    float t, h;
-    if (aht.read(t, h) && !isnan(t) && !isnan(h)) {
-      temperatureC = t; humidityPercent = h;
-      ahtReadingValid = true; lastAhtSuccessMs = now;
+  if (ahtOK && !ahtMeasurementPending) {
+    if (aht.startMeasurement()) {
+      ahtMeasurementStartedMs = now;
+      ahtMeasurementPending = true;
     } else ahtReadingValid = false;
-  } else ahtReadingValid = false;
+  } else if (!ahtOK) ahtReadingValid = false;
 
   if (bmpOK) {
     float t, p;
     if (bmp.read(t, p) && !isnan(t) && !isnan(p) && p > 0) {
       pressureHpa = p;
-      // AHT20 remains the chosen temperature/humidity source on the display.
       bmpReadingValid = true; lastBmpSuccessMs = now;
     } else bmpReadingValid = false;
   } else bmpReadingValid = false;
+}
+
+void pollAhtMeasurement(uint32_t now) {
+  if (!ahtMeasurementPending || !elapsed(now, ahtMeasurementStartedMs, 80)) return;
+  ahtMeasurementPending = false;
+  float t, h;
+  if (aht.finishMeasurement(t, h) && !isnan(t) && !isnan(h)) {
+    temperatureC = t; humidityPercent = h;
+    ahtReadingValid = true; lastAhtSuccessMs = now;
+  } else ahtReadingValid = false;
 }
 
 bool pmsInGracePeriod() { return pmsPowered && !elapsed(millis(), pmsEnabledAtMs, PMS7003_STARTUP_GRACE_MS); }
@@ -1031,6 +1041,7 @@ void drawMenu() {
   if (itemLength > 19) itemLength = 19;
   while (itemLength + 2 < 20) { lcd.print(' '); ++itemLength; }
   tinyFormat_P(b, sizeof(b), PSTR("Page %u of %u"), (unsigned int)(menuIndex + 1), (unsigned int)MENU_ITEM_COUNT_ACTUAL);
+  lcdLine(2, "");
   lcd.setCursor(20 - strlen(b), 2); lcd.print(b);
   lcdLine(3, F("Y: Select    A: Back"));
 }
@@ -1394,9 +1405,9 @@ void renderMainEnvironmental() {
   else strcpy(b, "RTC ERR");
   lcdLine(0, b);
   formatFloat(v, sizeof(v), temperatureC, 1);
-  snprintf(t, sizeof(t), "%s", ahtReadingValid && !elapsed(millis(), lastAhtSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR");
+  strcpy(t, ahtReadingValid && !elapsed(millis(), lastAhtSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR");
   formatFloat(v, sizeof(v), humidityPercent, 1);
-  snprintf(h, sizeof(h), "%s", ahtReadingValid && !elapsed(millis(), lastAhtSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR");
+  strcpy(h, ahtReadingValid && !elapsed(millis(), lastAhtSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR");
   lcdLine(1, F(" Temp:  | Humidity:"));
   tinyFormat_P(b, sizeof(b), PSTR(" %6s C | %6s%%"), t, h); lcdLine(2, b);
   formatFloat(v, sizeof(v), pressureHpa, 1);
@@ -1435,7 +1446,7 @@ void renderAdjustment() {
     tinyFormat_P(b, sizeof(b), PSTR("%u%%"), (unsigned int)ledBrightness);
     lcd.setCursor(20 - strlen(b), 1); lcd.print(b);
     lcdLine(2, ""); lcd.setCursor(20 - strlen("Scroll +/-"), 2); lcd.print("Scroll +/-");
-    lcdLine(3, ""); lcd.setCursor(20 - strlen("Y: Cycle"), 3); lcd.print("Y: Cycle");
+    lcdLine(3, ""); lcd.setCursor(20 - strlen("A: Cycle"), 3); lcd.print("A: Cycle");
   }
 }
 
@@ -1451,18 +1462,20 @@ void renderDisplay() {
 
 void renderStandbyDisplay() {
   if (!lcdOK) return;
-  char b[21], v[12];
+  char b[21], v[12], t[8], h[8];
   if (rtcOK) {
     DateTime n = rtc.now();
     formatClockLine(b, sizeof(b), n.year(), n.month(), n.day(), n.hour(), n.minute());
   } else strcpy(b, "RTC ERR");
   lcdLine(0, b);
   formatFloat(v, sizeof(v), temperatureC, 1);
-  tinyFormat_P(b, sizeof(b), PSTR("Temp: %s C"), ahtReadingValid ? v : "ERR"); lcdLine(1, b);
+  strcpy(t, ahtReadingValid && !elapsed(millis(), lastAhtSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR");
   formatFloat(v, sizeof(v), humidityPercent, 1);
-  tinyFormat_P(b, sizeof(b), PSTR("Humidity: %s%%"), ahtReadingValid ? v : "ERR"); lcdLine(2, b);
-  formatFloat(v, sizeof(v), pressureHpa, 1);
-  tinyFormat_P(b, sizeof(b), PSTR("Pressure: %s hPa"), bmpReadingValid ? v : "ERR"); lcdLine(3, b);
+  strcpy(h, ahtReadingValid && !elapsed(millis(), lastAhtSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR");
+  lcdLine(1, F(" Temp:  | Humidity:"));
+  tinyFormat_P(b, sizeof(b), PSTR(" %6s C | %6s%%"), t, h);
+  lcdLine(2, b);
+  lcdLine(3, F("Air Purifier Standby"));
   // Deliberately do not call lcd.backlight() here.
 }
 
@@ -1538,10 +1551,13 @@ void setup() {
 
 void loop() {
   pollEncoder();
+  pollAhtMeasurement(millis());
   pollPMS7003();
   processButtons();
   processEncoder();
   checkTimers(millis());
+  pollEncoder();
+  processEncoder();
 
   // Refresh the current UI after interaction or updated data; avoids clearing the LCD continuously.
   static uint32_t lastUiRefresh = 0;
