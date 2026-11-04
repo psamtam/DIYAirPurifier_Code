@@ -1,0 +1,20 @@
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-minimum\AirPurifier.elf  :
+section                      size      addr
+.data                         242   8388864
+.text                       25994         0
+.bss                          900   8389106
+.comment                       17         0
+.note.gnu.avr.deviceinfo       64         0
+.debug_aranges               1856         0
+.debug_info                 56744         0
+.debug_abbrev                5577         0
+.debug_line                 21751         0
+.debug_frame                 4616         0
+.debug_str                  11801         0
+.debug_loc                  32269         0
+.debug_ranges                4392         0
+Total                      166223
+
+
+
+{"flash": 26236, "ram": 1142, "flash_available": 28672, "ram_available": 2560, "flags": ["-Os", "-g", "-ffunction-sections", "-fdata-sections", "-flto", "-DUI_TEXT_CACHE_SLOTS=1"]}

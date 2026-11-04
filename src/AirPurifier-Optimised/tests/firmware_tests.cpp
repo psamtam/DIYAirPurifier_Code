@@ -6,6 +6,14 @@ volatile unsigned long timer0_millis=0;
 static int checks=0;
 #define CHECK(x) do {++checks;if(!(x)){fprintf(stderr,"FAIL line %d: %s\n",__LINE__,#x);exit(1);}}while(0)
 
+void clearTextCache() {
+#if UI_TEXT_CACHE_SLOTS == 1
+  uiTextCachedId = 0xFF;
+#else
+  uiTextCacheCount = uiTextCacheNext = 0;
+#endif
+}
+
 void resetFirmware() {
   fakeNow=1000; Wire.fail=false;Wire.timeoutFlag=false;Wire.writes.clear();
   for(int &p:fakePins) p=HIGH;
@@ -14,6 +22,17 @@ void resetFirmware() {
   delaySelections[0]=delaySelections[1]=30;delayEditTarget=0;delayEditMinutes=30;
   delayOutputOffMessage=false;lcdOK=true;lcdBacklightOn=true;rtcOK=ahtOK=bmpOK=false;
   lcd.timeoutOnWrite=false;
+  ahtReadingValid=bmpReadingValid=false;
+  lcd.init();clearTextCache();
+  uiInteractionPending=false;
+  clockFormatSaveFailed=false;clockFormatBeforeEdit=true;use24HourClock=true;
+  Wire.ahtPresent=true;Wire.ahtStatus=8;Wire.bmpPresent=false;Wire.bmpAddress=0x76;
+  Wire.rtcPresent=false;Wire.rtcTimeWrites=0;Wire.failAhtCommands=Wire.failBmpWrites=Wire.corruptWrites=false;
+  Wire.ignoreBmpWrites=false;
+  Wire.ahtCommandDelayMs=0;
+  Wire.writesUntilFailure=-1;
+  ahtInitPhase=0;bmpSettling=false;nextSensorRecovery=0;environmentalReadDue=false;
+  sensorAttemptMs[0]=sensorAttemptMs[1]=fakeNow;
   ahtMeasurementPending=false;menuEditing=dateEditing=false;menuPage=0;
   button3WakeOnlyUntilRelease=false;
   initialiseButton(button1);initialiseButton(button2);initialiseButton(button3);
@@ -25,6 +44,8 @@ void edge(uint8_t pin,bool down) {
 }
 void tap(uint8_t pin) {edge(pin,true);edge(pin,false);}
 void hold(uint8_t pin) {edge(pin,true);fakeNow+=2000;processButtons();edge(pin,false);}
+
+#include "repair_cases.h"
 
 int main(int argc,char **argv) {
   CHECK(argc==2);
@@ -94,7 +115,7 @@ int main(int argc,char **argv) {
   // Integer AHT conversion compared with the physical transfer function.
   uint32_t raws[]={0,1,31,262144,524287,524288,786432,1048574,1048575};
   for(auto rh:raws) for(auto rt:raws) {
-    Wire.ahtData={0,(uint8_t)(rh>>12),(uint8_t)(rh>>4),(uint8_t)((rh<<4)|(rt>>16)),(uint8_t)(rt>>8),(uint8_t)rt};
+    Wire.ahtData={8,(uint8_t)(rh>>12),(uint8_t)(rh>>4),(uint8_t)((rh<<4)|(rt>>16)),(uint8_t)(rt>>8),(uint8_t)rt};
     int16_t t,h;CHECK(aht.finishMeasurement(t,h));
     CHECK(fabs(h/10.0-rh*100.0/1048576.0)<=0.050001);
     CHECK(fabs(t/10.0-(rt*200.0/1048576.0-50))<=0.050001);
@@ -125,5 +146,6 @@ int main(int argc,char **argv) {
   resetFirmware();Wire.memory[264]^=1;setup();CHECK(!uiAssetsOK&&fanRelayOn==false&&fakePins[PIN_LED]==LOW);
   loop();CHECK(!fanRelayOn);Wire.memory[264]^=1;CHECK(Wire.timeout==25000);
   resetFirmware();CHECK(delaySelections[0]==30&&delaySelections[1]==30&&!delayTimers[0].active);
+  testRepairs();
   printf("PASS: %d firmware assertions\n",checks);
 }

@@ -1,0 +1,12 @@
+{
+  "minimum": {
+    "initial_chars": 80,
+    "initial_cursors": 4,
+    "idle_4s_chars": 0,
+    "idle_4s_cursors": 0,
+    "idle_4s_eeprom_reads": 80,
+    "changed_chars": 1,
+    "changed_cursors": 1,
+    "changed_eeprom_reads": 5
+  }
+}

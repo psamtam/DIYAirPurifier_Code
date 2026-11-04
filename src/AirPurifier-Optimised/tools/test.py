@@ -14,7 +14,8 @@ def main():
     default=pathlib.Path(__file__).resolve().parents[1]
     p=argparse.ArgumentParser();p.add_argument('--root',type=pathlib.Path,default=default)
     p.add_argument('--tests',type=pathlib.Path);p.add_argument('--build',type=pathlib.Path)
-    p.add_argument('--compiler');p.add_argument('--zig',action='store_true');a=p.parse_args()
+    p.add_argument('--compiler');p.add_argument('--zig',action='store_true')
+    p.add_argument('--extra',action='append',default=[]);a=p.parse_args()
     root=a.root.resolve();tests=(a.tests or root/'tests').resolve();build=(a.build or root/'build/native-tests').resolve()
     build.mkdir(parents=True,exist_ok=True)
     compiler=a.compiler or shutil.which('clang++') or shutil.which('g++')
@@ -22,9 +23,11 @@ def main():
     command=[compiler]+(['c++'] if a.zig else [])
     for stem,harness,generated in [('AirPurifier','firmware_tests','FirmwareUnderTest'),('UiEepromProgrammer','programmer_tests','ProgrammerUnderTest')]:
         sketch=root/stem
-        (build/(generated+'.cpp')).write_text(generated_source((sketch/(stem+'.ino')).read_text(encoding='utf-8-sig')))
+        unit=generated_source((sketch/(stem+'.ino')).read_text(encoding='utf-8-sig'))
+        unit+='\n'+''.join('#include "'+p.name+'"\n' for p in sorted(sketch.glob('*.cpp')))
+        (build/(generated+'.cpp')).write_text(unit)
         exe=build/(harness+('.exe' if sys.platform=='win32' else ''))
-        run([*command,'-std=c++17','-O0','-Wno-nullability-completeness','-I'+str(tests/'fakes'),'-I'+str(sketch),'-I'+str(build),tests/(harness+'.cpp'),'-o',exe])
+        run([*command,'-std=c++17','-O0','-g0',*a.extra,'-Wno-nullability-completeness','-I'+str(tests/'fakes'),'-I'+str(sketch),'-I'+str(build),tests/(harness+'.cpp'),'-o',exe])
         run([exe,*([root/'ui-assets.bin'] if stem=='AirPurifier' else [])])
     generator=root/'tools/generate_ui_assets.py'
     if not generator.exists(): generator=pathlib.Path(__file__).with_name('generate_ui_assets.py')

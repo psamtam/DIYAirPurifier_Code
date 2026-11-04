@@ -1,0 +1,32 @@
+{
+  "previous": {
+    "initial_chars": 80,
+    "initial_cursors": 4,
+    "idle_4s_chars": 1280,
+    "idle_4s_cursors": 64,
+    "idle_4s_eeprom_reads": 192,
+    "changed_chars": 80,
+    "changed_cursors": 4,
+    "changed_eeprom_reads": 12
+  },
+  "dirty": {
+    "initial_chars": 80,
+    "initial_cursors": 4,
+    "idle_4s_chars": 320,
+    "idle_4s_cursors": 16,
+    "idle_4s_eeprom_reads": 20,
+    "changed_chars": 80,
+    "changed_cursors": 4,
+    "changed_eeprom_reads": 5
+  },
+  "final": {
+    "initial_chars": 80,
+    "initial_cursors": 4,
+    "idle_4s_chars": 0,
+    "idle_4s_cursors": 0,
+    "idle_4s_eeprom_reads": 0,
+    "changed_chars": 1,
+    "changed_cursors": 1,
+    "changed_eeprom_reads": 0
+  }
+}
