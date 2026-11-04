@@ -1,0 +1,86 @@
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\build-final\AirPurifier.cpp: In function 'void enterStandby(bool)':
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\build-final\AirPurifier.cpp:993:10: warning: unused variable 'defaultsSaved' [-Wunused-variable]
+     bool defaultsSaved = saveConfig();
+          ^~~~~~~~~~~~~
+In file included from C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\build-final\AirPurifier.cpp:1:0:
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\build-final\AirPurifier.cpp: In function 'void setSettingValue(SettingId, int)':
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\toolchain\data\packages\arduino\hardware\avr\1.8.8\cores\arduino/Arduino.h:95:39: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ #define constrain(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
+                                  ~~~~~^~~~~~
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\build-final\AirPurifier.cpp:1090:58: note: in expansion of macro 'constrain'
+     case SET_BACKLIGHT: config.backlightTimeoutSeconds = constrain(value, MIN_BACKLIGHT_TIMEOUT_SECONDS, MAX_BACKLIGHT_TIMEOUT_SECONDS); lastBacklightActivityMs = millis(); break;
+                                                          ^~~~~~~~~
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\toolchain\data\packages\arduino\hardware\avr\1.8.8\cores\arduino/Arduino.h:95:58: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ #define constrain(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
+                                                     ~~~~~^~~~~~~
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\build-final\AirPurifier.cpp:1090:58: note: in expansion of macro 'constrain'
+     case SET_BACKLIGHT: config.backlightTimeoutSeconds = constrain(value, MIN_BACKLIGHT_TIMEOUT_SECONDS, MAX_BACKLIGHT_TIMEOUT_SECONDS); lastBacklightActivityMs = millis(); break;
+                                                          ^~~~~~~~~
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\toolchain\data\packages\arduino\hardware\avr\1.8.8\cores\arduino/Arduino.h:95:39: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ #define constrain(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
+                                  ~~~~~^~~~~~
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\build-final\AirPurifier.cpp:1091:59: note: in expansion of macro 'constrain'
+     case SET_ROTATION: config.mainScreenRotationSeconds = constrain(value, MIN_MAIN_SCREEN_ROTATION_SECONDS, MAX_MAIN_SCREEN_ROTATION_SECONDS); lastMainRotationMs = millis(); break;
+                                                           ^~~~~~~~~
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\toolchain\data\packages\arduino\hardware\avr\1.8.8\cores\arduino/Arduino.h:95:58: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ #define constrain(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
+                                                     ~~~~~^~~~~~~
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\build-final\AirPurifier.cpp:1091:59: note: in expansion of macro 'constrain'
+     case SET_ROTATION: config.mainScreenRotationSeconds = constrain(value, MIN_MAIN_SCREEN_ROTATION_SECONDS, MAX_MAIN_SCREEN_ROTATION_SECONDS); lastMainRotationMs = millis(); break;
+                                                           ^~~~~~~~~
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\toolchain\data\packages\arduino\hardware\avr\1.8.8\cores\arduino/Arduino.h:95:39: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ #define constrain(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
+                                  ~~~~~^~~~~~
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\build-final\AirPurifier.cpp:1100:72: note: in expansion of macro 'constrain'
+     case SET_OPERATING_SENSOR: config.operatingSensorIntervalSeconds = constrain(value, MIN_OPERATING_SENSOR_INTERVAL_SECONDS, MAX_OPERATING_SENSOR_INTERVAL_SECONDS); lastOperatingSensorMs = millis(); break;
+                                                                        ^~~~~~~~~
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\toolchain\data\packages\arduino\hardware\avr\1.8.8\cores\arduino/Arduino.h:95:58: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ #define constrain(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
+                                                     ~~~~~^~~~~~~
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\build-final\AirPurifier.cpp:1100:72: note: in expansion of macro 'constrain'
+     case SET_OPERATING_SENSOR: config.operatingSensorIntervalSeconds = constrain(value, MIN_OPERATING_SENSOR_INTERVAL_SECONDS, MAX_OPERATING_SENSOR_INTERVAL_SECONDS); lastOperatingSensorMs = millis(); break;
+                                                                        ^~~~~~~~~
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\toolchain\data\packages\arduino\hardware\avr\1.8.8\cores\arduino/Arduino.h:95:39: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ #define constrain(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
+                                  ~~~~~^~~~~~
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\build-final\AirPurifier.cpp:1101:68: note: in expansion of macro 'constrain'
+     case SET_STANDBY_SENSOR: config.standbySensorIntervalSeconds = constrain((value / 8) * 8, MIN_STANDBY_SENSOR_INTERVAL_SECONDS, MAX_STANDBY_SENSOR_INTERVAL_SECONDS); lastStandbySensorMs = millis(); lastStandbyLcdMs = millis(); break;
+                                                                    ^~~~~~~~~
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\toolchain\data\packages\arduino\hardware\avr\1.8.8\cores\arduino/Arduino.h:95:58: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ #define constrain(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
+                                                     ~~~~~^~~~~~~
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\build-final\AirPurifier.cpp:1101:68: note: in expansion of macro 'constrain'
+     case SET_STANDBY_SENSOR: config.standbySensorIntervalSeconds = constrain((value / 8) * 8, MIN_STANDBY_SENSOR_INTERVAL_SECONDS, MAX_STANDBY_SENSOR_INTERVAL_SECONDS); lastStandbySensorMs = millis(); lastStandbyLcdMs = millis(); break;
+                                                                    ^~~~~~~~~
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\toolchain\data\packages\arduino\hardware\avr\1.8.8\cores\arduino/Arduino.h:95:39: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ #define constrain(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
+                                  ~~~~~^~~~~~
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\build-final\AirPurifier.cpp:1102:63: note: in expansion of macro 'constrain'
+     case SET_AUTO_STANDBY: config.autoStandbyTimeoutMinutes = constrain(value, MIN_AUTO_STANDBY_TIMEOUT_MINUTES, MAX_AUTO_STANDBY_TIMEOUT_MINUTES); outputsOffSinceMs = (fanSpeed == 0 && ledBrightness == 0) ? millis() : 0; break;
+                                                               ^~~~~~~~~
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\toolchain\data\packages\arduino\hardware\avr\1.8.8\cores\arduino/Arduino.h:95:58: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ #define constrain(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
+                                                     ~~~~~^~~~~~~
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\build-final\AirPurifier.cpp:1102:63: note: in expansion of macro 'constrain'
+     case SET_AUTO_STANDBY: config.autoStandbyTimeoutMinutes = constrain(value, MIN_AUTO_STANDBY_TIMEOUT_MINUTES, MAX_AUTO_STANDBY_TIMEOUT_MINUTES); outputsOffSinceMs = (fanSpeed == 0 && ledBrightness == 0) ? millis() : 0; break;
+                                                               ^~~~~~~~~
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\build-final\AirPurifier.elf  :
+section                      size      addr
+.data                         278   8388864
+.text                       26128         0
+.bss                          805   8389142
+.comment                       17         0
+.note.gnu.avr.deviceinfo       64         0
+.debug_aranges               1832         0
+.debug_info                 56264         0
+.debug_abbrev                5791         0
+.debug_line                 21333         0
+.debug_frame                 4488         0
+.debug_str                  11308         0
+.debug_loc                  31106         0
+.debug_ranges                3896         0
+Total                      163310
+
+
+
+{"flash": 26406, "ram": 1083, "flash_available": 28672, "ram_available": 2560, "flags": ["-Os", "-g", "-ffunction-sections", "-fdata-sections", "-flto"]}

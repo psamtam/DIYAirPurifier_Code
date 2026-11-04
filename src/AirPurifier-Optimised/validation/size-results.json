@@ -1,0 +1,67 @@
+{
+  "original": {
+    "flash": 28408,
+    "ram": 1114,
+    "flash_available": 28672,
+    "ram_available": 2560,
+    "flags": [
+      "-Os",
+      "-g",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-flto"
+    ]
+  },
+  "integer_sensors": {
+    "flash": 26374,
+    "ram": 1108,
+    "flash_available": 28672,
+    "ram_available": 2560,
+    "flags": [
+      "-Os",
+      "-g",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-flto"
+    ]
+  },
+  "external_text_before_timers": {
+    "flash": 25486,
+    "ram": 1157,
+    "flash_available": 28672,
+    "ram_available": 2560,
+    "flags": [
+      "-Os",
+      "-g",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-flto"
+    ]
+  },
+  "final": {
+    "flash": 26406,
+    "ram": 1083,
+    "flash_available": 28672,
+    "ram_available": 2560,
+    "flags": [
+      "-Os",
+      "-g",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-flto"
+    ]
+  },
+  "programmer": {
+    "flash": 11068,
+    "ram": 431,
+    "flash_available": 28672,
+    "ram_available": 2560,
+    "flags": [
+      "-Os",
+      "-g",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-flto"
+    ]
+  }
+}

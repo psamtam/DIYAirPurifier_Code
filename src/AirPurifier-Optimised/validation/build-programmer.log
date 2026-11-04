@@ -1,0 +1,20 @@
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\build-programmer\UiEepromProgrammer.elf  :
+section                     size      addr
+.data                        110   8388864
+.text                      10958         0
+.bss                         321   8388974
+.comment                      17         0
+.note.gnu.avr.deviceinfo      64         0
+.debug_aranges               576         0
+.debug_info                25417         0
+.debug_abbrev               4752         0
+.debug_line                 8400         0
+.debug_frame                1756         0
+.debug_str                  5563         0
+.debug_loc                 14493         0
+.debug_ranges               1456         0
+Total                      73883
+
+
+
+{"flash": 11068, "ram": 431, "flash_available": 28672, "ram_available": 2560, "flags": ["-Os", "-g", "-ffunction-sections", "-fdata-sections", "-flto"]}

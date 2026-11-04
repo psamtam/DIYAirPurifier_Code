@@ -1,0 +1,3 @@
+PASS: 572 firmware assertions
+PASS: 7145 EEPROM programmer assertions
+PASS: asset generation, capacity, format and checksum tests

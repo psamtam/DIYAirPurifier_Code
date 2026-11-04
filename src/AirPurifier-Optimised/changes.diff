@@ -1,0 +1,887 @@
+--- original/AirPurifier.ino
++++ candidate/AirPurifier.ino
+@@ -1,6 +1,6 @@
+ /*
+   DIY AIR PURIFIER - Arduino Pro Micro / Leonardo (ATmega32U4, 5V/16MHz)
+-  Single-file firmware implementation for ATmega32U4.
++  Firmware for ATmega32U4; matching external EEPROM UI assets are required.
+   Compact register-level sensor/RTC drivers and flash-resident UI strings.
+ 
+   Libraries:
+@@ -14,7 +14,6 @@
+ 
+ #include <Wire.h>
+ #include <LiquidCrystal_I2C.h>
+-#include <math.h>
+ #include <stddef.h>
+ #include <string.h>
+ #include <stdarg.h>
+@@ -27,6 +26,8 @@
+ #include "StoredConfig.h"
+ #include "ButtonState.h"
+ #include "SettingId.h"
++#include "UiAssets.h"
++#include "DelayOffTimer.h"
+ 
+ 
+ // ============================================================================
+@@ -121,15 +122,15 @@
+     return true;
+   }
+   bool startMeasurement() { return writeCommand(0xAC, 0x33, 0x00); }
+-  bool finishMeasurement(float &temperature, float &humidity) {
++  bool finishMeasurement(int16_t &temperature, int16_t &humidity) {
+     uint8_t d[6];
+     if (Wire.requestFrom((uint8_t)0x38, (uint8_t)6) != 6) return false;
+     for (uint8_t i=0; i<6; ++i) d[i] = Wire.read();
+     if (d[0] & 0x80) return false;
+     uint32_t rawH = ((uint32_t)d[1] << 12) | ((uint32_t)d[2] << 4) | (d[3] >> 4);
+     uint32_t rawT = (((uint32_t)d[3] & 0x0F) << 16) | ((uint32_t)d[4] << 8) | d[5];
+-    humidity = (rawH * 100.0f) / 1048576.0f;
+-    temperature = (rawT * 200.0f) / 1048576.0f - 50.0f;
++    humidity = (rawH * 1000UL + 524288UL) >> 20;
++    temperature = (int16_t)((rawT * 2000UL + 524288UL) >> 20) - 500;
+     return true;
+   }
+ };
+@@ -156,10 +157,10 @@
+     uint8_t id;
+     if (!readBytes(0xD0, &id, 1) || (id != 0x58 && id != 0x60)) return false;
+     uint8_t c[24]; if (!readBytes(0x88, c, 24)) return false;
+-    dig_T1 = (uint16_t)(c[1]<<8 | c[0]); dig_T2 = (int16_t)(c[3]<<8 | c[2]); dig_T3 = (int16_t)(c[5]<<8 | c[4]);
+-    dig_P1 = (uint16_t)(c[7]<<8 | c[6]); dig_P2 = (int16_t)(c[9]<<8 | c[8]); dig_P3 = (int16_t)(c[11]<<8 | c[10]);
+-    dig_P4 = (int16_t)(c[13]<<8 | c[12]); dig_P5 = (int16_t)(c[15]<<8 | c[14]); dig_P6 = (int16_t)(c[17]<<8 | c[16]);
+-    dig_P7 = (int16_t)(c[19]<<8 | c[18]); dig_P8 = (int16_t)(c[21]<<8 | c[20]); dig_P9 = (int16_t)(c[23]<<8 | c[22]);
++    dig_T1 = (uint16_t)((uint16_t)c[1]<<8 | c[0]); dig_T2 = (int16_t)((uint16_t)c[3]<<8 | c[2]); dig_T3 = (int16_t)((uint16_t)c[5]<<8 | c[4]);
++    dig_P1 = (uint16_t)((uint16_t)c[7]<<8 | c[6]); dig_P2 = (int16_t)((uint16_t)c[9]<<8 | c[8]); dig_P3 = (int16_t)((uint16_t)c[11]<<8 | c[10]);
++    dig_P4 = (int16_t)((uint16_t)c[13]<<8 | c[12]); dig_P5 = (int16_t)((uint16_t)c[15]<<8 | c[14]); dig_P6 = (int16_t)((uint16_t)c[17]<<8 | c[16]);
++    dig_P7 = (int16_t)((uint16_t)c[19]<<8 | c[18]); dig_P8 = (int16_t)((uint16_t)c[21]<<8 | c[20]); dig_P9 = (int16_t)((uint16_t)c[23]<<8 | c[22]);
+     if (!dig_P1) return false;
+     // Adafruit_BMP280 default sampling/filter/standby profile.
+     writeReg(0xF5, 0x90); // standby 500 ms, filter x16
+@@ -167,7 +168,7 @@
+     delay(2);
+     return true;
+   }
+-  bool read(float &temperature, float &pressureHpa) {
++  bool read(int16_t &temperature, int16_t &pressureHpa) {
+     uint8_t d[6]; if (!readBytes(0xF7, d, 6)) return false;
+     int32_t adcP = ((int32_t)d[0]<<12) | ((int32_t)d[1]<<4) | (d[2]>>4);
+     int32_t adcT = ((int32_t)d[3]<<12) | ((int32_t)d[4]<<4) | (d[5]>>4);
+@@ -175,20 +176,20 @@
+     int32_t v2 = (((((adcT >> 4) - (int32_t)dig_T1) * ((adcT >> 4) - (int32_t)dig_T1)) >> 12) * (int32_t)dig_T3) >> 14;
+     tFine = v1 + v2;
+     int32_t temp100 = (tFine * 5 + 128) >> 8;
+-    temperature = temp100 / 100.0f;
++    temperature = (temp100 + (temp100 >= 0 ? 5 : -5)) / 10;
+     int64_t p1 = (int64_t)tFine - 128000;
+     int64_t p2 = p1 * p1 * (int64_t)dig_P6;
+-    p2 += (p1 * (int64_t)dig_P5) << 17;
+-    p2 += ((int64_t)dig_P4) << 35;
+-    p1 = ((p1 * p1 * (int64_t)dig_P3) >> 8) + ((p1 * (int64_t)dig_P2) << 12);
++    p2 += (p1 * (int64_t)dig_P5) * 131072LL;
++    p2 += ((int64_t)dig_P4) * 34359738368LL;
++    p1 = ((p1 * p1 * (int64_t)dig_P3) >> 8) + ((p1 * (int64_t)dig_P2) * 4096LL);
+     p1 = (((((int64_t)1) << 47) + p1) * (int64_t)dig_P1) >> 33;
+     if (!p1) return false;
+     int64_t p = 1048576 - adcP;
+     p = (((p << 31) - p2) * 3125) / p1;
+     p1 = ((int64_t)dig_P9 * (p >> 13) * (p >> 13)) >> 25;
+     p2 = ((int64_t)dig_P8 * p) >> 19;
+-    p = ((p + p1 + p2) >> 8) + (((int64_t)dig_P7) << 4);
+-    pressureHpa = (float)p / 25600.0f;
++    p = ((p + p1 + p2) >> 8) + (((int64_t)dig_P7) * 16LL);
++    pressureHpa = (int16_t)((p + 1280) / 2560);
+     return true;
+   }
+ };
+@@ -288,9 +289,9 @@
+ uint8_t ledBrightness = DEFAULT_LED_BRIGHTNESS;
+ 
+ // Current readings and freshness/error state
+-float temperatureC = NAN;
+-float humidityPercent = NAN;
+-float pressureHpa = NAN;
++int16_t temperatureC = 0; // tenths of a degree C
++int16_t humidityPercent = 0; // tenths of one percent
++int16_t pressureHpa = 0; // tenths of one hPa
+ bool ahtReadingValid = false;
+ bool bmpReadingValid = false;
+ uint32_t lastAhtSuccessMs = 0;
+@@ -309,9 +310,14 @@
+ 
+ // State separation
+  enum PowerState : uint8_t { OPERATING, STANDBY };
+- enum UiState : uint8_t { MAIN_DISPLAY, FAN_ADJUSTMENT, LED_ADJUSTMENT, MENU };
++ enum UiState : uint8_t { MAIN_DISPLAY, FAN_ADJUSTMENT, LED_ADJUSTMENT, MENU, DELAY_EDIT };
+ PowerState powerState = OPERATING;
+ UiState uiState = MAIN_DISPLAY;
++DelayOffTimer delayTimers[2]; // 0: fan, 1: LED; countdowns never persist.
++uint8_t delaySelections[2] = {30, 30};
++uint8_t delayEditTarget = 0;
++uint8_t delayEditMinutes = 30;
++bool delayOutputOffMessage = false;
+ 
+ bool lcdBacklightOn = true;
+ bool fanRelayOn = false;
+@@ -389,45 +395,37 @@
+ 
+ void lcdLine(uint8_t row, const char *text) {
+   if (!lcdOK) return;
++  Wire.clearWireTimeoutFlag();
+   lcd.setCursor(0, row);
++  if (Wire.getWireTimeoutFlag()) { lcdOK = false; return; }
+   uint8_t n = 0;
+-  while (*text && n < 20) { lcd.print(*text++); ++n; }
+-  while (n++ < 20) lcd.print(' ');
+-}
+-
+-// Print flash-resident text without copying it into scarce SRAM.
+-void lcdLine(uint8_t row, const __FlashStringHelper *text) {
+-  if (!lcdOK) return;
+-  lcd.setCursor(0, row);
+-  lcd.print(text);
+-  uint8_t n = strlen_P((PGM_P)text);
+-  if (n > 20) n = 20;
+-  while (n++ < 20) lcd.print(' ');
++  while (*text && n < 20) { lcd.print(*text++); ++n; if (Wire.getWireTimeoutFlag()) { lcdOK = false; return; } }
++  while (n++ < 20) { lcd.print(' '); if (Wire.getWireTimeoutFlag()) { lcdOK = false; return; } }
+ }
+ 
+ // Small printf-like formatter for the handful of integer/string formats used
+ // by this UI. It deliberately avoids pulling the much larger avr-libc printf
+ // implementation into the firmware. Supported: %s, %u, %d, %% and widths
+ // such as %02u, %04d and %5u. No floating-point formatting is performed here.
+-void tinyFormat_P(char *out, uint8_t capacity, PGM_P fmt, ...) {
++void tinyFormat_P(char *out, uint8_t capacity, const char *fmt, ...) {
+   if (!capacity) return;
+   uint8_t pos = 0;
+   va_list ap;
+   va_start(ap, fmt);
+-  char ch = (char)pgm_read_byte(fmt++);
++  char ch = *fmt++;
+   while (ch && pos < capacity - 1) {
+-    if (ch != '%') { out[pos++] = ch; ch = (char)pgm_read_byte(fmt++); continue; }
+-    ch = (char)pgm_read_byte(fmt++);
+-    if (ch == '%') { out[pos++] = '%'; ch = (char)pgm_read_byte(fmt++); continue; }
++    if (ch != '%') { out[pos++] = ch; ch = *fmt++; continue; }
++    ch = *fmt++;
++    if (ch == '%') { out[pos++] = '%'; ch = *fmt++; continue; }
+     char pad = ' ';
+-    if (ch == '0') { pad = '0'; ch = (char)pgm_read_byte(fmt++); }
++    if (ch == '0') { pad = '0'; ch = *fmt++; }
+     uint8_t width = 0;
+     while (ch >= '0' && ch <= '9') {
+       width = (uint8_t)(width * 10 + (ch - '0'));
+-      ch = (char)pgm_read_byte(fmt++);
++      ch = *fmt++;
+     }
+     char spec = ch;
+-    ch = (char)pgm_read_byte(fmt++);
++    ch = *fmt++;
+     if (spec == 's') {
+       const char *v = va_arg(ap, const char *);
+       if (!v) v = "";
+@@ -459,32 +457,9 @@
+ 
+ // Compact fixed-point formatter. Avoids pulling avr-libc's relatively large
+ // dtostrf floating-point formatting routine into the 32U4 firmware.
+-void formatFloat(char *out, size_t len, float value, uint8_t decimals) {
+-  if (!len) return;
+-  if (value != value || value > 32000.0f || value < -32000.0f) {
+-    strncpy(out, "ERR", len);
+-    out[len - 1] = '\0';
+-    return;
+-  }
+-  if (decimals > 2) decimals = 2;
+-  uint16_t scale = decimals == 2 ? 100 : (decimals == 1 ? 10 : 1);
+-  int32_t scaled = (int32_t)(value * scale + (value >= 0 ? 0.5f : -0.5f));
+-  bool negative = scaled < 0;
+-  uint32_t magnitude = negative ? (uint32_t)(-scaled) : (uint32_t)scaled;
+-  uint32_t whole = magnitude / scale;
+-  uint16_t fraction = magnitude % scale;
+-  char digits[6];
+-  uint8_t count = 0;
+-  do { digits[count++] = (char)('0' + whole % 10); whole /= 10; } while (whole && count < sizeof(digits));
+-  uint8_t pos = 0;
+-  if (negative && pos < len - 1) out[pos++] = '-';
+-  while (count && pos < len - 1) out[pos++] = digits[--count];
+-  if (decimals && pos < len - 1) {
+-    out[pos++] = '.';
+-    if (decimals == 2 && pos < len - 1) out[pos++] = (char)('0' + fraction / 10);
+-    if (pos < len - 1) out[pos++] = (char)('0' + fraction % 10);
+-  }
+-  out[pos] = '\0';
++void formatReading(char *out, uint8_t len, int16_t value) {
++  uint16_t magnitude = value < 0 ? (uint16_t)(-(int32_t)value) : value;
++  tinyFormat_P(out, len, uiText(0), value < 0 ? "-" : "", magnitude / 10, magnitude % 10);
+ }
+ 
+ bool validDate(int y, int m, int d, int hh, int mm, int ss) {
+@@ -523,14 +498,21 @@
+ }
+ 
+ void setFanPWM(uint8_t percent) {
+-  percent = constrain(percent, 0, 100);
++  if (percent > 100) percent = 100;
+   uint16_t duty = ((uint32_t)percent * 640UL) / 100UL;
+   OCR1B = (duty >= 640) ? 639 : duty;
+ }
+ 
+ void setLedPWM(uint8_t percent) {
+-  percent = constrain(percent, 0, 100);
+-  OCR3A = ((uint32_t)percent * PWM_TOP) / 100UL;
++  if (percent > 100) percent = 100;
++  if (!percent) {
++    // OCR=0 in Fast PWM still produces narrow pulses: disconnect OC3A.
++    TCCR3A &= (uint8_t)~_BV(COM3A1);
++    digitalWrite(PIN_LED, LOW);
++  } else {
++    OCR3A = ((uint32_t)percent * PWM_TOP) / 100UL;
++    TCCR3A |= _BV(COM3A1);
++  }
+ }
+ 
+ void setRelay(bool on) {
+@@ -558,11 +540,12 @@
+ }
+ 
+ void applyFanOutput() {
++  if (!fanSpeed) delayTimers[0].cancel();
+   setFanPWM(fanSpeed);
+   setRelay(fanSpeed > 0);
+ }
+ 
+-void applyLedOutput() { setLedPWM(ledBrightness); }
++void applyLedOutput() { if (!ledBrightness) delayTimers[1].cancel(); setLedPWM(ledBrightness); }
+ 
+ void applyOutputs() {
+   applyFanOutput();
+@@ -713,6 +696,31 @@
+   if (verify.checksum != stored.checksum) return false;
+   if (memcmp(&verify.config, &stored.config, sizeof(Config)) != 0) return false;
+   return true;
++}
++
++bool uiAssetsOK = false;
++
++bool validateUiAssets() {
++  uint32_t magic; uint16_t count, expected;
++  if (!eepromReadBytes(256, (uint8_t *)&magic, 4) || magic != 0x58545041UL ||
++      !eepromReadBytes(260, (uint8_t *)&count, 2) || count != UI_TEXT_COUNT ||
++      !eepromReadBytes(262, (uint8_t *)&expected, 2) || expected != UI_TEXT_CHECKSUM) return false;
++  uint16_t checksum = 0xA55A;
++  uint8_t block[32];
++  for (uint16_t i = 0; i < UI_TEXT_COUNT; ++i) {
++    if (!eepromReadBytes(264 + i * 32, block, 32)) return false;
++    for (uint8_t j = 0; j < 32; ++j) checksum = (uint16_t)((checksum << 5) | (checksum >> 11)) ^ block[j];
++  }
++  return checksum == UI_TEXT_CHECKSUM;
++}
++
++const char *uiText(uint8_t id) {
++  static char text[32];
++  if (id >= UI_TEXT_COUNT || !eepromReadBytes(264 + (uint16_t)id * 32, (uint8_t *)text, 32)) {
++    strcpy(text, "TEXT ERR");
++  }
++  text[31] = '\0';
++  return text;
+ }
+ 
+ // ============================================================================
+@@ -782,16 +790,16 @@
+       // if the watchdog timing or millis bookkeeping differs from expectation.
+       if (ahtMeasurementPending) {
+         ahtMeasurementPending = false;
+-        float pendingT, pendingH;
+-        if (aht.finishMeasurement(pendingT, pendingH) && !isnan(pendingT) && !isnan(pendingH)) {
++        int16_t pendingT, pendingH;
++        if (aht.finishMeasurement(pendingT, pendingH)) {
+           temperatureC = pendingT; humidityPercent = pendingH;
+           ahtReadingValid = true; lastAhtSuccessMs = now;
+         }
+       }
+       if (aht.startMeasurement()) {
+         delay(80); // Only once per configured standby sensor refresh interval.
+-        float t, h;
+-        if (aht.finishMeasurement(t, h) && !isnan(t) && !isnan(h)) {
++        int16_t t, h;
++        if (aht.finishMeasurement(t, h)) {
+           temperatureC = t; humidityPercent = h;
+           ahtReadingValid = true; lastAhtSuccessMs = millis();
+         } else ahtReadingValid = false;
+@@ -806,8 +814,8 @@
+   } else ahtReadingValid = false;
+ 
+   if (bmpOK) {
+-    float t, p;
+-    if (bmp.read(t, p) && !isnan(t) && !isnan(p) && p > 0) {
++    int16_t t, p;
++    if (bmp.read(t, p) && p > 0) {
+       pressureHpa = p;
+       bmpReadingValid = true; lastBmpSuccessMs = now;
+     } else bmpReadingValid = false;
+@@ -817,8 +825,8 @@
+ void pollAhtMeasurement(uint32_t now) {
+   if (!ahtMeasurementPending || !elapsed(now, ahtMeasurementStartedMs, 80)) return;
+   ahtMeasurementPending = false;
+-  float t, h;
+-  if (aht.finishMeasurement(t, h) && !isnan(t) && !isnan(h)) {
++  int16_t t, h;
++  if (aht.finishMeasurement(t, h)) {
+     temperatureC = t; humidityPercent = h;
+     ahtReadingValid = true; lastAhtSuccessMs = now;
+   } else ahtReadingValid = false;
+@@ -883,6 +891,7 @@
+ void renderStandbyDisplay();
+ 
+ void enterStandby(bool explicitRequest) {
++  delayTimers[0].cancel(); delayTimers[1].cancel();
+   if (explicitRequest) {
+     config.defaultFanSpeed = fanSpeed;
+     config.defaultLedBrightness = ledBrightness;
+@@ -929,6 +938,35 @@
+   else outputsOffSinceMs = 0;
+ }
+ 
++void beginDelayEdit(uint8_t target) {
++  delayEditTarget = target;
++  delayEditMinutes = delaySelections[target];
++  delayOutputOffMessage = false;
++  uiState = DELAY_EDIT;
++  noteUserActivity();
++}
++
++void handleDelayButton(uint8_t target) {
++  if (target != delayEditTarget) { enterMainDisplay(); return; }
++  if (delayEditMinutes && !(target == 0 ? fanSpeed : ledBrightness)) {
++    delayOutputOffMessage = true;
++    return;
++  }
++  delaySelections[target] = delayEditMinutes;
++  delayTimers[target].set(millis(), delayEditMinutes);
++  enterMainDisplay();
++}
++
++void checkDelayTimers(uint32_t now) {
++  if (powerState != OPERATING) return;
++  for (uint8_t target = 0; target < 2; ++target) {
++    if (!delayTimers[target].expired(now)) continue;
++    delayTimers[target].cancel();
++    if (target == 0) { fanSpeed = 0; applyFanOutput(); }
++    else { ledBrightness = 0; applyLedOutput(); }
++  }
++}
++
+ uint8_t nextPresetAbove(const uint8_t *presets, uint8_t current) {
+   for (uint8_t i = 0; i < PRESET_COUNT; ++i) if (presets[i] > current) return presets[i];
+   return presets[0];
+@@ -998,18 +1036,18 @@
+   return 100;
+ }
+ 
+-const __FlashStringHelper *settingName(SettingId id) {
++const char *settingName(SettingId id) {
+   switch (id) {
+-    case SET_BACKLIGHT: return F("Backlight timeout");
+-    case SET_ROTATION: return F("Screen rotation");
+-    case SET_STANDBY_LCD_N: return F("Standby LCD mult.");
+-    case SET_PMS_ENABLE: return F("PMS7003 enabled");
+-    case SET_PM_WINDOW: return F("PM average window");
+-    case SET_OPERATING_SENSOR: return F("Operating sensor");
+-    case SET_STANDBY_SENSOR: return F("Standby sensor");
+-    case SET_AUTO_STANDBY: return F("Auto standby");
+-  }
+-  return F("Setting");
++    case SET_BACKLIGHT: return uiText(1);
++    case SET_ROTATION: return uiText(2);
++    case SET_STANDBY_LCD_N: return uiText(3);
++    case SET_PMS_ENABLE: return uiText(4);
++    case SET_PM_WINDOW: return uiText(5);
++    case SET_OPERATING_SENSOR: return uiText(6);
++    case SET_STANDBY_SENSOR: return uiText(7);
++    case SET_AUTO_STANDBY: return uiText(8);
++  }
++  return uiText(9);
+ }
+ 
+ void beginConfigEdit() { configBeforeEdit = config; menuEditing = true; }
+@@ -1045,118 +1083,118 @@
+ 
+ void drawDateEditor() {
+   if (!rtcOK || !dateEditing) {
+-    lcdLine(0, F("--- DATE / TIME ----"));
+-    lcdLine(1, F("RTC unavailable"));
+-    lcdLine(2, F("Check DS3231"));
+-    lcdLine(3, F("A: Back"));
++    lcdLine(0, uiText(10));
++    lcdLine(1, uiText(11));
++    lcdLine(2, uiText(12));
++    lcdLine(3, uiText(13));
+     return;
+   }
+   char b[21];
+-  const __FlashStringHelper *fieldNames[6] = {
+-    F("Set Year"), F("Set Month"), F("Set Day"),
+-    F("Set Hour"), F("Set Minute"), F("Set Second")
++  const uint8_t fieldNames[6] = {
++    14, 15, 16,
++    17, 18, 19
+   };
+-  lcdLine(0, F("--- DATE / TIME ----"));
+-  lcdLine(1, fieldNames[dateEditField]);
+-  tinyFormat_P(b, sizeof(b), PSTR("%04d-%02d-%02d %02d:%02d:%02d"),
++  lcdLine(0, uiText(10));
++  lcdLine(1, uiText(fieldNames[dateEditField]));
++  tinyFormat_P(b, sizeof(b), uiText(20),
+                editYear, editMonth, editDay, editHour, editMinute, editSecond);
+   lcdLine(2, b);
+-  if (dateEditField == 5) lcdLine(3, F("Y: Save    A: Cancel"));
+-  else lcdLine(3, F("Y: Next    A: Cancel"));
++  if (dateEditField == 5) lcdLine(3, uiText(21));
++  else lcdLine(3, uiText(22));
+ }
+ 
+ void drawMenu() {
+   if (dateEditing) { drawDateEditor(); return; }
+   char b[21];
+-  lcdLine(0, F("----- SETTINGS -----"));
++  lcdLine(0, uiText(23));
+   lcd.setCursor(0, 1);
+   lcd.print("> ");
+-  const __FlashStringHelper *item = F("Factory Reset");
++  const char *item = uiText(24);
+   switch (menuIndex) {
+-    case 0: item = F("Date & Time"); break;
+-    case 1: item = F("Display"); break;
+-    case 2: item = F("Sensors"); break;
+-    case 3: item = F("Power"); break;
+-    case 4: item = F("Fan Presets"); break;
+-    case 5: item = F("LED Presets"); break;
+-    case 6: item = F("Status"); break;
+-    case 7: item = F("About"); break;
+-    case 8: item = F("Factory Reset"); break;
++    case 0: item = uiText(25); break;
++    case 1: item = uiText(26); break;
++    case 2: item = uiText(27); break;
++    case 3: item = uiText(28); break;
++    case 4: item = uiText(29); break;
++    case 5: item = uiText(30); break;
++    case 6: item = uiText(31); break;
++    case 7: item = uiText(32); break;
++    case 8: item = uiText(24); break;
+   }
+   lcd.print(item);
+-  uint8_t itemLength = strlen_P((PGM_P)item);
++  uint8_t itemLength = strlen(item);
+   if (itemLength > 19) itemLength = 19;
+   while (itemLength + 2 < 20) { lcd.print(' '); ++itemLength; }
+-  tinyFormat_P(b, sizeof(b), PSTR("Page %u of %u"), (unsigned int)(menuIndex + 1), (unsigned int)MENU_ITEM_COUNT_ACTUAL);
+-  lcdLine(2, "");
++  tinyFormat_P(b, sizeof(b), uiText(33), (unsigned int)(menuIndex + 1), (unsigned int)MENU_ITEM_COUNT_ACTUAL);
++  lcdLine(2, uiText(34));
+   lcd.setCursor(20 - strlen(b), 2); lcd.print(b);
+-  lcdLine(3, F("Y: Select    A: Back"));
++  lcdLine(3, uiText(35));
+ }
+ 
+ void drawDisplaySettings(uint8_t idx) {
+   char b[21];
+-  lcdLine(0, F("----- DISPLAY ------"));
++  lcdLine(0, uiText(36));
+   if (idx < 3) {
+     SettingId ids[3] = {SET_BACKLIGHT, SET_ROTATION, SET_STANDBY_LCD_N};
+     SettingId id = ids[idx];
+     lcdLine(1, settingName(id));
+     int v = getSettingValue(id);
+-    tinyFormat_P(b, sizeof(b), PSTR("%d %s"), v, id == SET_STANDBY_LCD_N ? "x" : "seconds");
++    tinyFormat_P(b, sizeof(b), uiText(37), v, id == SET_STANDBY_LCD_N ? "x" : "seconds");
+     lcdLine(2, menuEditing ? ">>> " : "  > ");
+     lcd.setCursor(4, 2); lcd.print(b);
+   } else {
+-    lcdLine(1, F("Time format"));
+-    lcdLine(2, menuEditing ? (use24HourClock ? F(">>> 24H") : F(">>> 12H")) : (use24HourClock ? F("  > 24-hour") : F("  > 12-hour")));
+-  }
+-  lcdLine(3, menuEditing ? F("Scroll +/-  Y: Save") : F("Y: Edit      A: Back"));
++    lcdLine(1, uiText(38));
++    lcdLine(2, menuEditing ? (use24HourClock ? uiText(39) : uiText(40)) : (use24HourClock ? uiText(41) : uiText(42)));
++  }
++  lcdLine(3, menuEditing ? uiText(43) : uiText(44));
+ }
+ 
+ void drawSensorSettings(uint8_t idx) {
+   SettingId ids[4] = {SET_PMS_ENABLE, SET_PM_WINDOW, SET_OPERATING_SENSOR, SET_STANDBY_SENSOR};
+   SettingId id = ids[idx]; char b[21];
+-  lcdLine(0, F("----- SENSORS ------")); lcdLine(1, settingName(id));
+-  if (id == SET_PMS_ENABLE) tinyFormat_P(b, sizeof(b), PSTR("%s"), config.pmsEnabled ? "ON" : "OFF");
+-  else if (id == SET_PM_WINDOW) tinyFormat_P(b, sizeof(b), PSTR("%u readings"), (unsigned int)config.pmAverageWindow);
+-  else tinyFormat_P(b, sizeof(b), PSTR("%d seconds"), getSettingValue(id));
++  lcdLine(0, uiText(45)); lcdLine(1, settingName(id));
++  if (id == SET_PMS_ENABLE) tinyFormat_P(b, sizeof(b), uiText(46), config.pmsEnabled ? "ON" : "OFF");
++  else if (id == SET_PM_WINDOW) tinyFormat_P(b, sizeof(b), uiText(47), (unsigned int)config.pmAverageWindow);
++  else tinyFormat_P(b, sizeof(b), uiText(48), getSettingValue(id));
+   lcdLine(2, menuEditing ? ">>> " : "  > "); lcd.setCursor(4, 2); lcd.print(b);
+-  lcdLine(3, menuEditing ? F("Scroll +/-  Y: Save") : F("Y: Edit      A: Back"));
++  lcdLine(3, menuEditing ? uiText(43) : uiText(44));
+ }
+ 
+ void drawPowerSettings() {
+-  char b[21]; lcdLine(0, F("------ POWER -------")); lcdLine(1, F("Auto standby timeout"));
+-  tinyFormat_P(b, sizeof(b), PSTR("%u minutes"), (unsigned int)config.autoStandbyTimeoutMinutes);
++  char b[21]; lcdLine(0, uiText(49)); lcdLine(1, uiText(50));
++  tinyFormat_P(b, sizeof(b), uiText(51), (unsigned int)config.autoStandbyTimeoutMinutes);
+   lcdLine(2, menuEditing ? ">>> " : "  > "); lcd.setCursor(4, 2); lcd.print(b);
+-  lcdLine(3, menuEditing ? F("Scroll +/-  Y: Save") : F("Y: Edit      A: Back"));
++  lcdLine(3, menuEditing ? uiText(43) : uiText(44));
+ }
+ 
+ void drawPresetEditor(bool fan, uint8_t idx) {
+   char b[21];
+-  lcdLine(0, fan ? F("--- FAN PRESETS ----") : F("--- LED PRESETS ----"));
+-  tinyFormat_P(b, sizeof(b), PSTR("Preset %u of %u"), (unsigned int)(idx + 1), (unsigned int)PRESET_COUNT); lcdLine(1, b);
+-  tinyFormat_P(b, sizeof(b), PSTR("%u%%"), (unsigned int)(fan ? config.fanPresets[idx] : config.ledPresets[idx]));
++  lcdLine(0, fan ? uiText(52) : uiText(53));
++  tinyFormat_P(b, sizeof(b), uiText(54), (unsigned int)(idx + 1), (unsigned int)PRESET_COUNT); lcdLine(1, b);
++  tinyFormat_P(b, sizeof(b), uiText(55), (unsigned int)(fan ? config.fanPresets[idx] : config.ledPresets[idx]));
+   lcdLine(2, menuEditing ? ">>> " : "  > "); lcd.setCursor(4, 2); lcd.print(b);
+-  lcdLine(3, menuEditing ? F("Scroll +/-  Y: Save") : F("Y: Edit      A: Back"));
++  lcdLine(3, menuEditing ? uiText(43) : uiText(44));
+ }
+ 
+ void drawStatusPage() {
+-  char b[21]; lcdLine(0, F("SYSTEM STATUS"));
+-  tinyFormat_P(b, sizeof(b), PSTR("RTC:%s EEPROM:%s"), rtcOK ? "OK" : "ERR", eepromOK ? "OK" : "ERR"); lcdLine(1, b);
+-  tinyFormat_P(b, sizeof(b), PSTR("AHT:%s BMP:%s"), ahtReadingValid ? "OK" : "ERR", bmpReadingValid ? "OK" : "ERR"); lcdLine(2, b);
+-  tinyFormat_P(b, sizeof(b), PSTR("PMS:%s %s"), !config.pmsEnabled ? "OFF" : (pmsError ? "ERR" : (pmValuesAvailable() ? "OK" : "WAIT")), powerState == STANDBY ? "STBY" : "RUN"); lcdLine(3, b);
++  char b[21]; lcdLine(0, uiText(56));
++  tinyFormat_P(b, sizeof(b), uiText(57), rtcOK ? "OK" : "ERR", eepromOK ? "OK" : "ERR"); lcdLine(1, b);
++  tinyFormat_P(b, sizeof(b), uiText(58), ahtReadingValid ? "OK" : "ERR", bmpReadingValid ? "OK" : "ERR"); lcdLine(2, b);
++  tinyFormat_P(b, sizeof(b), uiText(59), !config.pmsEnabled ? "OFF" : (pmsError ? "ERR" : (pmValuesAvailable() ? "OK" : "WAIT")), powerState == STANDBY ? "STBY" : "RUN"); lcdLine(3, b);
+ }
+ 
+ void drawAboutPage() {
+-  lcdLine(0, F("DIY Air Purifier"));
+-  lcdLine(1, F("Firmware version"));
+-  lcdLine(2, F("1.0.0"));
+-  lcdLine(3, F("A: Back"));
++  lcdLine(0, uiText(60));
++  lcdLine(1, uiText(61));
++  lcdLine(2, uiText(62));
++  lcdLine(3, uiText(13));
+ }
+ 
+ void drawFactoryResetPage() {
+-  lcdLine(0, F("-- FACTORY RESET ---"));
+-  lcdLine(1, F("Are you sure?"));
+-  lcdLine(2, F(""));
+-  lcdLine(3, F("Y: Reset   A: Cancel"));
++  lcdLine(0, uiText(63));
++  lcdLine(1, uiText(64));
++  lcdLine(2, uiText(34));
++  lcdLine(3, uiText(65));
+ }
+ 
+ // Menu subpage state: 0 main, 1 display, 2 sensors, 3 power, 4 fan presets, 5 LED presets, 6 status, 7 about, 8 date.
+@@ -1290,6 +1328,7 @@
+ 
+ void handleButton1Short() {
+   noteUserActivity();
++  if (uiState == DELAY_EDIT) { handleDelayButton(0); return; }
+   if (uiState == MENU) { handleMenuButton1(); return; }
+   if (uiState == MAIN_DISPLAY) uiState = FAN_ADJUSTMENT;
+   else if (uiState == LED_ADJUSTMENT) { uiState = FAN_ADJUSTMENT; }
+@@ -1299,6 +1338,7 @@
+ 
+ void handleButton2Short() {
+   noteUserActivity();
++  if (uiState == DELAY_EDIT) { handleDelayButton(1); return; }
+   if (uiState == MENU) { handleMenuButton2(); return; }
+   if (uiState == MAIN_DISPLAY) uiState = LED_ADJUSTMENT;
+   else if (uiState == FAN_ADJUSTMENT) uiState = LED_ADJUSTMENT;
+@@ -1309,7 +1349,7 @@
+ void handleButton3Short() {
+   noteUserActivity();
+   if (uiState == MAIN_DISPLAY) { uiState = MENU; menuPage = 0; menuIndex = 0; menuEditing = false; }
+-  else if (uiState == FAN_ADJUSTMENT || uiState == LED_ADJUSTMENT) enterMainDisplay();
++  else if (uiState == FAN_ADJUSTMENT || uiState == LED_ADJUSTMENT || uiState == DELAY_EDIT) enterMainDisplay();
+   else if (uiState == MENU) handleMenuButton3Short();
+ }
+ 
+@@ -1325,6 +1365,7 @@
+   if (powerState == STANDBY) {
+     if (p3) {
+       wakeFromStandby();
++      button1.longPressFired = true; button2.longPressFired = true;
+       button3WakeOnlyUntilRelease = true;
+     }
+     return;
+@@ -1335,13 +1376,27 @@
+     if (p1 || p2 || p3) {
+       setBacklight(true); noteUserActivity();
+       if (p3) button3WakeOnlyUntilRelease = true;
++      if (p1) button1.longPressFired = true;
++      if (p2) button2.longPressFired = true;
+       // Button 1/2 wake-only too; suppress their corresponding edge.
+       return;
+     }
+   }
+ 
+-  if (p1) handleButton1Short();
+-  if (p2) handleButton2Short();
++  // Short actions occur on release, so a hold cannot also cycle a preset.
++  if (p1 || p2) noteUserActivity();
++  if (uiState != MENU) {
++    if (button1.stablePressed && !button1.longPressFired && elapsed(now, button1.pressedAt, BUTTON3_LONG_PRESS_MS)) {
++      button1.longPressFired = true;
++      beginDelayEdit(0);
++    }
++    if (button2.stablePressed && !button2.longPressFired && elapsed(now, button2.pressedAt, BUTTON3_LONG_PRESS_MS)) {
++      button2.longPressFired = true;
++      beginDelayEdit(1);
++    }
++  }
++  if (r1 && !button1.longPressFired) handleButton1Short();
++  if (r2 && !button2.longPressFired) handleButton2Short();
+ 
+   if (p3) { button3WakeOnlyUntilRelease = false; noteUserActivity(); }
+   if (button3.stablePressed && !button3.longPressFired && !button3WakeOnlyUntilRelease && elapsed(now, button3.pressedAt, BUTTON3_LONG_PRESS_MS)) {
+@@ -1366,7 +1421,10 @@
+   if (powerState == STANDBY) return;
+   if (!lcdBacklightOn) { setBacklight(true); noteUserActivity(); return; }
+   noteUserActivity();
+-  if (uiState == FAN_ADJUSTMENT || uiState == LED_ADJUSTMENT) {
++  if (uiState == DELAY_EDIT) {
++    delayEditMinutes = stepDelayMinutes(delayEditMinutes, delta);
++    delayOutputOffMessage = false;
++  } else if (uiState == FAN_ADJUSTMENT || uiState == LED_ADJUSTMENT) {
+     adjustActiveOutput(delta);
+   } else if (uiState == MENU) {
+     if (menuPage == 0 || menuPage == 8) handleMenuEncoder(delta);
+@@ -1415,11 +1473,12 @@
+     renderDisplay();
+   }
+   if (lcdBacklightOn && elapsed(now, lastBacklightActivityMs, secondsToMs(config.backlightTimeoutSeconds))) setBacklight(false);
+-  if ((uiState == FAN_ADJUSTMENT || uiState == LED_ADJUSTMENT) && elapsed(now, lastUiActivityMs, UI_INACTIVITY_TIMEOUT_MS)) enterMainDisplay();
++  if ((uiState == FAN_ADJUSTMENT || uiState == LED_ADJUSTMENT || uiState == DELAY_EDIT) && elapsed(now, lastUiActivityMs, UI_INACTIVITY_TIMEOUT_MS)) enterMainDisplay();
+   if (uiState == MENU && elapsed(now, lastMenuActivityMs, MENU_INACTIVITY_TIMEOUT_MS)) {
+     enterMainDisplay(); setBacklight(false);
+     outputsOffSinceMs = (fanSpeed == 0 && ledBrightness == 0) ? now : 0;
+   }
++  checkDelayTimers(now);
+   checkAutomaticStandby(now);
+ }
+ 
+@@ -1430,13 +1489,13 @@
+ void formatClockLine(char *out, size_t outSize, uint16_t year, uint8_t month, uint8_t day, uint8_t hour, uint8_t minute) {
+   char timePart[10];
+   if (use24HourClock) {
+-    tinyFormat_P(timePart, sizeof(timePart), PSTR("%02u:%02u"), (unsigned int)hour, (unsigned int)minute);
++    tinyFormat_P(timePart, sizeof(timePart), uiText(66), (unsigned int)hour, (unsigned int)minute);
+   } else {
+     uint8_t h = hour % 12;
+     if (!h) h = 12;
+-    tinyFormat_P(timePart, sizeof(timePart), PSTR("%u:%02u %s"), (unsigned int)h, (unsigned int)minute, hour >= 12 ? "PM" : "AM");
+-  }
+-  tinyFormat_P(out, outSize, PSTR("%04u-%02u-%02u"), (unsigned int)year, (unsigned int)month, (unsigned int)day);
++    tinyFormat_P(timePart, sizeof(timePart), uiText(67), (unsigned int)h, (unsigned int)minute, hour >= 12 ? "PM" : "AM");
++  }
++  tinyFormat_P(out, outSize, uiText(68), (unsigned int)year, (unsigned int)month, (unsigned int)day);
+   size_t dateLen = strlen(out), timeLen = strlen(timePart);
+   if (dateLen + timeLen < 20 && dateLen + timeLen < outSize) {
+     size_t spaces = 20 - dateLen - timeLen;
+@@ -1451,14 +1510,14 @@
+   if (rtcOK) { DateTime n = rtc.now(); formatClockLine(b, sizeof(b), n.year(), n.month(), n.day(), n.hour(), n.minute()); }
+   else strcpy(b, "RTC ERR");
+   lcdLine(0, b);
+-  formatFloat(v, sizeof(v), temperatureC, 1);
++  formatReading(v, sizeof(v), temperatureC);
+   strcpy(t, ahtReadingValid && !elapsed(millis(), lastAhtSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR");
+-  formatFloat(v, sizeof(v), humidityPercent, 1);
++  formatReading(v, sizeof(v), humidityPercent);
+   strcpy(h, ahtReadingValid && !elapsed(millis(), lastAhtSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR");
+-  lcdLine(1, F(" Temp:  | Humidity:"));
+-  tinyFormat_P(b, sizeof(b), PSTR(" %6s C | %6s%%"), t, h); lcdLine(2, b);
+-  formatFloat(v, sizeof(v), pressureHpa, 1);
+-  tinyFormat_P(b, sizeof(b), PSTR("Pressure: %s hPa"), bmpReadingValid && !elapsed(millis(), lastBmpSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR"); lcdLine(3, b);
++  lcdLine(1, uiText(69));
++  tinyFormat_P(b, sizeof(b), uiText(70), t, h); lcdLine(2, b);
++  formatReading(v, sizeof(v), pressureHpa);
++  tinyFormat_P(b, sizeof(b), uiText(71), bmpReadingValid && !elapsed(millis(), lastBmpSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR"); lcdLine(3, b);
+ }
+ 
+ void renderMainParticles() {
+@@ -1468,33 +1527,39 @@
+   lcdLine(0, b);
+   const char *state = !config.pmsEnabled ? "OFF" : (pmsInGracePeriod() ? "--" : (pmsError ? "ERR" : "--"));
+   if (pmValuesAvailable()) {
+-    tinyFormat_P(b, sizeof(b), PSTR(" PM1.0: %5u ug/m3"), pm1); lcdLine(1, b);
+-    tinyFormat_P(b, sizeof(b), PSTR(" PM2.5: %5u ug/m3"), pm25); lcdLine(2, b);
+-    tinyFormat_P(b, sizeof(b), PSTR(" PM10 : %5u ug/m3"), pm10); lcdLine(3, b);
++    tinyFormat_P(b, sizeof(b), uiText(72), pm1); lcdLine(1, b);
++    tinyFormat_P(b, sizeof(b), uiText(73), pm25); lcdLine(2, b);
++    tinyFormat_P(b, sizeof(b), uiText(74), pm10); lcdLine(3, b);
+   } else {
+-    tinyFormat_P(b, sizeof(b), PSTR(" PM1.0: %s"), state); lcdLine(1, b);
+-    tinyFormat_P(b, sizeof(b), PSTR(" PM2.5: %s"), state); lcdLine(2, b);
+-    tinyFormat_P(b, sizeof(b), PSTR(" PM10 : %s"), state); lcdLine(3, b);
++    tinyFormat_P(b, sizeof(b), uiText(75), state); lcdLine(1, b);
++    tinyFormat_P(b, sizeof(b), uiText(76), state); lcdLine(2, b);
++    tinyFormat_P(b, sizeof(b), uiText(77), state); lcdLine(3, b);
+   }
+ }
+ 
+ void renderAdjustment() {
+-  char b[8];
+-  if (uiState == FAN_ADJUSTMENT) {
+-    lcdLine(0, "---- FAN SPEED -----");
+-    lcdLine(1, "> Speed:");
+-    tinyFormat_P(b, sizeof(b), PSTR("%u%%"), (unsigned int)fanSpeed);
+-    lcd.setCursor(20 - strlen(b), 1); lcd.print(b);
+-    lcdLine(2, ""); lcd.setCursor(20 - strlen("Scroll +/-"), 2); lcd.print("Scroll +/-");
+-    lcdLine(3, ""); lcd.setCursor(20 - strlen("Y: Cycle"), 3); lcd.print("Y: Cycle");
+-  } else {
+-    lcdLine(0, "-- LED BRIGHTNESS --");
+-    lcdLine(1, "> Brightness:");
+-    tinyFormat_P(b, sizeof(b), PSTR("%u%%"), (unsigned int)ledBrightness);
+-    lcd.setCursor(20 - strlen(b), 1); lcd.print(b);
+-    lcdLine(2, ""); lcd.setCursor(20 - strlen("Scroll +/-"), 2); lcd.print("Scroll +/-");
+-    lcdLine(3, ""); lcd.setCursor(20 - strlen("A: Cycle"), 3); lcd.print("A: Cycle");
+-  }
++  bool fan = uiState == FAN_ADJUSTMENT;
++  uint8_t target = fan ? 0 : 1;
++  char b[21];
++  lcdLine(0, fan ? uiText(78) : uiText(79));
++  lcdLine(1, fan ? uiText(80) : uiText(81));
++  tinyFormat_P(b, sizeof(b), uiText(55), (unsigned int)(fan ? fanSpeed : ledBrightness));
++  lcd.setCursor(20 - strlen(b), 1); lcd.print(b);
++  if (delayTimers[target].active) {
++    tinyFormat_P(b, sizeof(b), uiText(82), (unsigned int)delayTimers[target].remainingMinutes(millis()));
++    lcdLine(2, b);
++  } else lcdLine(2, uiText(83));
++  lcdLine(3, fan ? uiText(84) : uiText(85));
++}
++
++void renderDelayEditor() {
++  char b[21];
++  lcdLine(0, delayEditTarget == 0 ? uiText(86) : uiText(87));
++  if (delayEditMinutes) tinyFormat_P(b, sizeof(b), uiText(88), (unsigned int)delayEditMinutes);
++  else strcpy(b, uiText(89));
++  lcdLine(1, b);
++  lcdLine(2, delayOutputOffMessage ? uiText(90) : uiText(91));
++  lcdLine(3, delayEditTarget == 0 ? uiText(92) : uiText(93));
+ }
+ 
+ void renderDisplay() {
+@@ -1503,6 +1568,7 @@
+   if (uiState == MAIN_DISPLAY) {
+     if (mainDisplayPage == 0) renderMainEnvironmental(); else renderMainParticles();
+   } else if (uiState == FAN_ADJUSTMENT || uiState == LED_ADJUSTMENT) renderAdjustment();
++  else if (uiState == DELAY_EDIT) renderDelayEditor();
+   else if (uiState == MENU) renderMenuPage();
+   lastDisplayRenderMs = millis();
+ }
+@@ -1512,7 +1578,7 @@
+   // Reuse the environmental renderer so standby and home layouts stay identical.
+   // Replace only the pressure row with the standby message.
+   renderMainEnvironmental();
+-  lcdLine(3, F("Air Purifier Standby"));
++  lcdLine(3, uiText(94));
+   // Deliberately do not call lcd.backlight() here.
+ }
+ 
+@@ -1530,6 +1596,7 @@
+   pinMode(PIN_ENC_A, INPUT_PULLUP);
+   pinMode(PIN_ENC_B, INPUT_PULLUP);
+ 
++  digitalWrite(PIN_RELAY, RELAY_ACTIVE_LOW ? HIGH : LOW);
+   pinMode(PIN_RELAY, OUTPUT);
+   setRelay(false);
+   pinMode(PIN_PMS_EN, OUTPUT);
+@@ -1544,8 +1611,15 @@
+ 
+   Wire.begin();
+   Wire.setClock(100000);
++  Wire.setWireTimeout(25000UL, true);
+   lcd.init(); lcdOK = true; lcd.backlight();
+-  lcdLine(0, F("DIY Air Purifier")); lcdLine(1, F("Initialising..."));
++  uiAssetsOK = validateUiAssets();
++  if (!uiAssetsOK) {
++    lcdLine(0, "UI EEPROM error");
++    lcdLine(1, "Load UI programmer");
++    return; // Outputs were set OFF before the bus was initialised.
++  }
++  lcdLine(0, uiText(60)); lcdLine(1, uiText(95));
+ 
+   ahtOK = aht.begin();
+   bmpOK = bmp.begin(BMP280_I2C_ADDRESS_1);
+@@ -1579,10 +1653,10 @@
+   lastMenuActivityMs = now;
+   outputsOffSinceMs = (fanSpeed == 0 && ledBrightness == 0) ? now : 0;
+ 
+-  lcdLine(0, F("Startup complete"));
+-  lcdLine(1, ahtOK ? F("AHT20: OK") : F("AHT20: ERR"));
+-  lcdLine(2, bmpOK ? F("BMP280: OK") : F("BMP280: ERR"));
+-  lcdLine(3, rtcOK ? F("DS3231: OK") : F("DS3231: ERR"));
++  lcdLine(0, uiText(96));
++  lcdLine(1, ahtOK ? uiText(97) : uiText(98));
++  lcdLine(2, bmpOK ? uiText(99) : uiText(100));
++  lcdLine(3, rtcOK ? uiText(101) : uiText(102));
+   delay(900); // Short one-time startup notice only.
+   renderDisplay();
+ }
+@@ -1602,6 +1676,7 @@
+   standbyButtonWakeFired = 0;
+   attachInterrupt(digitalPinToInterrupt(PIN_BUTTON3), standbyButtonWakeISR, LOW);
+ 
++  cli();
+   wdt_reset();
+   MCUSR &= (uint8_t)~_BV(WDRF);
+   WDTCSR = _BV(WDCE) | _BV(WDE);
+@@ -1644,6 +1719,7 @@
+ }
+ 
+ void loop() {
++  if (!uiAssetsOK) return;
+   pollEncoder();
+   pollAhtMeasurement(millis());
+   pollPMS7003();
+--- original/DelayOffTimer.h
++++ candidate/DelayOffTimer.h
+@@ -0,0 +1,29 @@
++#pragma once
++#include <stdint.h>
++
++// Duration selections and countdowns are session-only; 0 means disabled.
++struct DelayOffTimer {
++  uint32_t startedAtMs = 0;
++  uint8_t minutes = 0;
++  bool active = false;
++  void set(uint32_t now, uint8_t selection) {
++    startedAtMs = now; minutes = selection; active = selection != 0;
++  }
++  void cancel() { active = false; }
++  uint32_t durationMs() const { return (uint32_t)minutes * 60000UL; }
++  bool expired(uint32_t now) const {
++    return active && (uint32_t)(now - startedAtMs) >= durationMs();
++  }
++  uint8_t remainingMinutes(uint32_t now) const {
++    uint32_t passed = (uint32_t)(now - startedAtMs);
++    if (!active || passed >= durationMs()) return 0;
++    return (durationMs() - passed + 59999UL) / 60000UL;
++  }
++};
++
++inline uint8_t stepDelayMinutes(uint8_t value, int16_t detents) {
++  int32_t next = (int32_t)value + (int32_t)detents * 5;
++  if (next < 0) next = 0;
++  if (next > 240) next = 240;
++  return (uint8_t)next;
++}
+--- original/UiAssets.h
++++ candidate/UiAssets.h
+@@ -0,0 +1,5 @@
++// Generated by tools/generate_ui_assets.py; do not edit.
++#pragma once
++#include <stdint.h>
++const uint8_t UI_TEXT_COUNT = 103;
++const uint16_t UI_TEXT_CHECKSUM = 0xFA21;

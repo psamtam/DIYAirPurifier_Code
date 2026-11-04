@@ -1,0 +1,27 @@
+[
+  {
+    "file": "AirPurifier.ino",
+    "unchanged": true,
+    "sha256": "d79296ddbcafcac23bce322e66eea26190dcb442fa89780a410ef08a58657c95"
+  },
+  {
+    "file": "ButtonState.h",
+    "unchanged": true,
+    "sha256": "c535a7aa64f048b9367f523f939c0c6f74226c86bd2737803d4606fa0e6c7ac6"
+  },
+  {
+    "file": "Config.h",
+    "unchanged": true,
+    "sha256": "3589868cb55f44094c98e5da26bd258eb64db4373df9735333cf5afcdee7eea2"
+  },
+  {
+    "file": "SettingId.h",
+    "unchanged": true,
+    "sha256": "db121a4bef24b6c5729363bd58fbb14cb43eb56d921ebc423b7ccf7df59bf2f1"
+  },
+  {
+    "file": "StoredConfig.h",
+    "unchanged": true,
+    "sha256": "471b33114c774b130d2fbea037ae2b8e61f7c989355ae30ff2b22a4f43dc298e"
+  }
+]
