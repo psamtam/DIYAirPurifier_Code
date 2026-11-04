@@ -38,7 +38,7 @@
       "-flto"
     ]
   },
-  "final": {
+  "previous_candidate": {
     "flash": 26406,
     "ram": 1083,
     "flash_available": 28672,
@@ -49,6 +49,124 @@
       "-ffunction-sections",
       "-fdata-sections",
       "-flto"
+    ]
+  },
+  "split_only": {
+    "flash": 26406,
+    "ram": 1083,
+    "flash_available": 28672,
+    "ram_available": 2560,
+    "flags": [
+      "-Os",
+      "-g",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-flto"
+    ]
+  },
+  "repair_first_pass": {
+    "flash": 27216,
+    "ram": 1095,
+    "flash_available": 28672,
+    "ram_available": 2560,
+    "flags": [
+      "-Os",
+      "-g",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-flto"
+    ]
+  },
+  "shared_rendering": {
+    "flash": 26802,
+    "ram": 1083,
+    "flash_available": 28672,
+    "ram_available": 2560,
+    "flags": [
+      "-Os",
+      "-g",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-flto"
+    ]
+  },
+  "table_settings": {
+    "flash": 26664,
+    "ram": 1083,
+    "flash_available": 28672,
+    "ram_available": 2560,
+    "flags": [
+      "-Os",
+      "-g",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-flto"
+    ]
+  },
+  "compact_helpers": {
+    "flash": 26582,
+    "ram": 1083,
+    "flash_available": 28672,
+    "ram_available": 2560,
+    "flags": [
+      "-Os",
+      "-g",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-flto"
+    ]
+  },
+  "cache_comparison": {
+    "flash": 26398,
+    "ram": 1141,
+    "flash_available": 28672,
+    "ram_available": 2560,
+    "flags": [
+      "-Os",
+      "-g",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-flto"
+    ]
+  },
+  "dirty_comparison": {
+    "flash": 26400,
+    "ram": 1062,
+    "flash_available": 28672,
+    "ram_available": 2560,
+    "flags": [
+      "-Os",
+      "-g",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-flto"
+    ]
+  },
+  "final": {
+    "flash": 26372,
+    "ram": 1310,
+    "flash_available": 28672,
+    "ram_available": 2560,
+    "flags": [
+      "-Os",
+      "-g",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-flto"
+    ]
+  },
+  "minimum_flash": {
+    "flash": 26236,
+    "ram": 1142,
+    "flash_available": 28672,
+    "ram_available": 2560,
+    "flags": [
+      "-Os",
+      "-g",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-flto",
+      "-DUI_TEXT_CACHE_SLOTS=1"
     ]
   },
   "programmer": {

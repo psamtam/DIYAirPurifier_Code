@@ -1,0 +1,1769 @@
+Archive member included to satisfy reference by file (symbol)
+
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\outputs\AirPurifier-Optimised\build\core-d3d79212a1\core.a(WInterrupts.c.o)
+                              C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin) (attachInterrupt)
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\outputs\AirPurifier-Optimised\build\core-d3d79212a1\core.a(wiring.c.o)
+                              C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin) (timer0_millis)
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\outputs\AirPurifier-Optimised\build\core-d3d79212a1\core.a(wiring_digital.c.o)
+                              C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin) (pinMode)
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\outputs\AirPurifier-Optimised\build\core-d3d79212a1\core.a(HardwareSerial.cpp.o)
+                              C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin) (_ZN14HardwareSerial9availableEv)
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\outputs\AirPurifier-Optimised\build\core-d3d79212a1\core.a(HardwareSerial1.cpp.o)
+                              C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin) (Serial1)
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\outputs\AirPurifier-Optimised\build\core-d3d79212a1\core.a(main.cpp.o)
+                              c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega32u4.o (main)
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\outputs\AirPurifier-Optimised\build\core-d3d79212a1\core.a(Print.cpp.o)
+                              C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin) (_ZN5Print5writeEPKhj)
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\outputs\AirPurifier-Optimised\build\core-d3d79212a1\core.a(USBCore.cpp.o)
+                              main.cpp.o (symbol from plugin) (_ZN10USBDevice_6attachEv)
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\outputs\AirPurifier-Optimised\build\core-d3d79212a1\core.a(Wire.cpp.o)
+                              C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin) (_ZN7TwoWire4readEv)
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\outputs\AirPurifier-Optimised\build\core-d3d79212a1\core.a(LiquidCrystal_I2C.cpp.o)
+                              C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin) (_ZN17LiquidCrystal_I2CC2Ehhh)
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\outputs\AirPurifier-Optimised\build\core-d3d79212a1\core.a(hooks.c.o)
+                              wiring.c.o (symbol from plugin) (yield)
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\outputs\AirPurifier-Optimised\build\core-d3d79212a1\core.a(abi.cpp.o)
+                              Print.cpp.o (symbol from plugin) (__cxa_pure_virtual)
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\outputs\AirPurifier-Optimised\build\core-d3d79212a1\core.a(CDC.cpp.o)
+                              USBCore.cpp.o (symbol from plugin) (_Z16CDC_GetInterfacePh)
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\outputs\AirPurifier-Optimised\build\core-d3d79212a1\core.a(PluggableUSB.cpp.o)
+                              USBCore.cpp.o (symbol from plugin) (_ZN13PluggableUSB_12getInterfaceEPh)
+C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\outputs\AirPurifier-Optimised\build\core-d3d79212a1\core.a(twi.c.o)
+                              Wire.cpp.o (symbol from plugin) (twi_init)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+                              c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega32u4.o (exit)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(memcpy_P.o)
+                              C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin) (memcpy_P)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulsi3.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (__mulsi3)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (__udivmodqi4)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (__udivmodhi4)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (__divmodhi4)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (__udivmodsi4)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_tablejump2.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (__tablejump2__)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (__do_copy_data)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (__do_clear_bss)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ctors.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (__do_global_ctors)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (__umulhisi3)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_usmulhisi3.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (__usmulhisi3)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (__muluhisi3)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulshisi3.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (__mulshisi3)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (__muldi3)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3_6.o)
+                              c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3.o) (__muldi3_6)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divdi3.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (__divdi3)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivdi3.o)
+                              c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divdi3.o) (__udivdi3_umoddi3)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmod64.o)
+                              c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divdi3.o) (__udivmod64)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_negdi2.o)
+                              c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divdi3.o) (__negdi2)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+                              c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divdi3.o) (__prologue_saves__)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+                              c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divdi3.o) (__epilogue_restores__)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashldi3.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (__ashldi3)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashrdi3.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (__ashrdi3)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_adddi3.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (__adddi3)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_subdi3.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (__subdi3)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_cmpdi2_s8.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (__cmpdi2_s8)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(memcmp.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (memcmp)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(memset.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (memset)
+c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(strcpy.o)
+                              C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o (strcpy)
+
+Discarded input sections
+
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega32u4.o
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega32u4.o
+ .text          0x00000000        0x0 C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\AirPurifier.o (symbol from plugin)
+ .text          0x00000000        0x0 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .data          0x00000000        0x0 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss           0x00000000        0x0 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z14serialEventRunv
+                0x00000000       0x14 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .avr.prop      0x00000000       0x3a C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text          0x00000000        0x0 C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5Print17availableForWriteEv
+                0x00000000        0x0 C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5Print5flushEv
+                0x00000000        0x0 C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin)
+ .gnu.linkonce.t._ZN14HardwareSerial5beginEm
+                0x00000000        0x0 C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin)
+ .gnu.linkonce.t._ZNK13DelayOffTimer7expiredEm
+                0x00000000        0x0 C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin)
+ .gnu.linkonce.t._ZNK13DelayOffTimer16remainingMinutesEm
+                0x00000000        0x0 C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin)
+ .gnu.linkonce.t._Z16stepDelayMinuteshi
+                0x00000000        0x0 C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin)
+ .gnu.linkonce.t._ZN9CachedLcdC5Ehhh
+                0x00000000        0x0 C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin)
+ .gnu.linkonce.t._ZTV9CachedLcd
+                0x00000000        0x0 C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin)
+ .gnu.linkonce.t._ZN9CachedLcd4initEv
+                0x00000000        0x0 C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin)
+ .gnu.linkonce.t._ZN9CachedLcd5printEc
+                0x00000000        0x0 C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin)
+ .gnu.linkonce.t._ZN8DateTimeC5Ev
+                0x00000000        0x0 C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin)
+ .gnu.linkonce.t._ZN10BMP280Lite10configuredEv
+                0x00000000        0x0 C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin)
+ .gnu.linkonce.t._ZN10BMP280Lite5beginEh
+                0x00000000        0x0 C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin)
+ .gnu.linkonce.t._ZN10BMP280Lite4readERiS0_
+                0x00000000        0x0 C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin)
+ .gnu.linkonce.t._ZN9AHT20Lite17finishMeasurementERiS0_
+                0x00000000        0x0 C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin)
+ .gnu.linkonce.t._ZN10DS3231Lite3nowEv
+                0x00000000        0x0 C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin)
+ .gnu.linkonce.t._ZN10DS3231Lite6adjustERK8DateTime
+                0x00000000        0x0 C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o (symbol from plugin)
+ .text          0x00000000        0x0 WInterrupts.c.o (symbol from plugin)
+ .text          0x00000000        0x0 wiring.c.o (symbol from plugin)
+ .text          0x00000000        0x0 wiring_digital.c.o (symbol from plugin)
+ .text          0x00000000        0x0 HardwareSerial.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZTV14HardwareSerial
+                0x00000000        0x0 HardwareSerial.cpp.o (symbol from plugin)
+ .text          0x00000000        0x0 HardwareSerial1.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN14HardwareSerial16_rx_complete_irqEv
+                0x00000000        0x0 HardwareSerial1.cpp.o (symbol from plugin)
+ .text          0x00000000        0x0 main.cpp.o (symbol from plugin)
+ .text          0x00000000        0x0 Print.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5Print17availableForWriteEv
+                0x00000000        0x0 Print.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5Print5flushEv
+                0x00000000        0x0 Print.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5Print5writeEPKc
+                0x00000000        0x0 Print.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5Print5writeEPKcj
+                0x00000000        0x0 Print.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZTV5Print
+                0x00000000        0x0 Print.cpp.o (symbol from plugin)
+ .text          0x00000000        0x0 USBCore.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN6LockEPC5Eh
+                0x00000000        0x0 USBCore.cpp.o (symbol from plugin)
+ .text          0x00000000        0x0 Wire.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5Print17availableForWriteEv
+                0x00000000        0x0 Wire.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZTV7TwoWire
+                0x00000000        0x0 Wire.cpp.o (symbol from plugin)
+ .text          0x00000000        0x0 LiquidCrystal_I2C.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5Print17availableForWriteEv
+                0x00000000        0x0 LiquidCrystal_I2C.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN5Print5flushEv
+                0x00000000        0x0 LiquidCrystal_I2C.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN7TwoWire5writeEi
+                0x00000000        0x0 LiquidCrystal_I2C.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZTV17LiquidCrystal_I2C
+                0x00000000        0x0 LiquidCrystal_I2C.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN17LiquidCrystal_I2C7commandEh
+                0x00000000        0x0 LiquidCrystal_I2C.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN17LiquidCrystal_I2C5writeEh
+                0x00000000        0x0 LiquidCrystal_I2C.cpp.o (symbol from plugin)
+ .text          0x00000000        0x0 hooks.c.o (symbol from plugin)
+ .text          0x00000000        0x0 abi.cpp.o (symbol from plugin)
+ .text          0x00000000        0x0 CDC.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN7Serial_C5Ev
+                0x00000000        0x0 CDC.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZTV7Serial_
+                0x00000000        0x0 CDC.cpp.o (symbol from plugin)
+ .text          0x00000000        0x0 PluggableUSB.cpp.o (symbol from plugin)
+ .gnu.linkonce.t._ZN18PluggableUSBModule12getShortNameEPc
+                0x00000000        0x0 PluggableUSB.cpp.o (symbol from plugin)
+ .text          0x00000000        0x0 twi.c.o (symbol from plugin)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(memcpy_P.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(memcpy_P.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(memcpy_P.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulsi3.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulsi3.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulsi3.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulsi3.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulsi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulsi3.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulsi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulsi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulsi3.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_tablejump2.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_tablejump2.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_tablejump2.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ctors.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ctors.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ctors.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ctors.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ctors.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ctors.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ctors.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ctors.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ctors.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ctors.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_usmulhisi3.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_usmulhisi3.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_usmulhisi3.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_usmulhisi3.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_usmulhisi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_usmulhisi3.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_usmulhisi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_usmulhisi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_usmulhisi3.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulshisi3.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulshisi3.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulshisi3.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulshisi3.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulshisi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulshisi3.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulshisi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulshisi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulshisi3.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3_6.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3_6.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3_6.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3_6.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3_6.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3_6.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3_6.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3_6.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3_6.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divdi3.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divdi3.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divdi3.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divdi3.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divdi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divdi3.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divdi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divdi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divdi3.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivdi3.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivdi3.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivdi3.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivdi3.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivdi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivdi3.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivdi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivdi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivdi3.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmod64.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmod64.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmod64.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmod64.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmod64.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmod64.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmod64.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmod64.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmod64.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_negdi2.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_negdi2.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_negdi2.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_negdi2.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_negdi2.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_negdi2.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_negdi2.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_negdi2.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_negdi2.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashldi3.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashldi3.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashldi3.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashldi3.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashldi3.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashldi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashldi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashldi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashldi3.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashrdi3.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashrdi3.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashrdi3.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashrdi3.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashrdi3.o)
+ .text.libgcc   0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashrdi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashrdi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashrdi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashrdi3.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_adddi3.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_adddi3.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_adddi3.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_adddi3.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_adddi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_adddi3.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_adddi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_adddi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_adddi3.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_subdi3.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_subdi3.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_subdi3.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_subdi3.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_subdi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_subdi3.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_subdi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_subdi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_subdi3.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_cmpdi2_s8.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_cmpdi2_s8.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_cmpdi2_s8.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_cmpdi2_s8.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_cmpdi2_s8.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_cmpdi2_s8.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_cmpdi2_s8.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_cmpdi2_s8.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_cmpdi2_s8.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(memcmp.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(memcmp.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(memcmp.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(memset.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(memset.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(memset.o)
+ .text          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(strcpy.o)
+ .data          0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(strcpy.o)
+ .bss           0x00000000        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(strcpy.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000003         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+user_signatures  0x00850000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega32u4.o
+LOAD C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\AirPurifier.o
+LOAD C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+LOAD C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\Firmware.o
+LOAD C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\outputs\AirPurifier-Optimised\build\core-d3d79212a1\core.a
+LOAD c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a
+START GROUP
+LOAD c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a
+LOAD c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libm.a
+LOAD c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a
+LOAD c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libatmega32u4.a
+END GROUP
+                0x00020000                __TEXT_REGION_LENGTH__ = DEFINED (__TEXT_REGION_LENGTH__)?__TEXT_REGION_LENGTH__:0x20000
+                0x0000ffa0                __DATA_REGION_LENGTH__ = DEFINED (__DATA_REGION_LENGTH__)?__DATA_REGION_LENGTH__:0xffa0
+                0x00010000                __EEPROM_REGION_LENGTH__ = DEFINED (__EEPROM_REGION_LENGTH__)?__EEPROM_REGION_LENGTH__:0x10000
+                [0x00000003]                __FUSE_REGION_LENGTH__ = DEFINED (__FUSE_REGION_LENGTH__)?__FUSE_REGION_LENGTH__:0x400
+                0x00000400                __LOCK_REGION_LENGTH__ = DEFINED (__LOCK_REGION_LENGTH__)?__LOCK_REGION_LENGTH__:0x400
+                0x00000400                __SIGNATURE_REGION_LENGTH__ = DEFINED (__SIGNATURE_REGION_LENGTH__)?__SIGNATURE_REGION_LENGTH__:0x400
+                0x00000400                __USER_SIGNATURE_REGION_LENGTH__ = DEFINED (__USER_SIGNATURE_REGION_LENGTH__)?__USER_SIGNATURE_REGION_LENGTH__:0x400
+                0x00800060                __DATA_REGION_ORIGIN__ = DEFINED (__DATA_REGION_ORIGIN__)?__DATA_REGION_ORIGIN__:0x800060
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0x6612
+ *(.vectors)
+ .vectors       0x00000000       0xac c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega32u4.o
+                0x00000000                __vector_default
+                0x00000000                __vectors
+ *(.vectors)
+ *(.progmem.gcc*)
+                0x000000ac                . = ALIGN (0x2)
+                0x000000ac                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x000000ac        0x0 linker stubs
+ *(.trampolines*)
+                0x000000ac                __trampolines_end = .
+ *libprintf_flt.a:*(.progmem.data)
+ *libc.a:*(.progmem.data)
+ *(.progmem*)
+ .progmem.data._ZL12encoderTable
+                0x000000ac       0x10 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .progmem.data._ZL13settingLimits
+                0x000000bc       0x20 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .progmem.data._ZZ9validDateiiiiiiE4days
+                0x000000dc        0xc C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .progmem.data.port_to_mode_PGM
+                0x000000e8        0xe C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .progmem.data.port_to_output_PGM
+                0x000000f6        0xe C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .progmem.data.port_to_input_PGM
+                0x00000104        0xe C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .progmem.data.digital_pin_to_port_PGM
+                0x00000112       0x1f C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .progmem.data.digital_pin_to_bit_mask_PGM
+                0x00000131       0x1f C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .progmem.data.digital_pin_to_timer_PGM
+                0x00000150       0x1f C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .progmem.data._ZZ16setDefaultConfigvE8defaults
+                0x0000016f       0x1b C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .progmem.data._cdcInterface
+                0x0000018a       0x42 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .progmem.data.STRING_LANGUAGE
+                0x000001cc        0x4 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .progmem.data.USB_DeviceDescriptorIAD
+                0x000001d0       0x12 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .progmem.data.STRING_MANUFACTURER
+                0x000001e2        0xc C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .progmem.data.STRING_PRODUCT
+                0x000001ee       0x11 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+                0x00000200                . = ALIGN (0x2)
+ *fill*         0x000001ff        0x1 
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000200                __ctors_start = .
+ *(.ctors)
+ .ctors         0x00000200        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+                0x00000202                __ctors_end = .
+                0x00000202                __dtors_start = .
+ *(.dtors)
+                0x00000202                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000202        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega32u4.o
+                0x00000202                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000202        0xc c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega32u4.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x0000020e       0x16 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+                0x0000020e                __do_copy_data
+ .init4         0x00000224       0x10 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+                0x00000224                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ .init6         0x00000234       0x16 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ctors.o)
+                0x00000234                __do_global_ctors
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x0000024a        0x8 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega32u4.o
+ *(.init9)
+ *(.text)
+ .text          0x00000252        0x4 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega32u4.o
+                0x00000252                __vector_38
+                0x00000252                __vector_22
+                0x00000252                __vector_28
+                0x00000252                __vector_32
+                0x00000252                __vector_34
+                0x00000252                __vector_24
+                0x00000252                __bad_interrupt
+                0x00000252                __vector_6
+                0x00000252                __vector_31
+                0x00000252                __vector_35
+                0x00000252                __vector_39
+                0x00000252                __vector_30
+                0x00000252                __vector_13
+                0x00000252                __vector_17
+                0x00000252                __vector_19
+                0x00000252                __vector_41
+                0x00000252                __vector_27
+                0x00000252                __vector_5
+                0x00000252                __vector_33
+                0x00000252                __vector_37
+                0x00000252                __vector_9
+                0x00000252                __vector_21
+                0x00000252                __vector_15
+                0x00000252                __vector_29
+                0x00000252                __vector_40
+                0x00000252                __vector_8
+                0x00000252                __vector_14
+                0x00000252                __vector_16
+                0x00000252                __vector_18
+                0x00000252                __vector_20
+                0x00000252                __vector_42
+                0x00000256                . = ALIGN (0x2)
+ *(.text.*)
+ .text._ZN7TwoWire17beginTransmissionEh.constprop.64
+                0x00000256       0x14 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z8USB_RecvhPvi.constprop.6
+                0x0000026a       0x54 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z13USB_SendSpaceh.constprop.4
+                0x000002be       0x22 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text.twi_transmit
+                0x000002e0       0x4e C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z12PluggableUSBv
+                0x0000032e       0x28 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN7Serial_5writeEh
+                0x00000356       0x2c C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN7Serial_5flushEv
+                0x00000382       0x16 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN7Serial_17availableForWriteEv
+                0x00000398        0x8 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN7Serial_4readEv
+                0x000003a0       0x3c C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN7Serial_4peekEv
+                0x000003dc       0x48 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN7Serial_9availableEv
+                0x00000424       0x34 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN7TwoWire16onRequestServiceEv
+                0x00000458        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN7TwoWire16onReceiveServiceEPhi
+                0x0000045a        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN7TwoWire5flushEv
+                0x0000045c        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN7TwoWire4peekEv
+                0x0000045e       0x1e C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN7TwoWire4readEv
+                0x0000047c       0x26 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN7TwoWire9availableEv
+                0x000004a2        0xe C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN7TwoWire5writeEPKhj
+                0x000004b0       0x5a C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN7TwoWire5writeEh
+                0x0000050a       0x5e C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZL11SendControlh
+                0x00000568       0x5c C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZL24USB_SendStringDescriptorPKhhh
+                0x000005c4       0x66 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z15USB_SendControlhPKvi
+                0x0000062a       0x4c C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZL14SendInterfacesv
+                0x00000676       0x62 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZL4RecvPVhh
+                0x000006d8       0x1a C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN5Print5writeEPKhj
+                0x000006f2       0x5a C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z20standbyButtonWakeISRv
+                0x0000074c        0x8 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text.nothing  0x00000754        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN14HardwareSerial17availableForWriteEv
+                0x00000756       0x1e C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN14HardwareSerial4readEv
+                0x00000774       0x28 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN14HardwareSerial4peekEv
+                0x0000079c       0x1c C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN14HardwareSerial9availableEv
+                0x000007b8       0x18 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z17Serial1_availablev
+                0x000007d0       0x14 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN14HardwareSerial17_tx_udr_empty_irqEv
+                0x000007e4       0x42 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN14HardwareSerial5writeEh
+                0x00000826       0x98 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN14HardwareSerial5flushEv
+                0x000008be       0x40 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text.turnOffPWM
+                0x000008fe       0x98 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text.digitalRead
+                0x00000996       0x52 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text.digitalWrite
+                0x000009e8       0x5c C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text.twi_init
+                0x00000a44       0x3c C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text.twi_handleTimeout
+                0x00000a80       0x42 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text.pinMode  0x00000ac2       0x62 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text.micros   0x00000b24       0x4a C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN7TwoWire15endTransmissionEh.constprop.67
+                0x00000b6e      0x1e0 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN7TwoWire15endTransmissionEv.constprop.66
+                0x00000d4e        0x6 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN9AHT20Lite12writeCommandEhhh.isra.25.constprop.38
+                0x00000d54       0x3e C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN17LiquidCrystal_I2C13expanderWriteEh
+                0x00000d92       0x2a C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text.twi_readFrom.constprop.36
+                0x00000dbc      0x19e C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text.delay    0x00000f5a       0x64 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN7Serial_5writeEPKhj
+                0x00000fbe      0x10a C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text.millis   0x000010c8       0x18 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN10BMP280Lite8writeRegEhh.isra.28
+                0x000010e0       0x32 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z16pmsInGracePeriodv.part.15
+                0x00001112       0x3e C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z12sensorFailedhm.part.14
+                0x00001150       0x12 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z12presetsValidPKh.part.12
+                0x00001162       0x26 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z9setLedPWMh.part.10
+                0x00001188       0x12 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z15getSettingValue9SettingId
+                0x0000119a       0x28 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z16noteUserActivityv
+                0x000011c2       0x3c C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z11pollEncoderv
+                0x000011fe       0x64 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z12updateButtonR11ButtonStateRbS1_
+                0x00001262       0x8a C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z16initialiseButtonR11ButtonState
+                0x000012ec       0x2c C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z17pmValuesAvailablev
+                0x00001318       0x2c C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z11configValidRK6Config
+                0x00001344       0x92 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z16eepromWriteBytesjPKhj
+                0x000013d6       0xc2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z14applyLedOutputv
+                0x00001498       0x42 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z14applyFanOutputv
+                0x000014da       0x50 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z11setPmsPowerb
+                0x0000152a       0x40 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z12setBacklightb
+                0x0000156a       0x28 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZL15ahtQuarterUnitsm
+                0x00001592       0x20 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN5Print5flushEv
+                0x000015b2        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN5Print17availableForWriteEv
+                0x000015b4        0x6 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN7TwoWire11requestFromEhh.constprop.30
+                0x000015ba        0xe C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN10BMP280Lite9readBytesEhPhh.isra.35.constprop.29
+                0x000015c8       0x66 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN10BMP280Lite10configuredEv.constprop.28
+                0x0000162e       0x36 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN10BMP280Lite5beginEh.constprop.26
+                0x00001664      0x144 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN9AHT20Lite17finishMeasurementERiS0_.constprop.24
+                0x000017a8      0x13c C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN10DS3231Lite8readRegsEhPhh.isra.39
+                0x000018e4       0x62 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN10DS3231Lite3nowEv.constprop.23
+                0x00001946      0x116 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN17LiquidCrystal_I2C10write4bitsEh
+                0x00001a5c       0x32 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN17LiquidCrystal_I2C4sendEhh
+                0x00001a8e       0x2e C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._ZN17LiquidCrystal_I2C5writeEh
+                0x00001abc        0xc C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z7lcdLinehPKc
+                0x00001ac8      0x13c C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z24readEnvironmentalSensorsv
+                0x00001c04      0x6e6 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z18pollSensorRecoverym
+                0x000022ea      0x198 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z15eepromReadBytesjPhj
+                0x00002482       0xac C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text.twi_stop
+                0x0000252e       0x70 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z12lcdValueLinehPKcS0_b
+                0x0000259e       0x92 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z14clearPmAveragev
+                0x00002630       0x34 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z16cancelConfigEditv
+                0x00002664       0x54 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z16enterMainDisplayv
+                0x000026b8       0x46 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z15setSettingValue9SettingIdi
+                0x000026fe      0x14e C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z17handleMenuEncoderi
+                0x0000284c      0x24c C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z14processEncoderv
+                0x00002a98      0x198 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z15wakeFromStandbyv
+                0x00002c30       0x64 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z6uiTexth
+                0x00002c94       0xd8 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z16drawSettingValuePKc
+                0x00002d6c       0x40 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z10saveConfigv
+                0x00002dac      0x122 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z14saveTimeFormatv
+                0x00002ece       0x6e C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z23handleOutputButtonShorth
+                0x00002f3c      0x59c C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z12tinyFormat_PPchPKcz
+                0x000034d8      0x1d8 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z13formatReadingPchi.constprop.32
+                0x000036b0       0x84 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z11renderClockv
+                0x00003734      0x140 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z23renderMainEnvironmentalv
+                0x00003874      0x1c8 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z20renderStandbyDisplayv
+                0x00003a3c       0x1c C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z12enterStandbyb
+                0x00003a58       0xa6 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z16drawPresetEditorbh
+                0x00003afe       0xcc C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z14drawDateEditorv
+                0x00003bca      0x146 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text._Z13renderDisplayv
+                0x00003d10      0x744 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text.startup._GLOBAL__I_65535_0_AirPurifier.o.2918
+                0x00004454       0xbc C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .text.__vector_36
+                0x00004510      0x23e C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+                0x00004510                __vector_36
+ .text.__vector_10
+                0x0000474e       0xde C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+                0x0000474e                __vector_10
+ .text.__vector_11
+                0x0000482c      0x464 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+                0x0000482c                __vector_11
+ .text.startup.main
+                0x00004c90     0x121e C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+                0x00004c90                main
+ .text.__vector_26
+                0x00005eae       0x4c C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+                0x00005eae                __vector_26
+ .text.__vector_25
+                0x00005efa       0x64 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+                0x00005efa                __vector_25
+ .text.__vector_23
+                0x00005f5e       0x94 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+                0x00005f5e                __vector_23
+ .text.__vector_7
+                0x00005ff2       0x4e C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+                0x00005ff2                __vector_7
+ .text.__vector_4
+                0x00006040       0x4e C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+                0x00006040                __vector_4
+ .text.__vector_3
+                0x0000608e       0x4e C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+                0x0000608e                __vector_3
+ .text.__vector_2
+                0x000060dc       0x4e C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+                0x000060dc                __vector_2
+ .text.__vector_1
+                0x0000612a       0x4e C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+                0x0000612a                __vector_1
+ .text.__vector_12
+                0x00006178       0x1e C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+                0x00006178                __vector_12
+ .text.avr-libc
+                0x00006196       0x12 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(memcpy_P.o)
+                0x00006196                memcpy_P
+ .text.libgcc.mul
+                0x000061a8       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulsi3.o)
+                0x000061a8                __mulsi3
+ .text.libgcc.div
+                0x000061c8       0x18 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+                0x000061c8                __udivmodqi4
+ .text.libgcc.div
+                0x000061e0       0x28 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+                0x000061e0                __udivmodhi4
+ .text.libgcc.div
+                0x00006208       0x28 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+                0x00006208                _div
+                0x00006208                __divmodhi4
+ .text.libgcc.div
+                0x00006230       0x44 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00006230                __udivmodsi4
+ .text.libgcc   0x00006274        0xc c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_tablejump2.o)
+                0x00006274                __tablejump2__
+ .text.libgcc.mul
+                0x00006280       0x1e c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+                0x00006280                __umulhisi3
+ .text.libgcc.mul
+                0x0000629e        0xe c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_usmulhisi3.o)
+                0x0000629e                __usmulhisi3
+                0x000062a2                __usmulhisi3_tail
+ .text.libgcc.mul
+                0x000062ac       0x16 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+                0x000062ac                __muluhisi3
+ .text.libgcc.mul
+                0x000062c2       0x10 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulshisi3.o)
+                0x000062c2                __mulshisi3
+                0x000062c8                __mulohisi3
+ .text.libgcc.mul
+                0x000062d2       0x9e c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3.o)
+                0x000062d2                __muldi3
+ .text.libgcc.mul
+                0x00006370       0x12 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3_6.o)
+                0x00006370                __muldi3_6
+ .text.libgcc.div
+                0x00006382       0x62 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divdi3.o)
+                0x00006382                __moddi3
+                0x00006386                __divdi3
+                0x00006388                __divdi3_moddi3
+ .text.libgcc.div
+                0x000063e4       0x1c c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivdi3.o)
+                0x000063e4                __umoddi3
+                0x000063e8                __udivdi3
+                0x000063ea                __udivdi3_umoddi3
+ .text.libgcc.div
+                0x00006400       0xa2 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmod64.o)
+                0x00006400                __udivmod64
+ .text.libgcc   0x000064a2       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_negdi2.o)
+                0x000064a2                __negdi2
+ .text.libgcc.prologue
+                0x000064c2       0x38 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+                0x000064c2                __prologue_saves__
+ .text.libgcc.prologue
+                0x000064fa       0x36 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+                0x000064fa                __epilogue_restores__
+ .text.libgcc.builtins
+                0x00006530       0x32 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashldi3.o)
+                0x00006530                __ashldi3
+ .text.libgcc.builtins
+                0x00006562       0x3a c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashrdi3.o)
+                0x00006562                __ashrdi3
+                0x00006566                __lshrdi3
+ .text.libgcc   0x0000659c       0x12 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_adddi3.o)
+                0x0000659c                __adddi3
+ .text.libgcc   0x000065ae       0x12 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_subdi3.o)
+                0x000065ae                __subdi3
+ .text.libgcc   0x000065c0       0x18 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_cmpdi2_s8.o)
+                0x000065c0                __cmpdi2_s8
+ .text.avr-libc
+                0x000065d8       0x1a c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(memcmp.o)
+                0x000065d8                memcmp
+ .text.avr-libc
+                0x000065f2        0xe c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(memset.o)
+                0x000065f2                memset
+ .text.avr-libc
+                0x00006600        0xe c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5\libc.a(strcpy.o)
+                0x00006600                strcpy
+                0x0000660e                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x0000660e        0x0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+                0x0000660e                _exit
+                0x0000660e                exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x0000660e        0x4 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00006612                _etext = .
+
+.data           0x00800100       0xf2 load address 0x00006612
+                0x00800100                PROVIDE (__data_start, .)
+ *(.data)
+ *(.data*)
+ .data.clockFormatBeforeEdit
+                0x00800100        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .data.editYear
+                0x00800101        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .data.editMonth
+                0x00800103        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .data.editDay  0x00800105        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .data.use24HourClock
+                0x00800107        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .data.intFunc  0x00800108        0xa C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .data.ledBrightness
+                0x00800112        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .data.fanSpeed
+                0x00800113        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .data.delayEditMinutes
+                0x00800114        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .data.delaySelections
+                0x00800115        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .data.lcdBacklightOn
+                0x00800117        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .data.button3  0x00800118        0x8 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .data.button2  0x00800120        0x8 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .data.button1  0x00800128        0x8 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .data._ZL10breakValue
+                0x00800130        0x4 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .data._ZL12_usbLineInfo
+                0x00800134        0x8 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ *(.gnu.linkonce.d*)
+ *(.rodata)
+ .rodata        0x0080013c        0x8 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ *(.rodata*)
+ .rodata._Z6uiTexth.str1.1
+                0x00800144        0x9 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .rodata._Z16drawSettingValuePKc.str1.1
+                0x0080014d        0xa C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+                                  0xe (size before relaxing)
+ .rodata._Z13formatReadingPchi.constprop.32.str1.1
+                0x00800157        0xa C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+                                  0x3 (size before relaxing)
+ .rodata._Z11renderClockv.str1.1
+                0x00800157        0xe C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .rodata._Z13renderDisplayv.str1.1
+                0x00800165       0x20 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+                                 0x23 (size before relaxing)
+ .rodata.main.str1.1
+                0x00800185       0x23 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .rodata._initEndpoints
+                0x008001a8        0x7 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .rodata._ZTV7Serial_
+                0x008001af       0x12 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .rodata._ZTV7TwoWire
+                0x008001c1       0x12 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .rodata._ZTV14HardwareSerial
+                0x008001d3       0x12 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .rodata._ZTV9CachedLcd
+                0x008001e5        0xc C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ *(.gnu.linkonce.r*)
+                0x008001f2                . = ALIGN (0x2)
+ *fill*         0x008001f1        0x1 
+                0x008001f2                _edata = .
+                0x008001f2                PROVIDE (__data_end, .)
+
+.bss            0x008001f2      0x42c
+                0x008001f2                PROVIDE (__bss_start, .)
+ *(.bss)
+ *(.bss*)
+ .bss.uiTextCacheNext
+                0x008001f2        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss._ZZ6uiTexthE5cache
+                0x008001f3       0xc0 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss._ZZ6uiTexthE3ids
+                0x008002b3        0x6 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.uiTextCacheCount
+                0x008002b9        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.nextSensorRecovery
+                0x008002ba        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.bmpSettling
+                0x008002bb        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.encoderAccumulator
+                0x008002bc        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.configBeforeEdit
+                0x008002bd       0x1b C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.editHour  0x008002d8        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.editMinute
+                0x008002da        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.editSecond
+                0x008002dc        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.dateEditField
+                0x008002de        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.encoderDetentsPending
+                0x008002df        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.lastBmpSuccessMs
+                0x008002e1        0x4 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.pressureHpa
+                0x008002e5        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.dateEditing
+                0x008002e7        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.clockFormatSaveFailed
+                0x008002e8        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.bmpReadingValid
+                0x008002e9        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.editingPresetIndex
+                0x008002ea        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.submenuIndex
+                0x008002eb        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.ahtInitPhase
+                0x008002ec        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.timer0_fract
+                0x008002ed        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.timer0_overflow_count
+                0x008002ee        0x4 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.bmpOK     0x008002f2        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.ahtOK     0x008002f3        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.eepromOK  0x008002f4        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.rtcOK     0x008002f5        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.lcdOK     0x008002f6        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.previousEncoderState
+                0x008002f7        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.timer0_millis
+                0x008002f8        0x4 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.standbyButtonWakeFired
+                0x008002fc        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.standbyWatchdogFired
+                0x008002fd        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.delayTimers
+                0x008002fe        0xc C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.outputsOffSinceMs
+                0x0080030a        0x4 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.lastMenuActivityMs
+                0x0080030e        0x4 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.lastUiActivityMs
+                0x00800312        0x4 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.lastBacklightActivityMs
+                0x00800316        0x4 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.mainDisplayPage
+                0x0080031a        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.lastMainRotationMs
+                0x0080031b        0x4 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.lastOperatingSensorMs
+                0x0080031f        0x4 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.lastStandbyLcdMs
+                0x00800323        0x4 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.lastStandbySensorMs
+                0x00800327        0x4 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.environmentalReadDue
+                0x0080032b        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.delayOutputOffMessage
+                0x0080032c        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.delayEditTarget
+                0x0080032d        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.menuEditing
+                0x0080032e        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.menuIndex
+                0x0080032f        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.menuPage  0x00800330        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.uiState   0x00800331        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.button3WakeOnlyUntilRelease
+                0x00800332        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.pm10      0x00800333        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.pm25      0x00800335        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.pm1       0x00800337        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.pmBufferCount
+                0x00800339        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.pmBuffer10
+                0x0080033a       0x14 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.pmBuffer25
+                0x0080034e       0x14 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.pmBuffer1
+                0x00800362       0x14 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.pmBufferIndex
+                0x00800376        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.config    0x00800377       0x1b C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.pmsEnabledAtMs
+                0x00800392        0x4 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.lastPmsFrameMs
+                0x00800396        0x4 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.pmsError  0x0080039a        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.pmsFrameEverReceived
+                0x0080039b        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.pmsFrame  0x0080039c       0x20 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.pmsIndex  0x008003bc        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.pmsPowered
+                0x008003bd        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.sensorAttemptMs
+                0x008003be        0x8 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.lastAhtSuccessMs
+                0x008003c6        0x4 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.ahtReadingValid
+                0x008003ca        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.humidityPercent
+                0x008003cb        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.temperatureC
+                0x008003cd        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.ahtMeasurementStartedMs
+                0x008003cf        0x4 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.ahtMeasurementPending
+                0x008003d3        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.powerState
+                0x008003d4        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss._ZZ4loopE13lastUiRefresh
+                0x008003d5        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.uiInteractionPending
+                0x008003d7        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.uiAssetsOK
+                0x008003d8        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss._ZL5_cend
+                0x008003d9        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss._ZL6_cmark
+                0x008003db        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss._ZL11wdtcsr_save
+                0x008003dd        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss._usbCurrentStatus
+                0x008003de        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.TxLEDPulse
+                0x008003df        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss._usbSuspendState
+                0x008003e0        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss._ZZ12PluggableUSBvE3obj
+                0x008003e1        0x4 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss._ZGVZ12PluggableUSBvE3obj
+                0x008003e5        0x8 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.twi_timed_out_flag
+                0x008003ed        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.twi_txBuffer
+                0x008003ee       0x20 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.twi_onSlaveTransmit
+                0x0080040e        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.twi_txBufferLength
+                0x00800410        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.twi_txBufferIndex
+                0x00800411        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.twi_onSlaveReceive
+                0x00800412        0x2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.twi_rxBuffer
+                0x00800414       0x20 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.twi_rxBufferIndex
+                0x00800434        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.RxLEDPulse
+                0x00800435        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss._usbConfiguration
+                0x00800436        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.bmp       0x00800437       0x1d C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss._ZN7TwoWire14rxBufferLengthE
+                0x00800454        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss._ZN7TwoWire13rxBufferIndexE
+                0x00800455        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss._ZN7TwoWire8rxBufferE
+                0x00800456       0x20 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.twi_inRepStart
+                0x00800476        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.twi_slarw
+                0x00800477        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.twi_masterBuffer
+                0x00800478       0x20 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.twi_masterBufferLength
+                0x00800498        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.twi_masterBufferIndex
+                0x00800499        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.twi_error
+                0x0080049a        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.twi_sendStop
+                0x0080049b        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.twi_state
+                0x0080049c        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.twi_do_reset_on_timeout
+                0x0080049d        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.twi_timeout_us
+                0x0080049e        0x4 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss._ZN7TwoWire12transmittingE
+                0x008004a2        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss._ZN7TwoWire13txBufferIndexE
+                0x008004a3        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss._ZN7TwoWire8txBufferE
+                0x008004a4       0x20 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss._ZN7TwoWire9txAddressE
+                0x008004c4        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss._ZN7TwoWire14txBufferLengthE
+                0x008004c5        0x1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.Serial    0x008004c6       0x50 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.Wire      0x00800516        0xc C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.Serial1   0x00800522       0x9d C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .bss.lcd       0x008005bf       0x5f C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ *(COMMON)
+                0x0080061e                PROVIDE (__bss_end, .)
+                0x00006612                __data_load_start = LOADADDR (.data)
+                0x00006704                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0080061e        0x0
+                [!provide]                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                [!provide]                PROVIDE (__noinit_end, .)
+                0x0080061e                _end = .
+                [!provide]                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.user_signatures
+ *(.user_signatures*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000       0x11
+ *(.comment)
+ .comment       0x00000000       0x11 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+                                 0x12 (size before relaxing)
+
+.note.gnu.avr.deviceinfo
+                0x00000000       0x40
+ .note.gnu.avr.deviceinfo
+                0x00000000       0x40 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega32u4.o
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x740
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000      0x3e0 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .debug_aranges
+                0x000003e0       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .debug_aranges
+                0x00000400       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulsi3.o)
+ .debug_aranges
+                0x00000420       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+ .debug_aranges
+                0x00000440       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+ .debug_aranges
+                0x00000460       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+ .debug_aranges
+                0x00000480       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+ .debug_aranges
+                0x000004a0       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_tablejump2.o)
+ .debug_aranges
+                0x000004c0       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+ .debug_aranges
+                0x000004e0       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+ .debug_aranges
+                0x00000500       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ctors.o)
+ .debug_aranges
+                0x00000520       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+ .debug_aranges
+                0x00000540       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_usmulhisi3.o)
+ .debug_aranges
+                0x00000560       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+ .debug_aranges
+                0x00000580       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulshisi3.o)
+ .debug_aranges
+                0x000005a0       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3.o)
+ .debug_aranges
+                0x000005c0       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3_6.o)
+ .debug_aranges
+                0x000005e0       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divdi3.o)
+ .debug_aranges
+                0x00000600       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivdi3.o)
+ .debug_aranges
+                0x00000620       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmod64.o)
+ .debug_aranges
+                0x00000640       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_negdi2.o)
+ .debug_aranges
+                0x00000660       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+ .debug_aranges
+                0x00000680       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+ .debug_aranges
+                0x000006a0       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashldi3.o)
+ .debug_aranges
+                0x000006c0       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashrdi3.o)
+ .debug_aranges
+                0x000006e0       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_adddi3.o)
+ .debug_aranges
+                0x00000700       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_subdi3.o)
+ .debug_aranges
+                0x00000720       0x20 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_cmpdi2_s8.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000     0xddb0
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0x9f4 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega32u4.o
+ .debug_info    0x000009f4     0xc003 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .debug_info    0x0000c9f7       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .debug_info    0x0000cab2       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulsi3.o)
+ .debug_info    0x0000cb6d       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+ .debug_info    0x0000cc28       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+ .debug_info    0x0000cce3       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+ .debug_info    0x0000cd9e       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+ .debug_info    0x0000ce59       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_tablejump2.o)
+ .debug_info    0x0000cf14       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+ .debug_info    0x0000cfcf       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+ .debug_info    0x0000d08a       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ctors.o)
+ .debug_info    0x0000d145       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+ .debug_info    0x0000d200       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_usmulhisi3.o)
+ .debug_info    0x0000d2bb       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+ .debug_info    0x0000d376       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulshisi3.o)
+ .debug_info    0x0000d431       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3.o)
+ .debug_info    0x0000d4ec       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3_6.o)
+ .debug_info    0x0000d5a7       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divdi3.o)
+ .debug_info    0x0000d662       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivdi3.o)
+ .debug_info    0x0000d71d       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmod64.o)
+ .debug_info    0x0000d7d8       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_negdi2.o)
+ .debug_info    0x0000d893       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+ .debug_info    0x0000d94e       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+ .debug_info    0x0000da09       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashldi3.o)
+ .debug_info    0x0000dac4       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashrdi3.o)
+ .debug_info    0x0000db7f       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_adddi3.o)
+ .debug_info    0x0000dc3a       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_subdi3.o)
+ .debug_info    0x0000dcf5       0xbb c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_cmpdi2_s8.o)
+
+.debug_abbrev   0x00000000     0x15c9
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x96a c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega32u4.o
+ .debug_abbrev  0x0000096a      0xa43 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .debug_abbrev  0x000013ad       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .debug_abbrev  0x000013c1       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulsi3.o)
+ .debug_abbrev  0x000013d5       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+ .debug_abbrev  0x000013e9       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+ .debug_abbrev  0x000013fd       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+ .debug_abbrev  0x00001411       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+ .debug_abbrev  0x00001425       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_tablejump2.o)
+ .debug_abbrev  0x00001439       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+ .debug_abbrev  0x0000144d       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+ .debug_abbrev  0x00001461       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ctors.o)
+ .debug_abbrev  0x00001475       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+ .debug_abbrev  0x00001489       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_usmulhisi3.o)
+ .debug_abbrev  0x0000149d       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+ .debug_abbrev  0x000014b1       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulshisi3.o)
+ .debug_abbrev  0x000014c5       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3.o)
+ .debug_abbrev  0x000014d9       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3_6.o)
+ .debug_abbrev  0x000014ed       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divdi3.o)
+ .debug_abbrev  0x00001501       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivdi3.o)
+ .debug_abbrev  0x00001515       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmod64.o)
+ .debug_abbrev  0x00001529       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_negdi2.o)
+ .debug_abbrev  0x0000153d       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+ .debug_abbrev  0x00001551       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+ .debug_abbrev  0x00001565       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashldi3.o)
+ .debug_abbrev  0x00001579       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashrdi3.o)
+ .debug_abbrev  0x0000158d       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_adddi3.o)
+ .debug_abbrev  0x000015a1       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_subdi3.o)
+ .debug_abbrev  0x000015b5       0x14 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_cmpdi2_s8.o)
+
+.debug_line     0x00000000     0x5515
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x00000000       0x1a c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega32u4.o
+ .debug_line    0x0000001a     0x41b7 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+ .debug_line    0x000041d1       0x62 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .debug_line    0x00004233       0xb0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulsi3.o)
+ .debug_line    0x000042e3       0x9e c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodqi4.o)
+ .debug_line    0x00004381       0xce c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+ .debug_line    0x0000444f       0xc8 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+ .debug_line    0x00004517      0x122 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+ .debug_line    0x00004639       0x7a c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_tablejump2.o)
+ .debug_line    0x000046b3       0x98 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+ .debug_line    0x0000474b       0x86 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+ .debug_line    0x000047d1       0x92 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ctors.o)
+ .debug_line    0x00004863       0xb0 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+ .debug_line    0x00004913       0x7a c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_usmulhisi3.o)
+ .debug_line    0x0000498d       0x92 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+ .debug_line    0x00004a1f       0x7a c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_mulshisi3.o)
+ .debug_line    0x00004a99      0x170 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3.o)
+ .debug_line    0x00004c09       0x86 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muldi3_6.o)
+ .debug_line    0x00004c8f       0xf2 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divdi3.o)
+ .debug_line    0x00004d81       0xa4 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivdi3.o)
+ .debug_line    0x00004e25      0x146 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmod64.o)
+ .debug_line    0x00004f6b       0x7a c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_negdi2.o)
+ .debug_line    0x00004fe5       0xfe c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_prologue.o)
+ .debug_line    0x000050e3       0xf8 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_epilogue.o)
+ .debug_line    0x000051db       0xec c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashldi3.o)
+ .debug_line    0x000052c7      0x104 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_ashrdi3.o)
+ .debug_line    0x000053cb       0x68 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_adddi3.o)
+ .debug_line    0x00005433       0x68 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_subdi3.o)
+ .debug_line    0x0000549b       0x7a c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_cmpdi2_s8.o)
+
+.debug_frame    0x00000000     0x1228
+ *(.debug_frame)
+ .debug_frame   0x00000000     0x1228 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+
+.debug_str      0x00000000     0x2e23
+ *(.debug_str)
+ .debug_str     0x00000000      0x371 c:/users/samtam/documents/codex/2026-11-04/c-dev-test-diyairpurifier-code/work/toolchain/data/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega32u4.o
+ .debug_str     0x00000371     0x2ab2 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+                               0x2d25 (size before relaxing)
+
+.debug_loc      0x00000000     0x7ea1
+ *(.debug_loc)
+ .debug_loc     0x00000000     0x7ea1 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x00000000     0x1128
+ *(.debug_ranges)
+ .debug_ranges  0x00000000     0x1128 C:\Users\SamTam\AppData\Local\Temp\ccUeKIUc.ltrans0.ltrans.o
+
+.debug_macro
+ *(.debug_macro)
+OUTPUT(C:\Users\SamTam\Documents\Codex\2026-11-04\c-dev-test-diyairpurifier-code\work\v2-package-smooth\AirPurifier.elf elf32-avr)
+LOAD linker stubs

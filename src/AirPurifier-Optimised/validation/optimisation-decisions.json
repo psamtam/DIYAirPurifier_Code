@@ -1,0 +1,32 @@
+{
+  "display_selection": {
+    "character_cache_comparison_flash": 26398,
+    "dirty_scheduler_comparison_flash": 26400,
+    "selected": "character cache"
+  },
+  "six_slot_text_cache": {
+    "first_pass_flash": 26484,
+    "final_flash": 26372,
+    "ram": 1310,
+    "selected_default": true,
+    "reason": "further exact reductions made room; removes repeated asset reads on unchanged screens"
+  },
+  "single_slot_text_cache": {
+    "final_flash": 26236,
+    "ram": 1142,
+    "selected_default": false,
+    "available_as": "MinimumFlash profile"
+  },
+  "forced_inlining_boundaries": {
+    "flash": 26934,
+    "selected": false
+  },
+  "shared_elapsed_function": {
+    "flash": 26720,
+    "selected": false
+  },
+  "final_flash": 26372,
+  "final_static_ram": 1310,
+  "flash_free": 2300,
+  "sram_before_stack": 1250
+}

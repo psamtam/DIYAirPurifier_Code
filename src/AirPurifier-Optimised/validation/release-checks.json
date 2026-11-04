@@ -1,0 +1,13 @@
+{
+  "original_untouched": true,
+  "source_matches_tested_candidate": true,
+  "both_packaged_builds_match_measurements": true,
+  "hex_records_and_address_bounds_valid": true,
+  "both_profiles_passed_tests": true,
+  "external_image_unchanged": true,
+  "display_metrics_verified": true,
+  "default_flash": 26372,
+  "minimum_flash": 26236,
+  "default_ram": 1310,
+  "minimum_ram": 1142
+}

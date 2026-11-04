@@ -7,8 +7,8 @@ struct ButtonState {
   uint8_t pin;
   bool stablePressed;
   bool lastRawPressed;
-  uint32_t rawChangedAt;
-  uint32_t pressedAt;
+  uint16_t rawChangedAt;
+  uint16_t pressedAt;
   bool longPressFired;
 };
 

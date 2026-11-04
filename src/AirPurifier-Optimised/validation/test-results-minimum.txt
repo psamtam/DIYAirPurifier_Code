@@ -1,0 +1,5 @@
+METRIC cache idle16 LCD_chars=0 cursors=0 EEPROM_reads=80
+METRIC cache changed_frame LCD_chars=24 cursors=2
+PASS: 3795 firmware assertions
+PASS: 7145 EEPROM programmer assertions
+PASS: asset generation, capacity, format and checksum tests
