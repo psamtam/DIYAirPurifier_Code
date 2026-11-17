@@ -6,7 +6,11 @@
 
 void handleOutputButtonShort(uint8_t target) {
   noteUserActivity();
-  if (uiState == DELAY_EDIT) { handleDelayButton(target); return; }
+  if (uiState == DELAY_EDIT) {
+    if (!target) handleDelayButton(delayEditTarget);
+    else enterMainDisplay();
+    return;
+  }
   if (uiState == MENU) {
     if (!target) handleMenuButton1(); else handleMenuButton2();
     return;
@@ -106,9 +110,9 @@ void processEncoder() {
     else if (menuPage == 1 || menuPage == 2 || menuPage == 3 || menuPage == 4 || menuPage == 5) {
       if (!menuEditing && (menuPage == 1 || menuPage == 2)) {
         uint8_t maxItems = menuPage == 1 ? 4 : 4;
-        submenuIndex = (submenuIndex + delta + maxItems) % maxItems;
+        submenuIndex = (submenuIndex - delta % maxItems + maxItems) % maxItems;
       } else if (!menuEditing && (menuPage == 4 || menuPage == 5)) {
-        editingPresetIndex = (editingPresetIndex + delta + PRESET_COUNT) % PRESET_COUNT;
+        editingPresetIndex = (editingPresetIndex - delta % PRESET_COUNT + PRESET_COUNT) % PRESET_COUNT;
       } else handleMenuEncoder(delta);
     }
   }

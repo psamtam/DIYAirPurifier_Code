@@ -144,7 +144,7 @@ public:
     uint8_t r[2];
     return readBytes(0xF4, r, 2) && r[0] == 0x57 && r[1] == 0x90;
   }
-  bool read(int16_t &temperature, int16_t &pressureHpa) {
+  bool read(int16_t &temperature, int32_t &pressureHpa100000) {
     if (!configured()) return false;
     uint8_t d[6]; if (!readBytes(0xF7, d, 6)) return false;
     int32_t adcP = ((int32_t)d[0]<<12) | ((int32_t)d[1]<<4) | (d[2]>>4);
@@ -167,7 +167,9 @@ public:
     p1 = ((int64_t)dig_P9 * (p >> 13) * (p >> 13)) >> 25;
     p2 = ((int64_t)dig_P8 * p) >> 19;
     p = ((p + p1 + p2) >> 8) + (((int64_t)dig_P7) * 16LL);
-    pressureHpa = (int16_t)((p + 1280) / 2560);
+    // p is pressure in Pa with eight fractional bits. Convert to 1e-5 hPa
+    // (1e-3 Pa) units while preserving the BMP280 compensation precision.
+    pressureHpa100000 = (int32_t)((p * 125LL + 16) / 32);
     return true;
   }
 };

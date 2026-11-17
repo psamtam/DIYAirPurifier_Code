@@ -25,6 +25,8 @@ void setup() {
   setFanPWM(0); setLedPWM(0);
 
   previousEncoderState = (digitalRead(PIN_ENC_A) << 1) | digitalRead(PIN_ENC_B);
+  candidateEncoderState = previousEncoderState;
+  candidateEncoderSince = (uint16_t)millis();
   initialiseButton(button1); initialiseButton(button2); initialiseButton(button3);
 
   Wire.begin();
