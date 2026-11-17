@@ -160,7 +160,7 @@ void drawAboutPage() {
   lcdLine(0, uiText(60));
   lcdLine(1, uiText(61));
   lcdLine(2, uiText(62));
-  lcdLine(3, uiText(13));
+  lcdLine(3, uiText(103));
 }
 
 void drawFactoryResetPage() {
@@ -203,7 +203,7 @@ void savePresetEdit() {
 void handleMenuEncoder(int delta) {
   if (!delta) return;
   if (dateEditing) { changeDateField(delta); return; }
-  if (menuPage == 0) { menuIndex = (menuIndex + delta + MENU_ITEM_COUNT_ACTUAL) % MENU_ITEM_COUNT_ACTUAL; return; }
+  if (menuPage == 0) { menuIndex = (menuIndex - delta % MENU_ITEM_COUNT_ACTUAL + MENU_ITEM_COUNT_ACTUAL) % MENU_ITEM_COUNT_ACTUAL; return; }
   if (menuPage == 1 && menuEditing && submenuIndex == 3) { use24HourClock = !use24HourClock; return; }
   if (menuPage == 1 && menuEditing) {
     SettingId id = (SettingId)submenuIndex; setSettingValue(id, getSettingValue(id) + delta); return;

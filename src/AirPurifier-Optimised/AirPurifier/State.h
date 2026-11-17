@@ -30,7 +30,7 @@ uint8_t ledBrightness = DEFAULT_LED_BRIGHTNESS;
 // Current readings and freshness/error state
 int16_t temperatureC = 0; // tenths of a degree C
 int16_t humidityPercent = 0; // tenths of one percent
-int16_t pressureHpa = 0; // tenths of one hPa
+int32_t pressureHpa100000 = 0; // units of 0.00001 hPa
 bool ahtReadingValid = false;
 bool bmpReadingValid = false;
 uint32_t lastAhtSuccessMs = 0;
@@ -84,6 +84,8 @@ uint32_t lastDisplayRenderMs = 0;
 
 // Encoder decoder
 uint8_t previousEncoderState = 0;
+uint8_t candidateEncoderState = 0;
+uint16_t candidateEncoderSince = 0;
 int8_t encoderAccumulator = 0;
 int16_t encoderDetentsPending = 0;
 const int8_t encoderTable[16] PROGMEM = {

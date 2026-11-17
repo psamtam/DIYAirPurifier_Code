@@ -58,6 +58,7 @@ const uint16_t MAX_AUTO_STANDBY_TIMEOUT_MINUTES = 60;
 
 // Fixed firmware timing constants (edit here, not in the menu)
 const uint32_t BUTTON_DEBOUNCE_MS = 35;
+const uint16_t ENCODER_DEBOUNCE_MS = 1;
 const uint32_t BUTTON3_LONG_PRESS_MS = 2000;
 const uint32_t PMS7003_STARTUP_GRACE_MS = 10000UL;
 const uint32_t UI_INACTIVITY_TIMEOUT_MS = 10000UL;

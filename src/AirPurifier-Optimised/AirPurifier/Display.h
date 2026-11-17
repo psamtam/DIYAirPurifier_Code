@@ -31,7 +31,7 @@ void renderMainEnvironmental() {
   strcpy(h, ahtReadingValid && !elapsed(millis(), lastAhtSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR");
   lcdLine(1, uiText(69));
   tinyFormat_P(b, sizeof(b), uiText(70), t, h); lcdLine(2, b);
-  formatReading(v, sizeof(v), pressureHpa);
+  formatPressure(v, sizeof(v), pressureHpa100000);
   tinyFormat_P(b, sizeof(b), uiText(71), bmpReadingValid && !elapsed(millis(), lastBmpSuccessMs, SENSOR_STALE_TIMEOUT_MS) ? v : "ERR"); lcdLine(3, b);
 }
 

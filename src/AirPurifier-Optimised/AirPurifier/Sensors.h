@@ -143,9 +143,10 @@ void readEnvironmentalSensors() {
   } else ahtReadingValid = false;
 
   if (bmpOK) {
-    int16_t t, p;
+    int16_t t;
+    int32_t p;
     if (bmp.read(t, p) && p > 0) {
-      pressureHpa = p;
+      pressureHpa100000 = p;
       bmpReadingValid = true; lastBmpSuccessMs = now;
     } else sensorFailed(1, now);
   } else bmpReadingValid = false;

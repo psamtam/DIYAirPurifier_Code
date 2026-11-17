@@ -79,6 +79,23 @@ void formatReading(char *out, uint8_t len, int16_t value) {
   tinyFormat_P(out, len, uiText(0), value < 0 ? "-" : "", magnitude / 10, magnitude % 10);
 }
 
+void formatPressure(char *out, uint8_t len, int32_t pressureHpa100000) {
+  uint32_t magnitude = pressureHpa100000 < 0 ? (uint32_t)(-(int64_t)pressureHpa100000) : (uint32_t)pressureHpa100000;
+  if (len < 8) { if (len) out[0] = '\0'; return; }
+  uint32_t rounded = (magnitude + 5UL) / 10UL;
+  tinyFormat_P(out, len, "%s%u", pressureHpa100000 < 0 ? "-" : "", (unsigned int)(rounded / 10000UL));
+  uint8_t pos = (uint8_t)strlen(out);
+  if (pos + 5 >= len) return;
+  out[pos++] = '.';
+  uint32_t fraction = rounded % 10000UL;
+  uint32_t divisor = 1000UL;
+  while (divisor) {
+    out[pos++] = (char)('0' + (fraction / divisor) % 10);
+    divisor /= 10;
+  }
+  out[pos] = '\0';
+}
+
 bool validDate(int y, int m, int d, int hh, int mm, int ss) {
   if (y < 2000 || y > 2099 || m < 1 || m > 12 || hh < 0 || hh > 23 || mm < 0 || mm > 59 || ss < 0 || ss > 59) return false;
   static const uint8_t days[] PROGMEM = {31,28,31,30,31,30,31,31,30,31,30,31};

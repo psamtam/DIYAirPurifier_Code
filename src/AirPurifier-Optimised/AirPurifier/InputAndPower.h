@@ -31,6 +31,13 @@ void pollEncoder() {
   uint8_t a = digitalRead(PIN_ENC_A);
   uint8_t b = digitalRead(PIN_ENC_B);
   uint8_t state = (a << 1) | b;
+  uint16_t now = (uint16_t)millis();
+  if (state != candidateEncoderState) {
+    candidateEncoderState = state;
+    candidateEncoderSince = now;
+    return;
+  }
+  if (state == previousEncoderState || !elapsedShort(now, candidateEncoderSince, ENCODER_DEBOUNCE_MS)) return;
   uint8_t transition = (previousEncoderState << 2) | state;
   encoderAccumulator += (int8_t)pgm_read_byte(&encoderTable[transition]);
   previousEncoderState = state;
