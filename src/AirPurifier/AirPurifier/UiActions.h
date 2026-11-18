@@ -100,7 +100,11 @@ void processEncoder() {
   if (powerState == STANDBY) return;
   if (!lcdBacklightOn) { setBacklight(true); noteUserActivity(); return; }
   noteUserActivity();
-  if (uiState == DELAY_EDIT) {
+  if (uiState == MAIN_DISPLAY) {
+    if (delta % 2 != 0) mainDisplayPage = (mainDisplayPage + 1) % 2;
+    lastMainRotationMs = millis();
+    renderDisplay();
+  } else if (uiState == DELAY_EDIT) {
     delayEditMinutes = stepDelayMinutes(delayEditMinutes, delta);
     delayOutputOffMessage = false;
   } else if (uiState == FAN_ADJUSTMENT || uiState == LED_ADJUSTMENT) {
@@ -109,7 +113,7 @@ void processEncoder() {
     if (menuPage == 0 || menuPage == 8) handleMenuEncoder(delta);
     else if (menuPage == 1 || menuPage == 2 || menuPage == 3 || menuPage == 4 || menuPage == 5) {
       if (!menuEditing && (menuPage == 1 || menuPage == 2)) {
-        uint8_t maxItems = menuPage == 1 ? 4 : 4;
+        uint8_t maxItems = menuPage == 1 ? 6 : 4;
         submenuIndex = (submenuIndex - delta % maxItems + maxItems) % maxItems;
       } else if (!menuEditing && (menuPage == 4 || menuPage == 5)) {
         editingPresetIndex = (editingPresetIndex - delta % PRESET_COUNT + PRESET_COUNT) % PRESET_COUNT;
@@ -152,8 +156,8 @@ void checkTimers(uint32_t now) {
     renderDisplay();
   }
   if (lcdBacklightOn && elapsed(now, lastBacklightActivityMs, secondsToMs(config.backlightTimeoutSeconds))) setBacklight(false);
-  if ((uiState == FAN_ADJUSTMENT || uiState == LED_ADJUSTMENT || uiState == DELAY_EDIT) && elapsed(now, lastUiActivityMs, UI_INACTIVITY_TIMEOUT_MS)) enterMainDisplay();
-  if (uiState == MENU && elapsed(now, lastMenuActivityMs, MENU_INACTIVITY_TIMEOUT_MS)) {
+  if ((uiState == FAN_ADJUSTMENT || uiState == LED_ADJUSTMENT || uiState == DELAY_EDIT) && elapsed(now, lastUiActivityMs, secondsToMs(config.adjustmentTimeoutSeconds))) enterMainDisplay();
+  if (uiState == MENU && elapsed(now, lastMenuActivityMs, secondsToMs(config.menuTimeoutSeconds))) {
     enterMainDisplay(); setBacklight(false);
     outputsOffSinceMs = (fanSpeed == 0 && ledBrightness == 0) ? now : 0;
   }

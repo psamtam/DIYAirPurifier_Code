@@ -6,7 +6,8 @@ Firmware for a 5 V, 16 MHz ATmega32U4 board with a 20×4 I²C LCD. It controls t
 
 - Reads temperature and humidity from an AHT20, pressure from a BMP280, particle concentrations from a PMS7003, and time from a DS3231.
 - Alternates the home display between environmental readings and PM1.0, PM2.5, and PM10. Pressure is shown in hPa to five decimal places. This is display precision; the BMP280 is configured for normal operation with pressure oversampling ×16, whose typical pressure resolution is 0.16 Pa (0.0016 hPa). 
-- Provides independent fan and LED delay-off timers, configurable presets, backlight timeout, automatic standby, and sensor recovery after read failures.
+- Provides independent fan and LED delay-off timers, configurable presets, backlight and inactivity timeouts, automatic standby, and sensor recovery after read failures.
+- The PM sensor supports Off, On, and Auto modes. Auto follows fan state while operating, and the PM sensor is always off in standby.
 - In menus, scrolling down advances through selections; while editing, the encoder changes the selected value.
 - Stores settings in the AT24C32 external EEPROM. UI text is stored in the same EEPROM, separately from settings.
 
@@ -19,11 +20,11 @@ The LCD labels use **Y** for Button 1, **A** for Button 2, and **X** for Button 
 | Y / Button 1 | Open or cycle fan adjustment; hold for fan delay-off | Select or confirm; Y sets a delay |
 | A / Button 2 | Open or cycle LED adjustment; hold for LED delay-off | Back or cancel |
 | X / Button 3 | Open settings; hold to enter standby | Back or exit |
-| Rotary encoder | Adjust the active output | Browse menu choices or adjust a value |
+| Rotary encoder | Switch between environmental and PM pages; adjust an active output | Browse menu choices or adjust a value |
 
 Delay choices are Off or 5 to 240 minutes in five-minute steps. Timers are session-only, never turn an output on, and switch off only their associated output. A timer cannot be started while its output is off. Encoder adjustments to a running output preserve its deadline; setting the output to zero cancels the timer.
 
-The Settings menu contains date and time, display, sensor, power, fan preset, LED preset, status, About, and factory reset pages. Cancelled setting edits are discarded. The first interaction after the backlight turns off wakes the display without applying that interaction.
+The Settings menu contains date and time, display, sensor, power, fan preset, LED preset, status, About, and factory reset pages. Display settings include adjustment and menu return timeouts, each configurable from 5 to 120 seconds. Cancelled setting edits are discarded. The first interaction after the backlight turns off wakes the display without applying that interaction.
 
 ## Build and EEPROM setup
 

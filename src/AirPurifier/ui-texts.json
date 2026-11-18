@@ -3,7 +3,7 @@
   "Backlight timeout",
   "Screen rotation",
   "Standby LCD mult.",
-  "PMS7003 enabled",
+  "PM sensor mode",
   "PM average window",
   "Operating sensor",
   "Standby sensor",
@@ -102,5 +102,10 @@
   "BMP280: ERR",
   "DS3231: OK",
   "DS3231: ERR",
-  "         By: Sam Tam"
+  "         By: Sam Tam",
+  "Adjustment timeout",
+  "Menu timeout",
+  "OFF",
+  "ON",
+  "AUTO"
 ]

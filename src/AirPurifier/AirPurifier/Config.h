@@ -14,6 +14,8 @@ struct Config {
   uint16_t operatingSensorIntervalSeconds;
   uint16_t standbySensorIntervalSeconds;
   uint16_t autoStandbyTimeoutMinutes;
+  uint16_t adjustmentTimeoutSeconds;
+  uint16_t menuTimeoutSeconds;
   uint8_t fanPresets[PRESET_COUNT];
   uint8_t ledPresets[PRESET_COUNT];
   uint8_t defaultFanSpeed;

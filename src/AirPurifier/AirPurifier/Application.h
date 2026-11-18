@@ -61,7 +61,7 @@ void setup() {
   fanSpeed = config.defaultFanSpeed;
   ledBrightness = config.defaultLedBrightness;
   applyOutputs();
-  setPmsPower(config.pmsEnabled != 0);
+  syncPmsPower();
 
   readEnvironmentalSensors();
   uint32_t now = millis();

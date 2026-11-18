@@ -73,6 +73,7 @@ void setDefaultConfig() {
     DEFAULT_STANDBY_LCD_INTERVAL_N, DEFAULT_PMS7003_ENABLED, DEFAULT_PM_AVERAGE_WINDOW,
     DEFAULT_OPERATING_SENSOR_INTERVAL_SECONDS, DEFAULT_STANDBY_SENSOR_INTERVAL_SECONDS,
     DEFAULT_AUTO_STANDBY_TIMEOUT_MINUTES,
+    DEFAULT_ADJUSTMENT_TIMEOUT_SECONDS, DEFAULT_MENU_TIMEOUT_SECONDS,
     DEFAULT_PRESET_VALUES, DEFAULT_PRESET_VALUES, DEFAULT_FAN_SPEED, DEFAULT_LED_BRIGHTNESS
   };
   memcpy_P(&config, &defaults, sizeof(config));
@@ -89,15 +90,17 @@ bool presetsValid(const uint8_t *p) {
 
 struct SettingLimit { uint8_t location, minimum; uint16_t maximum; };
 #define SETTING_WORD(member) (0x80 | offsetof(Config, member))
-const SettingLimit settingLimits[8] PROGMEM = {
+const SettingLimit settingLimits[10] PROGMEM = {
   {SETTING_WORD(backlightTimeoutSeconds), MIN_BACKLIGHT_TIMEOUT_SECONDS, MAX_BACKLIGHT_TIMEOUT_SECONDS},
   {SETTING_WORD(mainScreenRotationSeconds), MIN_MAIN_SCREEN_ROTATION_SECONDS, MAX_MAIN_SCREEN_ROTATION_SECONDS},
   {offsetof(Config, standbyLcdIntervalN), MIN_STANDBY_LCD_INTERVAL_N, MAX_STANDBY_LCD_INTERVAL_N},
-  {offsetof(Config, pmsEnabled), 0, 1},
+  {offsetof(Config, pmsEnabled), 0, 2},
   {offsetof(Config, pmAverageWindow), MIN_PM_AVERAGE_WINDOW, MAX_PM_AVERAGE_WINDOW},
   {SETTING_WORD(operatingSensorIntervalSeconds), MIN_OPERATING_SENSOR_INTERVAL_SECONDS, MAX_OPERATING_SENSOR_INTERVAL_SECONDS},
   {SETTING_WORD(standbySensorIntervalSeconds), MIN_STANDBY_SENSOR_INTERVAL_SECONDS, MAX_STANDBY_SENSOR_INTERVAL_SECONDS},
-  {SETTING_WORD(autoStandbyTimeoutMinutes), MIN_AUTO_STANDBY_TIMEOUT_MINUTES, MAX_AUTO_STANDBY_TIMEOUT_MINUTES}
+  {SETTING_WORD(autoStandbyTimeoutMinutes), MIN_AUTO_STANDBY_TIMEOUT_MINUTES, MAX_AUTO_STANDBY_TIMEOUT_MINUTES},
+  {SETTING_WORD(adjustmentTimeoutSeconds), MIN_UI_RETURN_TIMEOUT_SECONDS, MAX_UI_RETURN_TIMEOUT_SECONDS},
+  {SETTING_WORD(menuTimeoutSeconds), MIN_UI_RETURN_TIMEOUT_SECONDS, MAX_UI_RETURN_TIMEOUT_SECONDS}
 };
 #undef SETTING_WORD
 
@@ -111,7 +114,7 @@ int settingMin(SettingId id) { return pgm_read_byte(&settingLimits[id].minimum);
 int settingMax(SettingId id) { return pgm_read_word(&settingLimits[id].maximum); }
 
 bool configValid(const Config &c) {
-  for (uint8_t id = 0; id < 8; ++id) {
+  for (uint8_t id = 0; id < 10; ++id) {
     int value = readSetting(c, (SettingId)id);
     if (value < settingMin((SettingId)id) || value > settingMax((SettingId)id)) return false;
   }
@@ -123,7 +126,34 @@ bool configValid(const Config &c) {
 bool loadConfig() {
   StoredConfig stored;
   if (!eepromReadBytes(0, (uint8_t *)&stored, sizeof(stored))) return false;
-  if (stored.magic != EEPROM_MAGIC || stored.version != EEPROM_VERSION) return false;
+  if (stored.magic != EEPROM_MAGIC) return false;
+  if (stored.version == 1) {
+    struct LegacyConfigV1 {
+      uint16_t backlightTimeoutSeconds, mainScreenRotationSeconds;
+      uint8_t standbyLcdIntervalN, pmsEnabled, pmAverageWindow;
+      uint16_t operatingSensorIntervalSeconds, standbySensorIntervalSeconds, autoStandbyTimeoutMinutes;
+      uint8_t fanPresets[PRESET_COUNT], ledPresets[PRESET_COUNT], defaultFanSpeed, defaultLedBrightness;
+    };
+    struct LegacyStoredConfigV1 { uint32_t magic; uint16_t version; LegacyConfigV1 config; uint16_t checksum; } legacy;
+    if (!eepromReadBytes(0, (uint8_t *)&legacy, sizeof(legacy)) || legacy.version != 1 ||
+        legacy.checksum != checksumBytes((const uint8_t *)&legacy.config, sizeof(legacy.config))) return false;
+    setDefaultConfig();
+    config.backlightTimeoutSeconds = legacy.config.backlightTimeoutSeconds;
+    config.mainScreenRotationSeconds = legacy.config.mainScreenRotationSeconds;
+    config.standbyLcdIntervalN = legacy.config.standbyLcdIntervalN;
+    config.pmsEnabled = legacy.config.pmsEnabled;
+    config.pmAverageWindow = legacy.config.pmAverageWindow;
+    config.operatingSensorIntervalSeconds = legacy.config.operatingSensorIntervalSeconds;
+    config.standbySensorIntervalSeconds = legacy.config.standbySensorIntervalSeconds;
+    config.autoStandbyTimeoutMinutes = legacy.config.autoStandbyTimeoutMinutes;
+    memcpy(config.fanPresets, legacy.config.fanPresets, PRESET_COUNT);
+    memcpy(config.ledPresets, legacy.config.ledPresets, PRESET_COUNT);
+    config.defaultFanSpeed = legacy.config.defaultFanSpeed;
+    config.defaultLedBrightness = legacy.config.defaultLedBrightness;
+    if (!configValid(config)) { setDefaultConfig(); return false; }
+    return saveConfig();
+  }
+  if (stored.version != EEPROM_VERSION) return false;
   uint16_t expected = checksumBytes((const uint8_t *)&stored.config, sizeof(Config));
   if (stored.checksum != expected) return false;
   // Migrate older standby intervals to the nearest supported 8-second step.

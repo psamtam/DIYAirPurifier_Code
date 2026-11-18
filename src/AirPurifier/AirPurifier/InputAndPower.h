@@ -97,7 +97,7 @@ void wakeFromStandby() {
   fanSpeed = config.defaultFanSpeed;
   ledBrightness = config.defaultLedBrightness;
   applyOutputs();
-  setPmsPower(config.pmsEnabled != 0);
+  syncPmsPower();
   setBacklight(true);
   enterMainDisplay();
   clearPmAverage();

@@ -16,9 +16,11 @@ void setSettingValue(SettingId id, int value) {
   switch (id) {
     case SET_BACKLIGHT: lastBacklightActivityMs = now; break;
     case SET_ROTATION: lastMainRotationMs = now; break;
+    case SET_ADJUSTMENT_TIMEOUT: lastUiActivityMs = now; break;
+    case SET_MENU_TIMEOUT: lastMenuActivityMs = now; break;
     case SET_STANDBY_LCD_N: lastStandbyLcdMs = now; break;
     case SET_PMS_ENABLE:
-      if (powerState == OPERATING) setPmsPower(config.pmsEnabled != 0);
+      if (powerState == OPERATING) syncPmsPower();
       clearPmAverage(); break;
     case SET_PM_WINDOW: clearPmAverage(); break;
     case SET_OPERATING_SENSOR: lastOperatingSensorMs = now; break;
@@ -28,7 +30,11 @@ void setSettingValue(SettingId id, int value) {
 }
 
 int settingStep(SettingId id) { return id == SET_STANDBY_SENSOR ? 8 : 1; }
-const char *settingName(SettingId id) { return uiText(id < 8 ? 1 + id : 9); }
+const char *settingName(SettingId id) {
+  if (id == SET_ADJUSTMENT_TIMEOUT) return uiText(104);
+  if (id == SET_MENU_TIMEOUT) return uiText(105);
+  return uiText(id < 8 ? 1 + id : 9);
+}
 
 void beginConfigEdit() { configBeforeEdit = config; clockFormatBeforeEdit = use24HourClock; clockFormatSaveFailed = false; menuEditing = true; }
 void cancelConfigEdit() {
@@ -38,7 +44,7 @@ void cancelConfigEdit() {
   use24HourClock = clockFormatBeforeEdit;
   clockFormatSaveFailed = false;
   menuEditing = false;
-  if (pmsChanged && powerState == OPERATING) setPmsPower(config.pmsEnabled != 0);
+  if (pmsChanged && powerState == OPERATING) syncPmsPower();
   if (pmsChanged || windowChanged) clearPmAverage();
   // Restored intervals use the latest scheduled reading. Unrelated edits
   // must not postpone healthy environmental sampling.
@@ -113,8 +119,8 @@ void drawSettingValue(const char *value) {
 void drawDisplaySettings(uint8_t idx) {
   char b[21];
   lcdLine(0, uiText(36));
-  if (idx < 3) {
-    SettingId id = (SettingId)idx;
+  if (idx < 5) {
+    SettingId id = idx < 3 ? (SettingId)idx : (idx == 3 ? SET_ADJUSTMENT_TIMEOUT : SET_MENU_TIMEOUT);
     lcdLine(1, settingName(id));
     int v = getSettingValue(id);
     tinyFormat_P(b, sizeof(b), uiText(37), v, id == SET_STANDBY_LCD_N ? "x" : "seconds");
@@ -123,13 +129,13 @@ void drawDisplaySettings(uint8_t idx) {
     lcdLine(1, uiText(38));
     lcdLine(2, menuEditing ? (use24HourClock ? uiText(39) : uiText(40)) : (use24HourClock ? uiText(41) : uiText(42)));
   }
-  if (idx == 3) lcdLine(3, clockFormatSaveFailed ? "ERR" : (menuEditing ? uiText(43) : uiText(44)));
+  if (idx == 5) lcdLine(3, clockFormatSaveFailed ? "ERR" : (menuEditing ? uiText(43) : uiText(44)));
 }
 
 void drawSensorSettings(uint8_t idx) {
   SettingId id = (SettingId)(SET_PMS_ENABLE + idx); char b[21];
   lcdLine(0, uiText(45)); lcdLine(1, settingName(id));
-  if (id == SET_PMS_ENABLE) tinyFormat_P(b, sizeof(b), uiText(46), config.pmsEnabled ? "ON" : "OFF");
+  if (id == SET_PMS_ENABLE) tinyFormat_P(b, sizeof(b), uiText(46), uiText(106 + config.pmsEnabled));
   else if (id == SET_PM_WINDOW) tinyFormat_P(b, sizeof(b), uiText(47), (unsigned int)config.pmAverageWindow);
   else tinyFormat_P(b, sizeof(b), uiText(48), getSettingValue(id));
   drawSettingValue(b);
@@ -153,7 +159,7 @@ void drawStatusPage() {
   char b[21]; lcdLine(0, uiText(56));
   tinyFormat_P(b, sizeof(b), uiText(57), rtcOK ? "OK" : "ERR", eepromOK ? "OK" : "ERR"); lcdLine(1, b);
   tinyFormat_P(b, sizeof(b), uiText(58), ahtReadingValid ? "OK" : "ERR", bmpReadingValid ? "OK" : "ERR"); lcdLine(2, b);
-  tinyFormat_P(b, sizeof(b), uiText(59), !config.pmsEnabled ? "OFF" : (pmsError ? "ERR" : (pmValuesAvailable() ? "OK" : "WAIT")), powerState == STANDBY ? "STBY" : "RUN"); lcdLine(3, b);
+  tinyFormat_P(b, sizeof(b), uiText(59), !pmsPowered ? "OFF" : (pmsError ? "ERR" : (pmValuesAvailable() ? "OK" : "WAIT")), powerState == STANDBY ? "STBY" : "RUN"); lcdLine(3, b);
 }
 
 void drawAboutPage() {
@@ -204,13 +210,14 @@ void handleMenuEncoder(int delta) {
   if (!delta) return;
   if (dateEditing) { changeDateField(delta); return; }
   if (menuPage == 0) { menuIndex = (menuIndex - delta % MENU_ITEM_COUNT_ACTUAL + MENU_ITEM_COUNT_ACTUAL) % MENU_ITEM_COUNT_ACTUAL; return; }
-  if (menuPage == 1 && menuEditing && submenuIndex == 3) { use24HourClock = !use24HourClock; return; }
   if (menuPage == 1 && menuEditing) {
-    SettingId id = (SettingId)submenuIndex; setSettingValue(id, getSettingValue(id) + delta); return;
+    if (submenuIndex == 5) { use24HourClock = !use24HourClock; return; }
+    SettingId id = submenuIndex < 3 ? (SettingId)submenuIndex : (submenuIndex == 3 ? SET_ADJUSTMENT_TIMEOUT : SET_MENU_TIMEOUT);
+    setSettingValue(id, getSettingValue(id) + delta); return;
   }
   if (menuPage == 2 && menuEditing) {
     SettingId id = (SettingId)(SET_PMS_ENABLE + submenuIndex);
-    if (id == SET_PMS_ENABLE) setSettingValue(id, !config.pmsEnabled);
+    if (id == SET_PMS_ENABLE) setSettingValue(id, (config.pmsEnabled + (delta % 3) + 3) % 3);
     else setSettingValue(id, getSettingValue(id) + delta * settingStep(id));
     return;
   }
@@ -261,7 +268,7 @@ void handleMenuButton1() {
     fanSpeed = config.defaultFanSpeed;
     ledBrightness = config.defaultLedBrightness;
     applyOutputs();
-    setPmsPower(config.pmsEnabled != 0);
+    syncPmsPower();
     clearPmAverage();
     menuPage = 0; menuIndex = 0; menuEditing = false;
     return;
@@ -278,7 +285,7 @@ void handleMenuButton1() {
       int high = editingPresetIndex == PRESET_COUNT - 1 ? 100 : arr[editingPresetIndex + 1] - 1;
       arr[editingPresetIndex] = constrain(arr[editingPresetIndex], low, high);
     }
-    if (menuPage == 1 && submenuIndex == 3) {
+    if (menuPage == 1 && submenuIndex == 5) {
       if (!saveTimeFormat()) { clockFormatSaveFailed = true; return; }
       clockFormatSaveFailed = false;
       menuEditing = false;

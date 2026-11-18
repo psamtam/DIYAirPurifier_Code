@@ -38,7 +38,7 @@ void renderMainEnvironmental() {
 void renderMainParticles() {
   char b[21];
   renderClock();
-  const char *state = !config.pmsEnabled ? "OFF" : (pmsInGracePeriod() ? "--" : (pmsError ? "ERR" : "--"));
+  const char *state = !pmsPowered ? "OFF" : (pmsInGracePeriod() ? "--" : (pmsError ? "ERR" : "--"));
   bool available = pmValuesAvailable();
   uint16_t values[3] = {pm1, pm25, pm10};
   for (uint8_t i = 0; i < 3; ++i) {

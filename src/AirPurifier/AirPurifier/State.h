@@ -17,7 +17,7 @@ bool rtcOK = false;
 bool eepromOK = false;
 
 const uint32_t EEPROM_MAGIC = 0x41505246UL; // "APRF"
-const uint16_t EEPROM_VERSION = 1;
+const uint16_t EEPROM_VERSION = 2;
 const uint16_t EEPROM_TIME_FORMAT_ADDRESS = 128;
 const uint8_t EEPROM_TIME_FORMAT_MARKER = 0xA7;
 bool use24HourClock = true;

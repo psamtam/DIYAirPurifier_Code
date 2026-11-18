@@ -63,10 +63,23 @@ void setPmsPower(bool on) {
   }
 }
 
+bool shouldPowerPms() {
+  if (powerState != OPERATING) return false;
+  if (config.pmsEnabled == 0) return false;
+  if (config.pmsEnabled == 1) return true;
+  return fanSpeed == 0;
+}
+
+void syncPmsPower() {
+  bool shouldBeOn = shouldPowerPms();
+  if (pmsPowered != shouldBeOn) setPmsPower(shouldBeOn);
+}
+
 void applyFanOutput() {
   if (!fanSpeed) delayTimers[0].cancel();
   setFanPWM(fanSpeed);
   setRelay(fanSpeed > 0);
+  syncPmsPower();
 }
 
 void applyLedOutput() { if (!ledBrightness) delayTimers[1].cancel(); setLedPWM(ledBrightness); }
