@@ -16,7 +16,8 @@ bool bmpOK = false;
 bool rtcOK = false;
 bool eepromOK = false;
 
-const uint32_t EEPROM_MAGIC = 0x41505246UL; // "APRF"
+const uint32_t EEPROM_MAGIC = 0x53616D54UL; // "SamT"
+const uint32_t PREVIOUS_EEPROM_MAGIC = 0x41505246UL; // "APRF"
 const uint16_t EEPROM_VERSION = 2;
 const uint16_t EEPROM_TIME_FORMAT_ADDRESS = 128;
 const uint8_t EEPROM_TIME_FORMAT_MARKER = 0xA7;
@@ -62,6 +63,7 @@ bool lcdBacklightOn = true;
 bool fanRelayOn = false;
 bool pmsPowered = false;
 uint8_t mainDisplayPage = 0;
+uint8_t aboutPage = 0;
 
 // Timers (all millis()-based and rollover-safe)
 uint32_t lastOperatingSensorMs = 0;

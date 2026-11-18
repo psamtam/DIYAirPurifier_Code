@@ -39,7 +39,7 @@ void setup() {
     lcdLine(1, "Load UI programmer");
     return; // Outputs were set OFF before the bus was initialised.
   }
-  lcdLine(0, uiText(60)); lcdLine(1, uiText(95));
+  lcdLine(0, uiText(47)); lcdLine(1, uiText(82));
 
   sensorAttemptMs[0] = sensorAttemptMs[1] = millis() - SENSOR_RETRY_MS;
   pollSensorRecovery(millis()); pollSensorRecovery(millis());
@@ -72,10 +72,10 @@ void setup() {
   lastMenuActivityMs = now;
   outputsOffSinceMs = (fanSpeed == 0 && ledBrightness == 0) ? now : 0;
 
-  lcdLine(0, uiText(96));
-  lcdLine(1, ahtOK ? uiText(97) : uiText(98));
-  lcdLine(2, bmpOK ? uiText(99) : uiText(100));
-  lcdLine(3, rtcOK ? uiText(101) : uiText(102));
+  lcdLine(0, uiText(83));
+  lcdLine(1, ahtOK ? uiText(84) : uiText(85));
+  lcdLine(2, bmpOK ? uiText(86) : uiText(87));
+  lcdLine(3, rtcOK ? uiText(88) : uiText(89));
   delay(900); // Short one-time startup notice only.
   renderDisplay();
 }

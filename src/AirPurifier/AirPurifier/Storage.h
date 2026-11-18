@@ -126,7 +126,7 @@ bool configValid(const Config &c) {
 bool loadConfig() {
   StoredConfig stored;
   if (!eepromReadBytes(0, (uint8_t *)&stored, sizeof(stored))) return false;
-  if (stored.magic != EEPROM_MAGIC) return false;
+  if (stored.magic != EEPROM_MAGIC && stored.magic != PREVIOUS_EEPROM_MAGIC) return false;
   if (stored.version == 1) {
     struct LegacyConfigV1 {
       uint16_t backlightTimeoutSeconds, mainScreenRotationSeconds;
@@ -165,6 +165,7 @@ bool loadConfig() {
     stored.config.standbySensorIntervalSeconds = ((stored.config.standbySensorIntervalSeconds + 4) / 8) * 8;
   if (!configValid(stored.config)) return false;
   config = stored.config;
+  if (stored.magic == PREVIOUS_EEPROM_MAGIC) return saveConfig();
   return true;
 }
 

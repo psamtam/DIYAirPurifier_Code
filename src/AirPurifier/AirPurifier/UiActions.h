@@ -111,6 +111,10 @@ void processEncoder() {
     adjustActiveOutput(delta);
   } else if (uiState == MENU) {
     if (menuPage == 0 || menuPage == 8) handleMenuEncoder(delta);
+    else if (menuPage == 7) {
+      aboutPage = (aboutPage - (delta % 6) + 6) % 6;
+      drawAboutPage();
+    }
     else if (menuPage == 1 || menuPage == 2 || menuPage == 3 || menuPage == 4 || menuPage == 5) {
       if (!menuEditing && (menuPage == 1 || menuPage == 2)) {
         uint8_t maxItems = menuPage == 1 ? 6 : 4;

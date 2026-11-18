@@ -24,7 +24,7 @@ The LCD labels use **Y** for Button 1, **A** for Button 2, and **X** for Button 
 
 Delay choices are Off or 5 to 240 minutes in five-minute steps. Timers are session-only, never turn an output on, and switch off only their associated output. A timer cannot be started while its output is off. Encoder adjustments to a running output preserve its deadline; setting the output to zero cancels the timer.
 
-The Settings menu contains date and time, display, sensor, power, fan preset, LED preset, status, About, and factory reset pages. Display settings include adjustment and menu return timeouts, each configurable from 5 to 120 seconds. Cancelled setting edits are discarded. The first interaction after the backlight turns off wakes the display without applying that interaction.
+The Settings menu contains date and time, display, sensor, power, fan preset, LED preset, status, About, and factory reset pages. Turn the encoder on the About page to browse its six information pages. Display settings include adjustment and menu return timeouts, each configurable from 5 to 120 seconds. Cancelled setting edits are discarded. The first interaction after the backlight turns off wakes the display without applying that interaction.
 
 ## Build and EEPROM setup
 
@@ -42,7 +42,7 @@ The UI image is data, not an Arduino sketch. The loader sketch embeds the genera
 
 - `AirPurifier/` contains the main sketch, hardware configuration, sensor drivers, state, menus, display rendering, and application logic. `Firmware.cpp` includes the private implementation headers into one translation unit.
 - `UiEepromProgrammer/` contains the sketch that writes the generated UI image to the external EEPROM.
-- `ui-texts.json` is the text catalogue. Its positions are stable IDs; preserve existing positions and formatting placeholders. Text must be ASCII and no longer than 31 bytes per entry. LCD rows are 20 characters wide.
+- `ui-texts.json` is the EEPROM text catalogue. Firmware references its current positions as IDs, so update those references and regenerate the image whenever entries are removed or reordered. Append new entries when possible. Text must be ASCII and no longer than 31 bytes per entry. LCD rows are 20 characters wide.
 - `tools/generate_ui_assets.py` generates the firmware and loader headers, raw binary image, and manifest from the catalogue.
 
 Hardware defaults and pin assignments are in `AirPurifier/Hardware.h`. The persistent settings layout and EEPROM version are in `AirPurifier/Storage.h` and `AirPurifier/StoredConfig.h`; changing that layout requires a migration decision.

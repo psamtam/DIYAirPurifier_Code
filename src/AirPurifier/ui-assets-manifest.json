@@ -1,8 +1,8 @@
 {
   "base_address": 256,
-  "image_bytes": 3496,
-  "end_exclusive": 3752,
-  "free_eeprom_bytes": 344,
-  "text_count": 109,
-  "checksum": 54492
+  "image_bytes": 3624,
+  "end_exclusive": 3880,
+  "free_eeprom_bytes": 216,
+  "text_count": 113,
+  "checksum": 47649
 }

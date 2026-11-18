@@ -31,8 +31,8 @@ void setSettingValue(SettingId id, int value) {
 
 int settingStep(SettingId id) { return id == SET_STANDBY_SENSOR ? 8 : 1; }
 const char *settingName(SettingId id) {
-  if (id == SET_ADJUSTMENT_TIMEOUT) return uiText(104);
-  if (id == SET_MENU_TIMEOUT) return uiText(105);
+  if (id == SET_ADJUSTMENT_TIMEOUT) return uiText(91);
+  if (id == SET_MENU_TIMEOUT) return uiText(92);
   return uiText(id < 8 ? 1 + id : 9);
 }
 
@@ -92,11 +92,25 @@ void drawMenu() {
   if (dateEditing) { drawDateEditor(); return; }
   char b[21];
   lcdLine(0, uiText(23));
-  const char *item = uiText(menuIndex < 8 ? 25 + menuIndex : 24);
-  lcdValueLine(1, "> ", item, false);
-  tinyFormat_P(b, sizeof(b), uiText(33), (unsigned int)(menuIndex + 1), (unsigned int)MENU_ITEM_COUNT_ACTUAL);
+  char line[21] = "> ";
+  PGM_P item;
+  switch (menuIndex) {
+    case 0: item = PSTR("Date & Time"); break;
+    case 1: item = PSTR("Display"); break;
+    case 2: item = PSTR("Sensors"); break;
+    case 3: item = PSTR("Power"); break;
+    case 4: item = PSTR("Fan Presets"); break;
+    case 5: item = PSTR("LED Presets"); break;
+    case 6: item = PSTR("Status"); break;
+    case 7: item = PSTR("About"); break;
+    default: item = PSTR("Factory Reset"); break;
+  }
+  strncpy_P(line + 2, item, 18);
+  line[20] = '\0';
+  lcdLine(1, line);
+  tinyFormat_P(b, sizeof(b), uiText(24), (unsigned int)(menuIndex + 1), (unsigned int)MENU_ITEM_COUNT_ACTUAL);
   lcdValueLine(2, "", b, true);
-  lcdLine(3, uiText(35));
+  lcdLine(3, uiText(25));
 }
 
 void lcdValueLine(uint8_t row, const char *prefix, const char *value, bool rightAligned) {
@@ -113,67 +127,85 @@ void lcdValueLine(uint8_t row, const char *prefix, const char *value, bool right
 
 void drawSettingValue(const char *value) {
   lcdValueLine(2, menuEditing ? ">>> " : "  > ", value, false);
-  lcdLine(3, clockFormatSaveFailed ? "ERR" : (menuEditing ? uiText(43) : uiText(44)));
+  lcdLine(3, clockFormatSaveFailed ? "ERR" : (menuEditing ? uiText(32) : uiText(33)));
 }
 
 void drawDisplaySettings(uint8_t idx) {
   char b[21];
-  lcdLine(0, uiText(36));
+  lcdLine(0, uiText(26));
   if (idx < 5) {
     SettingId id = idx < 3 ? (SettingId)idx : (idx == 3 ? SET_ADJUSTMENT_TIMEOUT : SET_MENU_TIMEOUT);
     lcdLine(1, settingName(id));
     int v = getSettingValue(id);
-    tinyFormat_P(b, sizeof(b), uiText(37), v, id == SET_STANDBY_LCD_N ? "x" : "seconds");
+    char format[8];
+    strcpy_P(format, PSTR("%d %s"));
+    tinyFormat_P(b, sizeof(b), format, v, id == SET_STANDBY_LCD_N ? "x" : "seconds");
     drawSettingValue(b);
   } else {
-    lcdLine(1, uiText(38));
-    lcdLine(2, menuEditing ? (use24HourClock ? uiText(39) : uiText(40)) : (use24HourClock ? uiText(41) : uiText(42)));
+    lcdLine(1, uiText(27));
+    lcdLine(2, menuEditing ? (use24HourClock ? uiText(28) : uiText(29)) : (use24HourClock ? uiText(30) : uiText(31)));
   }
-  if (idx == 5) lcdLine(3, clockFormatSaveFailed ? "ERR" : (menuEditing ? uiText(43) : uiText(44)));
+  if (idx == 5) lcdLine(3, clockFormatSaveFailed ? "ERR" : (menuEditing ? uiText(32) : uiText(33)));
 }
 
 void drawSensorSettings(uint8_t idx) {
   SettingId id = (SettingId)(SET_PMS_ENABLE + idx); char b[21];
-  lcdLine(0, uiText(45)); lcdLine(1, settingName(id));
-  if (id == SET_PMS_ENABLE) tinyFormat_P(b, sizeof(b), uiText(46), uiText(106 + config.pmsEnabled));
-  else if (id == SET_PM_WINDOW) tinyFormat_P(b, sizeof(b), uiText(47), (unsigned int)config.pmAverageWindow);
-  else tinyFormat_P(b, sizeof(b), uiText(48), getSettingValue(id));
+  lcdLine(0, uiText(34)); lcdLine(1, settingName(id));
+  if (id == SET_PMS_ENABLE) {
+    char mode[5];
+    strcpy_P(mode, config.pmsEnabled == 0 ? PSTR("OFF") : (config.pmsEnabled == 1 ? PSTR("ON") : PSTR("AUTO")));
+    drawSettingValue(mode);
+    return;
+  }
+  if (id == SET_PM_WINDOW) tinyFormat_P(b, sizeof(b), uiText(35), (unsigned int)config.pmAverageWindow);
+  else tinyFormat_P(b, sizeof(b), uiText(36), getSettingValue(id));
   drawSettingValue(b);
 }
 
 void drawPowerSettings() {
-  char b[21]; lcdLine(0, uiText(49)); lcdLine(1, uiText(50));
-  tinyFormat_P(b, sizeof(b), uiText(51), (unsigned int)config.autoStandbyTimeoutMinutes);
+  char b[21]; lcdLine(0, uiText(37)); lcdLine(1, uiText(38));
+  tinyFormat_P(b, sizeof(b), uiText(39), (unsigned int)config.autoStandbyTimeoutMinutes);
   drawSettingValue(b);
 }
 
 void drawPresetEditor(bool fan, uint8_t idx) {
   char b[21];
-  lcdLine(0, fan ? uiText(52) : uiText(53));
-  tinyFormat_P(b, sizeof(b), uiText(54), (unsigned int)(idx + 1), (unsigned int)PRESET_COUNT); lcdLine(1, b);
-  tinyFormat_P(b, sizeof(b), uiText(55), (unsigned int)(fan ? config.fanPresets[idx] : config.ledPresets[idx]));
+  lcdLine(0, fan ? uiText(40) : uiText(41));
+  tinyFormat_P(b, sizeof(b), uiText(42), (unsigned int)(idx + 1), (unsigned int)PRESET_COUNT); lcdLine(1, b);
+  char format[6];
+  strcpy_P(format, PSTR("%u%%"));
+  tinyFormat_P(b, sizeof(b), format, (unsigned int)(fan ? config.fanPresets[idx] : config.ledPresets[idx]));
   drawSettingValue(b);
 }
 
 void drawStatusPage() {
-  char b[21]; lcdLine(0, uiText(56));
-  tinyFormat_P(b, sizeof(b), uiText(57), rtcOK ? "OK" : "ERR", eepromOK ? "OK" : "ERR"); lcdLine(1, b);
-  tinyFormat_P(b, sizeof(b), uiText(58), ahtReadingValid ? "OK" : "ERR", bmpReadingValid ? "OK" : "ERR"); lcdLine(2, b);
-  tinyFormat_P(b, sizeof(b), uiText(59), !pmsPowered ? "OFF" : (pmsError ? "ERR" : (pmValuesAvailable() ? "OK" : "WAIT")), powerState == STANDBY ? "STBY" : "RUN"); lcdLine(3, b);
+  char b[21]; lcdLine(0, uiText(43));
+  tinyFormat_P(b, sizeof(b), uiText(44), rtcOK ? "OK" : "ERR", eepromOK ? "OK" : "ERR"); lcdLine(1, b);
+  tinyFormat_P(b, sizeof(b), uiText(45), ahtReadingValid ? "OK" : "ERR", bmpReadingValid ? "OK" : "ERR"); lcdLine(2, b);
+  tinyFormat_P(b, sizeof(b), uiText(46), !pmsPowered ? "OFF" : (pmsError ? "ERR" : (pmValuesAvailable() ? "OK" : "WAIT")), powerState == STANDBY ? "STBY" : "RUN"); lcdLine(3, b);
 }
 
 void drawAboutPage() {
-  lcdLine(0, uiText(60));
-  lcdLine(1, uiText(61));
-  lcdLine(2, uiText(62));
-  lcdLine(3, uiText(103));
+  if (aboutPage == 0) {
+    lcdLine(0, uiText(47));
+    lcdLine(1, uiText(48));
+    lcdLine(2, uiText(49));
+    lcdLine(3, uiText(90));
+  } else {
+    uint8_t first = 93 + (aboutPage - 1) * 4;
+    lcdLine(0, uiText(first));
+    lcdLine(1, uiText(first + 1));
+    lcdLine(2, uiText(first + 2));
+    lcdLine(3, uiText(first + 3));
+  }
 }
 
 void drawFactoryResetPage() {
-  lcdLine(0, uiText(63));
-  lcdLine(1, uiText(64));
-  lcdLine(2, uiText(34));
-  lcdLine(3, uiText(65));
+  lcdLine(0, uiText(50));
+  lcdLine(1, uiText(51));
+  char blank[1] = {0};
+  lcdLine(2, blank);
+  lcdLine(3, uiText(52));
 }
 
 // Menu subpage state: 0 main, 1 display, 2 sensors, 3 power, 4 fan presets, 5 LED presets, 6 status, 7 about, 8 date.
@@ -240,7 +272,7 @@ void enterSelectedMenuItem() {
     case 4: menuPage = 4; editingFanPreset = true; break;
     case 5: menuPage = 5; editingFanPreset = false; break;
     case 6: menuPage = 6; break;
-    case 7: menuPage = 7; break;
+    case 7: menuPage = 7; aboutPage = 0; break;
     case 8: menuPage = 9; break;
   }
   noteUserActivity();
